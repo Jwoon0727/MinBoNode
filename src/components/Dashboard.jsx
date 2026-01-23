@@ -1,0 +1,151 @@
+import { ArrowDown, ArrowRight } from "lucide-react";
+import NodeCard from "./NodeCard";
+import PageHeader from "./PageHeader";
+
+const nodes = [
+  { id: 1, nodeNumber: "02", progress: 80.50, current: "9,510.32", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
+  { id: 2, nodeNumber: "02", progress: 80.50, current: "9,510.32", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "done" },
+  { id: 3, nodeNumber: "02", progress: 65.30, current: "7,210.45", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
+  { id: 4, nodeNumber: "02", progress: 45.20, current: "5,120.80", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
+];
+
+export default function Dashboard({ onMenuClick }) {
+  return (
+    <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
+      <div className="max-w-4xl mx-auto">
+        {/* Page Header */}
+        <PageHeader title="Race" onMenuClick={onMenuClick} />
+
+        {/* Balance Card */}
+        <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-6 mb-6">
+          {/* Balance */}
+          <div className="mt-4 mb-5">
+            <div className="text-white text-sm mb-1">Total Balance</div>
+            <div className="text-white text-4xl lg:text-5xl font-bold">
+              $123.456
+            </div>
+            <div className="text-white/50 text-xs mt-2">
+              Current Rate : 1 MGG = 0.0024 USDT
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex gap-3 mb-3">
+          <button className="
+  flex items-center justify-center gap-2
+  bg-blue-600 hover:bg-blue-700
+  text-white
+  px-8 py-2
+  rounded-full
+  font-medium
+  transition-colors
+  flex-1
+">
+  Harvest ↓
+</button>
+
+<button className="
+  flex items-center justify-center gap-2
+  bg-slate-700/80 hover:bg-slate-600
+  text-white
+  px-8 py-2
+  rounded-full
+  font-medium
+  transition-colors
+  flex-1
+">
+  Package →
+</button>
+          </div>
+        </div>
+
+        {/* Racing Track Image Card */}
+        <div className="relative rounded-2xl overflow-hidden mb-8">
+          <img
+            src="/images/racing-track.jpg"
+            alt="Racing Track"
+            className="w-full h-64 lg:h-80 object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        </div>
+
+        {/* Floating Action Button */}
+        <div className="fixed right-6 top-1/3 z-20">
+          <button className="w-14 h-14 bg-pink-500 hover:bg-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-pink-500/30 transition-colors">
+            F
+          </button>
+        </div>
+
+        {/* Max Out Status */}
+        <div className="py-8">
+          {/* Checkered Flags Icon */}
+          <div className="flex justify-center mb-4">
+            <svg width="60" height="40" viewBox="0 0 60 40" className="text-slate-400">
+              <path d="M15 5 L15 35 M15 5 L30 8 L30 15 L15 12 M15 12 L30 15 L30 22 L15 19 M15 19 L30 22 L30 29 L15 26" stroke="currentColor" strokeWidth="2" fill="none"/>
+              <path d="M45 5 L45 35 M45 5 L30 8 L30 15 L45 12 M45 12 L30 15 L30 22 L45 19 M45 19 L30 22 L30 29 L45 26" stroke="currentColor" strokeWidth="2" fill="none"/>
+              <rect x="16" y="5" width="7" height="7" fill="currentColor" opacity="0.5"/>
+              <rect x="23" y="12" width="7" height="7" fill="currentColor" opacity="0.5"/>
+              <rect x="37" y="5" width="7" height="7" fill="currentColor" opacity="0.5"/>
+              <rect x="30" y="12" width="7" height="7" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+
+          <h2 className="text-white text-2xl font-bold text-center mb-6 tracking-wider">
+            MAX OUT STATUS
+          </h2>
+
+          {/* Progress Bar */}
+          <div className="mb-2">
+            <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
+                style={{ width: "40.50%" }}
+              />
+            </div>
+          </div>
+
+          {/* Progress Stats */}
+          <div className="flex justify-between items-center mb-6 text-sm">
+            <span className="text-slate-400">9,510.32 / 28,650,000</span>
+            <span className="text-white font-semibold">40.50%</span>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="space-y-3 mb-6">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400 text-sm">INTEREST</span>
+              <span className="text-white font-medium">3,285,378.4273</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400 text-sm">MATCHING BONUS</span>
+              <span className="text-white font-medium">689,181.5104</span>
+            </div>
+            <div className="border-t border-slate-700 pt-3 flex justify-between items-center">
+              <span className="text-cyan-400 font-semibold">TOTAL</span>
+              <div className="text-right">
+                <span className="text-white text-3xl font-bold">3,965,378.</span>
+                <span className="text-slate-400 text-lg">4971</span>
+                <span className="text-cyan-400 text-sm ml-1">MGG</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Harvest Button */}
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold text-lg transition-colors tracking-wide">
+            HARVEST
+          </button>
+        </div>
+
+        {/* Node List */}
+        <div className="mb-8">
+          <h2 className="text-white text-xl font-bold mb-4">NODE LIST</h2>
+          <div className="space-y-4">
+            {nodes.map((node) => (
+              <NodeCard key={node.id} node={node} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
