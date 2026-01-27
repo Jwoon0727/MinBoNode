@@ -40,14 +40,18 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login", onLo
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Background with space theme */}
+      {/* Background with image */}
       <div 
         className="absolute inset-0 bg-[#0a0e17]"
         style={{
           backgroundImage: `
-            radial-gradient(ellipse at 50% 100%, rgba(30, 58, 138, 0.3) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 40%)
+             linear-gradient(rgba(10, 14, 23, 0.65), rgba(10, 14, 23, 0.65)),
+    radial-gradient(ellipse at 50% 100%, rgba(30, 58, 138, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+    url('/images/loginBG.jpg')
           `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       />
       
@@ -75,7 +79,13 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login", onLo
         </h2>
 
         {/* Form Card */}
-        <form onSubmit={handleSubmit} className="bg-[#111827]/80 backdrop-blur-sm rounded-xl p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white/5
+backdrop-blur-xl
+rounded-2xl
+p-6
+space-y-4
+border border-white/15
+shadow-[0_8px_32px_rgba(0,0,0,0.35)]">
           {/* User ID */}
           <div>
             <label className="block text-slate-300 text-sm mb-1.5">User ID</label>
@@ -85,7 +95,21 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login", onLo
               value={formData.userId}
               onChange={handleChange}
               placeholder={mode === "login" ? "ID" : "User ID"}
-              className="w-full bg-[#1a1f2e] border-0 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 outline-none"
+              className=" w-full
+  bg-[#1C232B]/40
+  backdrop-blur-xl
+  border border-white/15
+  rounded-lg
+  px-4 py-3
+  text-white
+  placeholder-white/30
+  outline-none
+
+  shadow-[0_6px_24px_rgba(0,0,0,0.35)]
+  shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]
+
+  focus:ring-2 focus:ring-blue-500/70
+  focus:border-blue-400/60"
             />
             {mode === "signup" && (
               <p className="text-slate-500 text-xs mt-1">User ID must contain only lowercase letters and numbers</p>
@@ -117,7 +141,21 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login", onLo
               value={formData.password}
               onChange={handleChange}
               placeholder="Password"
-              className="w-full bg-[#1a1f2e] border-0 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 outline-none"
+              className=" w-full
+  bg-[#1C232B]/40
+  backdrop-blur-xl
+  border border-white/15
+  rounded-lg
+  px-4 py-3
+  text-white
+  placeholder-white/30
+  outline-none
+
+  shadow-[0_6px_24px_rgba(0,0,0,0.35)]
+  shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]
+
+  focus:ring-2 focus:ring-blue-500/70
+  focus:border-blue-400/60"
             />
           </div>
 

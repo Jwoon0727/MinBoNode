@@ -4,7 +4,7 @@ import PageHeader from "./PageHeader";
 
 const nodes = [
   { id: 1, nodeNumber: "02", progress: 80.50, current: "9,510.32", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
-  { id: 2, nodeNumber: "02", progress: 80.50, current: "9,510.32", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "done" },
+  { id: 2, nodeNumber: "02", progress: 80.50, current: "9,510.32", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
   { id: 3, nodeNumber: "02", progress: 65.30, current: "7,210.45", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
   { id: 4, nodeNumber: "02", progress: 45.20, current: "5,120.80", total: "28,650,000", rate: "0.2755", startDate: "2025. 10. 14", status: "mining" },
 ];
@@ -113,25 +113,28 @@ export default function Dashboard({ onMenuClick }) {
           {/* Stats Grid */}
           <div className="space-y-3 mb-6">
             <div className="flex justify-between items-center">
-              <span className="text-slate-400 text-sm">INTEREST</span>
+              <span className="text-white text-sm">INTEREST</span>
               <span className="text-white font-medium">3,285,378.4273</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-slate-400 text-sm">MATCHING BONUS</span>
+              <span className="text-white text-sm">MATCHING BONUS</span>
               <span className="text-white font-medium">689,181.5104</span>
             </div>
             <div className="border-t border-slate-700 pt-3 flex justify-between items-center">
               <span className="text-cyan-400 font-semibold">TOTAL</span>
               <div className="text-right">
-                <span className="text-white text-3xl font-bold">3,965,378.</span>
-                <span className="text-slate-400 text-lg">4971</span>
-                <span className="text-cyan-400 text-sm ml-1">MGG</span>
+                <span className="text-cyan-400 text-3xl font-bold">3,965,378.</span>
+                <span className="text-cyan-400 text-lg">4971</span>
               </div>
             </div>
           </div>
 
           {/* Harvest Button */}
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold text-lg transition-colors tracking-wide">
+          <button className=" w-full
+  bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800
+  hover:from-blue-500 hover:via-blue-700 hover:to-blue-900
+  text-white py-4 rounded-full font-semibold text-lg
+  transition-all tracking-wide">
             HARVEST
           </button>
         </div>

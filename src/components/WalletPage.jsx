@@ -71,125 +71,213 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
         {/* Page Header */}
         <PageHeader title="Wallet" onMenuClick={onMenuClick} />
 
-        {/* Balance Card */}
-        <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-6">
-          <div className="mb-5">
-            <div className="text-slate-400 text-sm mb-1">Total Balance</div>
-            <div className="text-white text-4xl lg:text-5xl font-bold">$123.456</div>
-            <div className="text-slate-500 text-xs mt-2">Current Rate : 1 MGG = 0.0024 USDT</div>
+      {/* Balance Card */}
+      <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+          {/* Balance */}
+          <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
+            <div className="text-white text-xs sm:text-sm mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">
+              $123.456
+            </div>
+            <div className="text-white/50 text-xs mt-2">
+              Current Rate : 1 MGG = 0.0024 USDT
+            </div>
           </div>
 
-          <div className="flex gap-3">
-            <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-colors flex-1">
-              Harvest
-              <ArrowRight size={18} />
-            </button>
-            <button className="flex items-center justify-center gap-2 bg-slate-700/80 hover:bg-slate-600 text-white px-8 py-3 rounded-full font-medium transition-colors flex-1">
-              Package
-              <ArrowRight size={18} />
-            </button>
+          {/* Action Buttons */}
+          <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <button className="
+  flex items-center justify-center gap-1 sm:gap-2
+  bg-blue-600 hover:bg-blue-700
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-medium text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Harvest ↓
+</button>
+
+<button className="
+  flex items-center justify-center gap-1 sm:gap-2
+  bg-slate-700/80 hover:bg-slate-600
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-medium text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Package →
+</button>
           </div>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-6 justify-center">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => handleTabChange(tab)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeTab === tab
-                  ? "bg-blue-600 text-white"
-                  : "bg-slate-800/50 text-slate-400 hover:text-white border border-slate-700"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
 
+        <div className="mb-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent -mx-4 px-4 lg:mx-0 lg:px-0">
+  {/* Tabs Container */}
+  <div
+    className="
+      inline-flex lg:flex items-center
+      w-full lg:w-[85%] mx-auto
+      bg-white/5
+      backdrop-blur-xl
+      border border-white/10
+      rounded-2xl
+      p-[2px]
+      shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+    "
+  >
+    {tabs.map((tab) => (
+      <button
+        key={tab}
+        onClick={() => handleTabChange(tab)}
+        className={`
+          flex-1 min-w-0
+          h-8 sm:h-9
+          px-2 sm:px-4
+          rounded-xl
+          text-[10px] sm:text-sm
+          font-medium
+          transition-all
+          whitespace-nowrap
+          overflow-hidden text-ellipsis
+          ${
+            activeTab === tab
+              ? "bg-indigo-800 text-white shadow-sm"
+              : "text-white/50 hover:text-white"
+          }
+        `}
+      >
+        {tab}
+      </button>
+    ))}
+  </div>
+</div>
         {/* Balance Tab Content */}
         {activeTab === "Balance" && (
           <>
-            <h3 className="text-white text-lg font-semibold mb-4">Balance</h3>
+            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Balance</h3>
             
             {/* Crypto Balance Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 max-w-[92%] sm:max-w-full mx-auto">
               {cryptoBalances.map((crypto) => (
-                <div key={crypto.id} className="bg-slate-800/50 border border-slate-700 rounded-xl p-4 flex items-center gap-4">
-                  <div className={`w-10 h-10 ${crypto.color} rounded-full flex items-center justify-center`}>
-                    <span className="text-white font-bold text-sm">{crypto.icon}</span>
+                <div key={crypto.id} className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4">
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 ${crypto.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                    <span className="text-white font-bold text-xs sm:text-sm">{crypto.icon}</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="text-white font-medium text-sm">{crypto.name}</div>
-                    {crypto.symbol && <div className="text-slate-500 text-xs">{crypto.symbol}</div>}
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white font-medium text-xs sm:text-sm truncate">{crypto.name}</div>
+                    {crypto.symbol && <div className="text-white/50 text-xs truncate">{crypto.symbol}</div>}
                   </div>
-                  <div className="text-right">
-                    <div className="text-white font-semibold">{crypto.amount}</div>
-                    {crypto.rate && <div className="text-slate-500 text-xs">{crypto.rate}</div>}
+                  <div className="text-right flex-shrink-0">
+                    <div className="text-white font-semibold text-xs sm:text-base">{crypto.amount}</div>
+                    {crypto.rate && <div className="text-white/50 text-[10px] sm:text-xs">{crypto.rate}</div>}
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Transaction History */}
-            <h3 className="text-white text-lg font-semibold mb-4">Transaction History</h3>
-            <div className="space-y-3">
-              {transactions.map((tx) => (
-                <div key={tx.id} className="bg-slate-800/50 border-l-4 border-l-orange-500 border-y border-r border-slate-700 rounded-r-xl overflow-hidden">
-                  {/* Transaction Header */}
-                  <button
-                    onClick={() => toggleExpand(tx.id)}
-                    className="w-full px-4 py-3 flex items-center justify-between"
-                  >
-                    <div>
-                      <span className={`font-medium ${tx.type === "Receive" ? "text-orange-400" : "text-red-400"}`}>
-                        {tx.type}
-                      </span>
-                      <div className="text-slate-500 text-xs">{tx.date}</div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className={`font-medium ${tx.type === "Receive" ? "text-white" : "text-white"}`}>
-                        {tx.amount}
-                      </span>
-                      {expandedTx === tx.id ? (
-                        <ChevronUp size={18} className="text-slate-400" />
-                      ) : (
-                        <ChevronDown size={18} className="text-slate-400" />
-                      )}
-                    </div>
-                  </button>
+            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Transaction History</h3>
+            <div
+  className="
+    w-full
+    max-w-[92%]
+    sm:max-w-[90%]
+    md:max-w-[100%]
+    mx-auto
+    bg-white/5
+    backdrop-blur-xl
+    border border-white/10
+    rounded-2xl
+    p-3 sm:p-4 md:p-5
+    shadow-[0_10px_40px_rgba(0,0,0,0.35)]
+  "
+>
+  <div className="space-y-2 sm:space-y-3">
+    {transactions.map((tx) => (
+      <div
+        key={tx.id}
+        className="
+          bg-gray-700
+          border border-slate-700
+          rounded-xl
+          overflow-hidden
+          transition-all
+        "
+      >
+       {/* Transaction Header */}
+<button
+  onClick={() => toggleExpand(tx.id)}
+  className="relative w-full px-3 sm:px-4 py-2.5 sm:py-3 pl-5 sm:pl-6 flex items-center justify-between gap-2"
+>
+  {/* Inner vertical bar */}
+  <span
+    className={`absolute left-1.5 sm:left-2 top-2.5 sm:top-3 bottom-2.5 sm:bottom-3 w-[2px] sm:w-[3px] rounded-full ${
+      tx.type === "Receive"
+        ? "bg-cyan-400"
+        : "bg-red-400"
+    }`}
+  />
+
+<div className="flex-1 min-w-0 text-left">
+  <span
+    className={`font-medium text-xs sm:text-sm ${
+      tx.type === "Receive" ? "text-cyan-400" : "text-red-400"
+    }`}
+  >
+    {tx.type}
+  </span>
+  <div className="text-slate-500 text-[10px] sm:text-xs">
+    {tx.date}
+  </div>
+</div>
+
+  <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+    <span className="font-medium text-white text-xs sm:text-sm">
+      {tx.amount}
+    </span>
+    {expandedTx === tx.id ? (
+      <ChevronUp size={16} className="text-slate-400 sm:w-[18px] sm:h-[18px]" />
+    ) : (
+      <ChevronDown size={16} className="text-slate-400 sm:w-[18px] sm:h-[18px]" />
+    )}
+  </div>
+</button>
 
                   {/* Expanded Content */}
                   {expandedTx === tx.id && (
-                    <div className="px-4 pb-4 border-t border-slate-700">
-                      <div className="pt-3 space-y-2">
+                    <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-slate-700">
+                      <div className="pt-2.5 sm:pt-3 space-y-1.5 sm:space-y-2">
                         <div className="flex justify-between">
-                          <span className="text-slate-400 text-sm">Status</span>
-                          <span className="text-green-400 text-sm">{tx.status}</span>
+                          <span className="text-slate-400 text-xs sm:text-sm">Status</span>
+                          <span className="text-green-400 text-xs sm:text-sm">{tx.status}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-400 text-sm">Amount</span>
-                          <span className="text-white text-sm">{tx.fullAmount}</span>
+                          <span className="text-slate-400 text-xs sm:text-sm">Amount</span>
+                          <span className="text-white text-xs sm:text-sm">{tx.fullAmount}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-400 text-sm">Time</span>
-                          <span className="text-white text-sm">{tx.time}</span>
+                          <span className="text-slate-400 text-xs sm:text-sm">Time</span>
+                          <span className="text-white text-xs sm:text-sm">{tx.time}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-400 text-sm">Fee</span>
-                          <span className="text-white text-sm">{tx.fee}</span>
+                          <span className="text-slate-400 text-xs sm:text-sm">Fee</span>
+                          <span className="text-white text-xs sm:text-sm">{tx.fee}</span>
                         </div>
                       </div>
+                    
 
                       {/* Code Section */}
-                      <div className="mt-4 bg-slate-900/50 rounded-lg p-3 flex items-center justify-between">
-                        <div>
-                          <span className="text-slate-500 text-xs">Code</span>
-                          <div className="text-slate-400 text-sm truncate max-w-[250px]">{tx.code}</div>
+                      <div className="mt-3 sm:mt-4 bg-slate-900/50 rounded-lg p-2.5 sm:p-3 flex items-center justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                          <span className="text-slate-500 text-[10px] sm:text-xs">Code</span>
+                          <div className="text-slate-400 text-xs sm:text-sm truncate">{tx.code}</div>
                         </div>
-                        <button className="text-slate-400 hover:text-white">
-                          <Copy size={16} />
+                        <button className="text-slate-400 hover:text-white flex-shrink-0">
+                          <Copy size={14} className="sm:w-4 sm:h-4" />
                         </button>
                       </div>
                     </div>
@@ -197,6 +285,7 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
                 </div>
               ))}
             </div>
+          </div>
           </>
         )}
 

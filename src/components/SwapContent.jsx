@@ -22,26 +22,32 @@ export default function SwapContent() {
       {/* Swap Form */}
       <div className="space-y-2 mb-4">
         {/* From Input */}
-        <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
+        <div className="bg-[#151515] border border-black-700 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-slate-400 text-xs">Fq</span>
-            <span className="text-slate-500 text-xs">Fee: 0.1 MGG</span>
+            <span className="text-slate-400 text-xs">To</span>
+         
           </div>
-          <div className="flex items-center justify-between">
-            <input
-              type="text"
-              value={fromAmount}
-              onChange={(e) => setFromAmount(e.target.value)}
-              className="bg-transparent text-white text-2xl font-medium w-full outline-none"
-            />
-            <button className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-lg transition-colors">
-              <div className="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-[10px] font-bold">M</span>
-              </div>
-              <span className="text-white text-sm">{fromToken}</span>
-              <ChevronDown size={14} className="text-slate-400" />
-            </button>
-          </div>
+          <div className="flex items-center gap-4">
+  {/* 입력창 */}
+  <input
+    type="text"
+    value={fromAmount}
+    onChange={(e) => setFromAmount(e.target.value)}
+    className="bg-transparent text-white text-2xl font-medium w-full outline-none"
+  />
+
+  {/* 버튼 + Fee */}
+  <div className="flex flex-col items-end gap-1">
+    <button className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-lg transition-colors">
+      <div className="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center">
+        <span className="text-white text-[10px] font-bold">M</span>
+      </div>
+      <span className="text-white text-sm">{fromToken}</span>
+      <ChevronDown size={14} className="text-slate-400" />
+    </button>
+    <span className="text-slate-500 text-xs">Fee: 0.1 MGG</span>
+  </div>
+  </div>
         </div>
 
         {/* Swap Button */}
@@ -52,7 +58,7 @@ export default function SwapContent() {
         </div>
 
         {/* To Input */}
-        <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
+        <div className="bg-[#151515] border border-black-700 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-slate-400 text-xs">To</span>
           </div>
@@ -96,43 +102,51 @@ export default function SwapContent() {
       </div>
 
       {/* Swap Button */}
-      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-medium transition-colors mb-8">
-        Swap Now
-      </button>
+<button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-800 text-white text-xs py-3 rounded-full font-medium transition-all mb-8">
+  Swap Now
+</button>
 
-      {/* Swap History */}
-      <h3 className="text-white text-lg font-semibold mb-4">Swap History</h3>
-      <div className="space-y-3">
-        {swapHistory.map((item) => (
-          <div key={item.id} className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <span className="text-slate-500 text-xs">From</span>
-                <span className="text-white font-medium">{item.from}</span>
-              </div>
-              <span className="text-slate-500">→</span>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-500 text-xs">To</span>
-                <span className="text-cyan-400 font-medium">{item.to}</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-4 text-sm">
-              <div>
-                <span className="text-slate-500 text-xs block">Wallet</span>
-                <span className="text-white">{item.wallet}</span>
-              </div>
-              <div>
-                <span className="text-slate-500 text-xs block">Amount</span>
-                <span className="text-white">{item.amount}</span>
-              </div>
-              <div>
-                <span className="text-slate-500 text-xs block">Time</span>
-                <span className="text-white">{item.time}</span>
-              </div>
-            </div>
-          </div>
-        ))}
+{/* Swap History Container */}
+<h3 className="text-white text-lg font-semibold mb-3">Swap History</h3>
+<div className="bg-gray-900 p-4 rounded-2xl border  mb-6">
+  <div className="space-y-2">
+    {swapHistory.map((item) => (
+      <div key={item.id} className="bg-gray-800 border border-slate-700 rounded-xl p-3">
+        <div className="flex items-center justify-between mb-2">
+        <div>
+    <span className="text-slate-500 text-xs block">From</span>
+    <span className="text-white font-medium">{item.from}</span>
+  </div>
+          <span className="text-white/70">→</span>
+          <div>
+    <span className="text-slate-500 text-xs block text-right">to</span>
+    <span className="text-cyan-400 font-medium">{item.to}</span>
+  </div>
+        </div>
+        <br/>
+        <div className="space-y-2 text-sm">
+  {/* Wallet */}
+  <div className="flex justify-between">
+    <span className="text-slate-500 text-xs">Wallet</span>
+    <span className="text-white/70">{item.wallet}</span>
+  </div>
+
+  {/* Amount */}
+  <div className="flex justify-between">
+    <span className="text-slate-500 text-xs">Amount</span>
+    <span className="text-white/70">{item.amount}</span>
+  </div>
+
+  {/* Time */}
+  <div className="flex justify-between">
+    <span className="text-slate-500 text-xs">Time</span>
+    <span className="text-white/70">{item.time}</span>
+  </div>
+</div>
       </div>
+    ))}
+  </div>
+</div>
     </>
   );
 }

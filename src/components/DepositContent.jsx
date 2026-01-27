@@ -21,37 +21,37 @@ export default function DepositContent() {
       <h3 className="text-white text-lg font-semibold mb-4">Deposit</h3>
 
       {/* Check Deposit Button */}
-      <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 mb-6 transition-colors">
+      <button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 mb-6 transition-colors">
         <RefreshCw size={18} />
         Check Deposit
       </button>
 
       {/* Deposit Form */}
-      <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 mb-6">
+      <div className="bg-[#151515] border  rounded-xl p-5 mb-6">
         {/* Select Wallet */}
         <div className="mb-4">
-          <label className="text-slate-400 text-sm mb-2 block">Select Wallet</label>
+          <label className="text-white/50 text-sm mb-2 block">Select Wallet</label>
           <div className="relative">
             <select
               value={selectedWallet}
               onChange={(e) => setSelectedWallet(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500"
+              className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500"
             >
               <option value="USDT">USDT</option>
               <option value="BTC">BTC</option>
               <option value="ETH">ETH</option>
               <option value="BNB">BNB</option>
             </select>
-            <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+            <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none" />
           </div>
         </div>
 
         {/* Wallet Address */}
         <div className="mb-6">
           <label className="text-cyan-400 text-sm mb-2 block">Wallet Address BEP 20</label>
-          <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3">
+          <div className="flex items-center gap-2 bg-black/20 border border-white/10 rounded-lg px-4 py-3">
             <span className="text-white flex-1 text-sm truncate">{walletAddress}</span>
-            <button onClick={copyAddress} className="text-slate-400 hover:text-white transition-colors">
+            <button onClick={copyAddress} className="text-white/50 hover:text-white transition-colors">
               <Copy size={18} />
             </button>
           </div>
@@ -65,49 +65,61 @@ export default function DepositContent() {
         </div>
 
         {/* Warning */}
-        <div className="bg-slate-900/80 border border-slate-700 rounded-lg p-4">
+        <div className="bg-white/10 border  rounded-lg p-4">
           <div className="flex items-start gap-2">
-            <span className="text-yellow-500 font-semibold text-sm">Warning</span>
+            <span className="text-white/50 font-semibold text-sm">Warning</span>
           </div>
-          <p className="text-slate-400 text-xs mt-1">
-            Wallet address for USDT deposit <span className="text-cyan-400 font-semibold">MUST BE BEP 20 Network.</span> We do not guarantee any recovery for the issues caused by false address or wrong network, and any violation caused due to such actions.
+          <p className="text-white/50 text-xs mt-1">
+            Wallet address for USDT deposit <span className="text-[#F2FE79] font-semibold">MUST BE BEP 20 Network.</span> We do not guarantee any recovery for the issues caused by false address or wrong network, and any violation caused due to such actions.
           </p>
         </div>
       </div>
 
-      {/* Deposit History */}
-      <h4 className="text-white text-lg font-semibold mb-4">Deposit History</h4>
-      <div className="space-y-3">
-        {depositHistory.map((tx) => (
-          <div key={tx.id} className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-            <div className="flex items-center justify-between mb-3">
-              <div>
-                <span className="text-slate-500 text-xs">From</span>
-                <p className="text-white font-medium">{tx.from}</p>
-              </div>
-              <span className="text-slate-500">→</span>
-              <div className="text-right">
-                <span className="text-slate-500 text-xs">To</span>
-                <p className="text-cyan-400 font-medium">{tx.to}</p>
-              </div>
-            </div>
-            <div className="space-y-1 text-sm">
-              <div className="flex justify-between">
-                <span className="text-slate-500">Wallet</span>
-                <span className="text-white">{tx.wallet}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-cyan-400">Amount</span>
-                <span className="text-white">{tx.amount}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-cyan-400">Hash</span>
-                <span className="text-white">{tx.hash}</span>
-              </div>
-            </div>
+      {/* Deposit History Container */}
+      <h4 className="text-white text-lg font-semibold mb-4">
+    Deposit History
+  </h4>
+<div className="bg-gray-900 border rounded-2xl p-4 sm:p-5">
+
+
+  <div className="space-y-3">
+    {depositHistory.map((tx) => (
+      <div
+        key={tx.id}
+        className="bg-gray-800 border border-white/10 rounded-xl p-4"
+      >
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <span className="text-slate-500 text-xs">From</span>
+            <p className="text-white font-medium">{tx.from}</p>
           </div>
-        ))}
+          <span className="text-white/70">→</span>
+          <div className="text-right">
+            <span className="text-slate-500 text-xs">to</span>
+            <p className="text-cyan-400 font-medium">{tx.to}</p>
+          </div>
+        </div>
+
+        <div className="space-y-1 text-sm">
+          <div className="flex justify-between">
+            <span className="text-white/50">Wallet</span>
+            <span className="text-white/70">{tx.wallet}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-white/50">Amount</span>
+            <span className="text-white/70">{tx.amount}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-white/50">Hash</span>
+            <span className="text-white/70 truncate max-w-[160px]">
+              {tx.hash}
+            </span>
+          </div>
+        </div>
       </div>
+    ))}
+  </div>
+</div>
     </>
   );
 }
