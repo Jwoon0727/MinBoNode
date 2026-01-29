@@ -105,74 +105,135 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
         <PageHeader title="Partner" onMenuClick={onMenuClick} />
 
         {/* Balance Card */}
-        <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 mb-6">
-          <div className="mb-5">
-            <div className="text-slate-400 text-sm mb-1">Total Balance</div>
-            <div className="text-white text-4xl lg:text-5xl font-bold">
+        <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+          {/* Balance */}
+          <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
+            <div className="text-white text-xs sm:text-sm mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">
               $123.456
             </div>
-            <div className="text-slate-500 text-xs mt-2">
+            <div className="text-white/50 text-xs mt-2">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
           </div>
 
-          <div className="flex gap-3">
-            <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-colors flex-1">
-              Harvest
-              <ArrowRight size={18} />
-            </button>
-            <button className="flex items-center justify-center gap-2 bg-slate-700/80 hover:bg-slate-600 text-white px-8 py-3 rounded-full font-medium transition-colors flex-1">
-              Package
-              <ArrowRight size={18} />
-            </button>
+          {/* Action Buttons */}
+          <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <button className="
+  flex items-center justify-center gap-1 sm:gap-2
+  bg-blue-600 hover:bg-blue-700
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-medium text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Harvest ↓
+</button>
+
+<button className="
+  flex items-center justify-center gap-1 sm:gap-2
+  bg-slate-700/80 hover:bg-slate-600
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-medium text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Package →
+</button>
           </div>
         </div>
 
-        {/* Tabs */}
-        <div className="flex gap-2 mb-6">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => handleTabChange(tab)}
-              className={`
-                px-5 py-2 rounded-full text-sm font-medium transition-colors
-                ${
-                  activeTab === tab
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-800/50 text-slate-400 hover:text-white"
-                }
-              `}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+        <div className="mb-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent -mx-4 px-4 lg:mx-0 lg:px-0">
+  {/* Tabs Container */}
+  <div
+    className="
+      inline-flex lg:flex items-center
+      w-full lg:w-[65%] mx-auto
+      bg-white/5
+      backdrop-blur-xl
+      border border-white/10
+      rounded-2xl
+      p-[2px]
+      shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+    "
+  >
+    {tabs.map((tab) => (
+      <button
+        key={tab}
+        onClick={() => handleTabChange(tab)}
+        className={`
+          flex-1 min-w-0
+          h-8 sm:h-9
+          px-2 sm:px-4
+          rounded-xl
+          text-[10px] sm:text-sm
+          font-medium
+          transition-all
+          whitespace-nowrap
+          overflow-hidden text-ellipsis
+          ${
+            activeTab === tab
+              ? "bg-[#2623A9] text-white shadow-sm"
+              : "text-white/50 hover:text-white"
+          }
+        `}
+      >
+        {tab}
+      </button>
+    ))}
+  </div>
+</div>
 
         {/* Tab Content */}
         {activeTab === "Referral" && (
-          <>
-            <h3 className="text-white text-lg font-semibold mb-4">Referral</h3>
-            <div className="space-y-4">
-              {referrals.map((ref) => (
-                <ReferralCard
-                  key={ref.id}
-                  username={ref.username}
-                  level={ref.level}
-                  id={ref.oderId}
-                  email={ref.email}
-                  feeding={ref.feeding}
-                  referralCode={ref.referralCode}
-                  systemInvest={ref.systemInvest}
-                />
-              ))}
-            </div>
-          </>
-        )}
+  <>
+    <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+      Referral
+    </h3>
+
+    {/* PARENT CONTAINER */}
+    <div
+      className="
+        bg-gray-900
+        border 
+        rounded-2xl
+        p-4
+      "
+    >
+      <div className="space-y-3 sm:space-y-4">
+        {referrals.map((ref) => (
+          <ReferralCard
+            key={ref.id}
+            username={ref.username}
+            level={ref.level}
+            id={ref.oderId}
+            email={ref.email}
+            feeding={ref.feeding}
+            referralCode={ref.referralCode}
+            systemInvest={ref.systemInvest}
+          />
+        ))}
+      </div>
+    </div>
+  </>
+)}
 
         {activeTab === "Downline" && (
           <>
-            <h3 className="text-white text-lg font-semibold mb-4">Downline</h3>
-            <div className="space-y-4">
+            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Downline</h3>
+            <div
+      className="
+        bg-gray-900
+        border 
+        rounded-2xl
+        p-4
+      "
+    >
+            <div className="space-y-3 sm:space-y-4">
               {downlines.map((ref) => (
                 <ReferralCard
                   key={ref.id}
@@ -185,6 +246,7 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
                   systemInvest={ref.systemInvest}
                 />
               ))}
+            </div>
             </div>
           </>
         )}

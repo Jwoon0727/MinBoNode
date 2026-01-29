@@ -34,64 +34,101 @@ export default function CommissionsContent() {
       {activeSubTab === "All" && (
         <>
           {/* Total Bonus Card */}
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden mb-4">
-            {/* Header */}
-            <div className="px-4 py-3 border-b border-slate-700">
-              <span className="text-red-500 font-semibold">Total Bonus</span>
-            </div>
+          <div className="bg-[#24282D] rounded-xl overflow-hidden mb-4">
+  {/* Header */}
+  <div className="flex items-center gap-3 px-4 py-3">
+    {/* Vertical Bar */}
+    <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+
+    <span className="text-cyan-400">
+      Total Bonus
+    </span>
+  </div>
             
-            {/* Bonus Summary */}
-            <div className="px-4 py-3 flex flex-wrap gap-x-8 gap-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-sm">Direct:</span>
-                <span className="text-white text-sm">0.00</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-sm">Matching:</span>
-                <span className="text-white text-sm">0.00</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-sm">Special:</span>
-                <span className="text-white text-sm">0.00</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-sm">Card:</span>
-                <span className="text-white text-sm">0.00</span>
-              </div>
-            </div>
-          </div>
+{/* Bonus Summary */}
+<div className="px-4 py-3">
+  <div
+    className="
+      grid
+      grid-cols-4
+      gap-y-4
+      gap-x-6
+      sm:grid-cols-4
+    "
+  >
+    {/* Direct */}
+    <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+      <span className="text-white text-sm">Direct:</span>
+      <span className="text-white text-sm font-medium">0.00</span>
+    </div>
+
+    {/* Matching */}
+    <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+      <span className="text-white text-sm">Matching:</span>
+      <span className="text-white text-sm font-medium">0.00</span>
+    </div>
+
+    {/* Special */}
+    <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+      <span className="text-white text-sm">Special:</span>
+      <span className="text-white text-sm font-medium">0.00</span>
+    </div>
+
+    {/* Card */}
+    <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+      <span className="text-white text-sm">Card:</span>
+      <span className="text-white text-sm font-medium">0.00</span>
+    </div>
+    </div>
+    </div>
+    </div>
 
           {/* Data Area */}
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 min-h-[200px] flex items-center justify-center">
-            <p className="text-slate-500 text-sm">No data</p>
+          <div className="bg-[#24282D] rounded-xl p-8 min-h-[200px] flex items-center justify-center">
+            <p className="text-white/50 text-sm">No data</p>
           </div>
         </>
       )}
 
       {activeSubTab === "Direct Bonus" && (
         <>
-          {/* Direct Bonus Header */}
-          <div className="bg-slate-800/50 border-l-4 border-l-orange-500 border-y border-r border-slate-700 rounded-r-lg px-4 py-3 mb-4">
-            <span className="text-cyan-400 font-medium">Direct Bonus: 0.00</span>
-          </div>
+      {/* Direct Bonus Header */}
+<div className="bg-[#24282D]  rounded-lg px-4 py-3 mb-4">
+  <div className="flex items-center gap-3">
+    {/* Vertical Bar */}
+    <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+
+    <span className="text-cyan-400 font-medium">
+      Direct Bonus: 0.00
+    </span>
+  </div>
+</div>
 
           {/* Data Area */}
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 min-h-[200px] flex items-center justify-center">
-            <p className="text-slate-500 text-sm">No data</p>
+          <div className="bg-[#24282D] rounded-xl p-8 min-h-[200px] flex items-center justify-center">
+            <p className="text-white/50 text-sm">No data</p>
           </div>
         </>
       )}
 
       {activeSubTab === "Matching Bonus" && (
         <>
-          {/* Matching Bonus Header */}
-          <div className="bg-slate-800/50 border-l-4 border-l-orange-500 border-y border-r border-slate-700 rounded-r-lg px-4 py-3 mb-4">
-            <span className="text-cyan-400 font-medium">Matching Bonus: 0.00</span>
-          </div>
+      {/* Direct Bonus Header */}
+      <div className="bg-[#24282D]  rounded-lg px-4 py-3 mb-4">
+  <div className="flex items-center gap-3">
+    {/* Vertical Bar */}
+    <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+
+    <span className="text-cyan-400 font-medium">
+      Matching Bonus: 0.00
+    </span>
+  </div>
+</div>
+        
 
           {/* Data Area */}
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 min-h-[200px] flex items-center justify-center">
-            <p className="text-slate-500 text-sm">No data</p>
+          <div className="bg-[#24282D] rounded-xl p-8 min-h-[200px] flex items-center justify-center">
+            <p className="text-white/50 text-sm">No data</p>
           </div>
         </>
       )}
@@ -99,13 +136,18 @@ export default function CommissionsContent() {
       {activeSubTab === "Special Bonus" && (
         <>
           {/* Special Bonus Header */}
-          <div className="bg-slate-800/50 border-l-4 border-l-orange-500 border-y border-r border-slate-700 rounded-r-lg px-4 py-3 mb-4">
-            <span className="text-cyan-400 font-medium">Special Bonus: 0.00</span>
-          </div>
+          <div className="bg-[#24282D]  rounded-lg px-4 py-3 mb-4">
+  <div className="flex items-center gap-3">
+    {/* Vertical Bar */}
+    <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+
+    <span className="text-cyan-400 font-medium">Special Bonus: 0.00</span>
+  </div>
+</div>
 
           {/* Data Area */}
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 min-h-[200px] flex items-center justify-center">
-            <p className="text-slate-500 text-sm">No data</p>
+          <div className="bg-[#24282D] rounded-xl p-8 min-h-[200px] flex items-center justify-center">
+            <p className="text-white/50 text-sm">No data</p>
           </div>
         </>
       )}
@@ -113,13 +155,18 @@ export default function CommissionsContent() {
       {activeSubTab === "Card Bonus" && (
         <>
           {/* Card Bonus Header */}
-          <div className="bg-slate-800/50 border-l-4 border-l-orange-500 border-y border-r border-slate-700 rounded-r-lg px-4 py-3 mb-4">
-            <span className="text-cyan-400 font-medium">Card Bonus: 0.00</span>
-          </div>
+          <div className="bg-[#24282D]  rounded-lg px-4 py-3 mb-4">
+  <div className="flex items-center gap-3">
+    {/* Vertical Bar */}
+    <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+
+    <span className="text-cyan-400 font-medium">Card Bonus: 0.00</span>
+  </div>
+</div>
 
           {/* Data Area */}
-          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 min-h-[200px] flex items-center justify-center">
-            <p className="text-slate-500 text-sm">No data</p>
+          <div className="bg-[#24282D] rounded-xl p-8 min-h-[200px] flex items-center justify-center">
+            <p className="text-white/50 text-sm">No data</p>
           </div>
         </>
       )}

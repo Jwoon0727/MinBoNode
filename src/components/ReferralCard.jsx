@@ -9,57 +9,68 @@ export default function ReferralCard({
   systemInvest = "0",
 }) {
   return (
-    <div className="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden">
+ 
+    <div className="bg-gray-800 border border-white/10 rounded-xl overflow-hidden">
       <div className="flex">
-        {/* Left Blue Border */}
-        <div className="w-1 bg-blue-500" />
-        
-        <div className="flex-1 p-4">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-cyan-400 font-semibold">{username}</span>
-            <span className="text-slate-400 text-sm">Lv. {level}</span>
-          </div>
+        <div className="flex-1 p-3 sm:p-4 min-w-0">
+ {/* Header */}
+<div className="flex items-center justify-between mb-2 sm:mb-3">
+  {/* Left group */}
+  <div className="flex items-center gap-2 min-w-0">
+    {/* Vertical Bar */}
+    <div className="w-[2px] h-4 bg-cyan-400 rounded-full" />
+
+    <span className="text-cyan-400 font-semibold text-sm sm:text-base truncate">
+      {username}
+    </span>
+  </div>
+
+  {/* Level */}
+  <span className="text-white text-xs sm:text-sm flex-shrink-0">
+    Lv. {level}
+  </span>
+</div>
           
           {/* Info Grid */}
-          <div className="grid grid-cols-2 gap-y-2 text-sm">
+          <div className="grid grid-cols-2 gap-x-2 sm:gap-x-4 gap-y-1.5 sm:gap-y-2 text-xs sm:text-sm">
             <div>
-              <span className="text-slate-500">ID</span>
+              <span className="text-white/50">ID</span>
             </div>
-            <div className="text-right">
-              <span className="text-slate-300 truncate">{id}</span>
+            <div className="text-right overflow-hidden">
+              <span className="text-white truncate block">{id}</span>
             </div>
             
             <div>
-              <span className="text-slate-500">Email</span>
+              <span className="text-white/50">Email</span>
             </div>
-            <div className="text-right">
-              <span className="text-slate-300">{email}</span>
-            </div>
-            
-            <div>
-              <span className="text-slate-500">Feeding</span>
-            </div>
-            <div className="text-right">
-              <span className="text-slate-300">{feeding}</span>
+            <div className="text-right overflow-hidden">
+              <span className="text-white truncate block">{email}</span>
             </div>
             
             <div>
-              <span className="text-slate-500">Referral Code</span>
+              <span className="text-white/50">Feeding</span>
             </div>
             <div className="text-right">
-              <span className="text-slate-300">{referralCode}</span>
+              <span className="text-white">{feeding}</span>
             </div>
             
             <div>
-              <span className="text-slate-500">System Invest</span>
+              <span className="text-white/50 truncate">Referral Code</span>
             </div>
             <div className="text-right">
-              <span className="text-slate-300">{systemInvest}</span>
+              <span className="text-white">{referralCode}</span>
+            </div>
+            
+            <div>
+              <span className="text-white/50 truncate">System Invest</span>
+            </div>
+            <div className="text-right">
+              <span className="text-white">{systemInvest}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
+  
   );
 }

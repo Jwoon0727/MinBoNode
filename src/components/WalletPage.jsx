@@ -145,7 +145,7 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
           overflow-hidden text-ellipsis
           ${
             activeTab === tab
-              ? "bg-indigo-800 text-white shadow-sm"
+              ? "bg-[#2623A9] text-white shadow-sm"
               : "text-white/50 hover:text-white"
           }
         `}
