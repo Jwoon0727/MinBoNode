@@ -9,38 +9,42 @@ export default function MiningTransactionCard({
   wallet = "MGG",
 }) {
   return (
-    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4 relative overflow-hidden">
-      {/* Orange left border */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-orange-500" />
-
+    <div className="bg-[#24282D] border border-white/10 rounded-xl p-4 relative overflow-hidden">
       {/* Content */}
       <div className="pl-4">
-        {/* Node Name */}
-        <h4 className="text-cyan-400 font-semibold mb-3">{name}</h4>
+{/* Node Name */}
+<div className="flex items-center gap-3 mb-4">
+  <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+  <h3 className="text-cyan-400 font-semibold text-base">
+    {name}
+  </h3>
+</div>
 
         {/* Details Grid */}
         <div className="space-y-2 text-sm">
           <div className="flex justify-between items-center">
             <span className="text-slate-400">Amount</span>
-            <span className="text-white">{amount}</span>
+            <span className="text-white/70">{amount}</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">Time</span>
-            <span className="text-white">{time}</span>
+            <span className="text-white/70">{time}</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">Code</span>
-            <span className="text-white">{code}</span>
+            <span className="text-white/70">{code}</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">Wallet</span>
-            <a 
-              href="#" 
-              className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 transition-colors"
-            >
-              {wallet}
-              <ExternalLink size={14} />
-            </a>
+            <a
+  href="#"
+  className="flex items-center gap-1 transition-colors"
+>
+  <span className="text-white/70">
+    {wallet}
+  </span>
+  <ExternalLink size={14} className="text-cyan-400" />
+</a>
           </div>
         </div>
       </div>

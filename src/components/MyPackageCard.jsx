@@ -8,37 +8,38 @@ export default function MyPackageCard({
   received = "9510.3285172"
 }) {
   return (
-    <div className="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden">
+    <div className="bg-[#24282D] border border-white/10 rounded-xl overflow-hidden">
       <div className="flex">
-        {/* Left Orange Border */}
-        <div className="w-1 bg-orange-500" />
-        
         {/* Content */}
         <div className="flex-1 p-5">
-          {/* Node Name */}
-          <h3 className="text-orange-400 font-semibold text-base mb-4">{name}</h3>
-          
+      {/* Node Name */}
+<div className="flex items-center gap-3 mb-4">
+  <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+  <h3 className="text-cyan-400 font-semibold text-base">
+    {name}
+  </h3>
+</div>
           {/* Info Grid */}
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-slate-400">Price</span>
-              <span className="text-white">{price}</span>
+              <span className="text-white/70">{price}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-400">Mining Power</span>
-              <span className="text-white">{miningPower}</span>
+              <span className="text-white/70">{miningPower}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-400">Time</span>
-              <span className="text-white">{time}</span>
+              <span className="text-white/70">{time}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-400">Code</span>
-              <span className="text-white">{code}</span>
+              <span className="text-white/70">{code}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-400">Received</span>
-              <span className="text-white">{received}</span>
+              <span className="text-white/70">{received}</span>
             </div>
           </div>
         </div>
