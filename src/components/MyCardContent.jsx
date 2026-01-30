@@ -18,23 +18,31 @@ export default function MyCardContent({ onBuyCard, onRegister }) {
           <ChevronLeft size={20} className="text-slate-400" />
         </button>
 
-        {/* Card Display */}
-        <div className="relative flex flex-col items-center">
-          <div className="w-64 h-80 relative">
-            <img
-              src="/images/crypto-card.jpg"
-              alt="My Card"
-              className="w-full h-full object-contain transform -rotate-12"
-            />
-            {/* Buy Now Button Overlay */}
-            <button 
-              onClick={onBuyCard}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#4F66D7] hover:bg-blue-700 text-white px-8 py-2 rounded-full text-sm font-medium transition-colors"
-            >
-              Buy Now
-            </button>
-          </div>
-        </div>
+     {/* Card Display */}
+<div className="relative flex flex-col items-center">
+  <div className="w-72 h-[340px] relative">
+    <img
+      src="/images/black_card.svg"
+      alt="My Card"
+      className="w-full h-full object-contain"
+    />
+
+    {/* Buy Now Button Overlay */}
+    <button 
+      onClick={onBuyCard}
+      className="
+        absolute top-1/2 left-1/2
+        -translate-x-1/2 -translate-y-1/2
+        bg-[#4F66D7] hover:bg-blue-700
+        text-white px-8 py-2
+        rounded-full text-sm font-medium
+        transition-colors
+      "
+    >
+      Buy Now
+    </button>
+  </div>
+</div>
 
         {/* Right Arrow */}
         <button className="w-10 h-10 bg-slate-800/50 border border-slate-700 rounded-full flex items-center justify-center hover:bg-slate-700 transition-colors">

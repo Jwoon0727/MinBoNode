@@ -96,7 +96,7 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
   transition-colors
   flex-1
 ">
-  Harvest ↓
+  Harvest →
 </button>
 
 <button className="
@@ -188,11 +188,11 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
     sm:max-w-[90%]
     md:max-w-[100%]
     mx-auto
-    bg-white/5
+    bg-[#24282D] 
     backdrop-blur-xl
-    border border-white/10
+    
     rounded-2xl
-    p-3 sm:p-4 md:p-5
+    p-3 sm:p-4 md:p-2
     shadow-[0_10px_40px_rgba(0,0,0,0.35)]
   "
 >
@@ -201,8 +201,8 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
       <div
         key={tx.id}
         className="
-          bg-gray-700
-          border border-slate-700
+          bg-white/10
+          border border-white/10
           rounded-xl
           overflow-hidden
           transition-all
@@ -267,16 +267,25 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
                           <span className="text-slate-400 text-xs sm:text-sm">Fee</span>
                           <span className="text-white text-xs sm:text-sm">{tx.fee}</span>
                         </div>
+                        <div
+  className="mt-2 border-b border-dashed border-white/30"
+  style={{
+    borderBottomWidth: '0.5px',  
+    borderBottomStyle: 'dashed',
+    borderBottomColor: 'rgba(255,255,255,0.3)',
+    borderImage: 'repeating-linear-gradient(to right, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.3) 10px, transparent 10px, transparent 20px) 1',
+  }}
+/>
                       </div>
                     
 
                       {/* Code Section */}
-                      <div className="mt-3 sm:mt-4 bg-slate-900/50 rounded-lg p-2.5 sm:p-3 flex items-center justify-between gap-2">
+                      <div className="mt-3 sm:mt-4 rounded-lg p-2.5 sm:p-3 flex items-center justify-between gap-2">
                         <div className="flex-1 min-w-0">
-                          <span className="text-slate-500 text-[10px] sm:text-xs">Code</span>
-                          <div className="text-slate-400 text-xs sm:text-sm truncate">{tx.code}</div>
+                          <span className="text-white/50 text-[10px] sm:text-xs">Code</span>
                         </div>
-                        <button className="text-slate-400 hover:text-white flex-shrink-0">
+                        <div className="text-white/70 text-xs sm:text-sm truncate">{tx.code}</div>
+                        <button className="text-white/50 hover:text-white flex-shrink-0">
                           <Copy size={14} className="sm:w-4 sm:h-4" />
                         </button>
                       </div>

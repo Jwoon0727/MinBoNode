@@ -8,7 +8,7 @@ export default function MyPackageCard({
   received = "9510.3285172"
 }) {
   return (
-    <div className="bg-[#24282D] border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-white/10 border border-white/10 rounded-xl overflow-hidden">
       <div className="flex">
         {/* Content */}
         <div className="flex-1 p-5">
@@ -22,23 +22,23 @@ export default function MyPackageCard({
           {/* Info Grid */}
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-slate-400">Price</span>
+              <span className="text-white/50 text-xs">Price</span>
               <span className="text-white/70">{price}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Mining Power</span>
+              <span className="text-white/50 text-xs">Mining Power</span>
               <span className="text-white/70">{miningPower}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Time</span>
+              <span className="text-white/50 text-xs">Time</span>
               <span className="text-white/70">{time}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Code</span>
+              <span className="text-white/50 text-xs">Code</span>
               <span className="text-white/70">{code}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Received</span>
+              <span className="text-white/50 text-xs">Received</span>
               <span className="text-white/70">{received}</span>
             </div>
           </div>

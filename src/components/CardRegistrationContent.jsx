@@ -74,7 +74,7 @@ export default function CardRegistrationContent({ onBack }) {
       <div className="flex flex-col items-center mb-8">
         <div className="w-64 h-80 flex items-center justify-center">
           <img
-            src="/images/crypto-card.jpg"
+            src="/images/color_card.png"
             alt="Crypto Card"
             className="w-full h-full object-contain"
           />

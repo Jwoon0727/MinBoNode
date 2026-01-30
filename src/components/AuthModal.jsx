@@ -66,12 +66,14 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login", onLo
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-md px-6">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <h1 className="text-white font-black text-3xl tracking-wider italic">
-            MIMBO<span className="text-white">NODE</span>
-          </h1>
-        </div>
+{/* Logo */}
+<div className="text-center mb-8">
+  <img
+    src="/images/logo.svg"
+    alt="MIMBONODE"
+    className="mx-auto h-12 w-auto"
+  />
+</div>
 
         {/* Form Title */}
         <h2 className="text-white text-lg font-semibold mb-4">

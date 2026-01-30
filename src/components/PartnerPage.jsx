@@ -129,7 +129,7 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
   transition-colors
   flex-1
 ">
-  Harvest ↓
+  Harvest →
 </button>
 
 <button className="
@@ -198,10 +198,10 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
     {/* PARENT CONTAINER */}
     <div
       className="
-        bg-gray-900
+        bg-[#24282D]
         border 
         rounded-2xl
-        p-4
+        p-2
       "
     >
       <div className="space-y-3 sm:space-y-4">
@@ -227,10 +227,10 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
             <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Downline</h3>
             <div
       className="
-        bg-gray-900
+        bg-[#24282D]
         border 
         rounded-2xl
-        p-4
+        p-2
       "
     >
             <div className="space-y-3 sm:space-y-4">

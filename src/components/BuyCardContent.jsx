@@ -66,18 +66,18 @@ export default function BuyCardContent({ onBack }) {
       <div className="flex flex-col items-center mb-8">
         <div className="w-64 h-80 mb-4 flex items-center justify-center">
           <img
-            src="/images/crypto-card.jpg"
+            src="/images/color_card.png"
             alt="Crypto Card"
             className="w-full h-full object-contain"
           />
         </div>
 
         {/* Price Card */}
-        <div className="bg-[#24282D] border  rounded-lg px-8 py-4 text-center">
-          <h2 className="text-white text-xs mb-2">
+        <div className="bg-[#24282D] border border-white/10 rounded-2xl px-16 py-4 text-center">
+          <h2 className="text-white text-lg mb-2">
             CRYPTO FELLAS MEMBERSHIP CARD
           </h2>
-          <p className="text-cyan-400 text-3xl font-bold mb-1">240 USDT</p>
+          <p className="text-cyan-400 text-2xl font-bold mb-1">240 USDT</p>
           <p className="text-white/50 text-xs">Available Balance: 1 USDT</p>
         </div>
       </div>

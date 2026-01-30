@@ -41,7 +41,7 @@ export default function Dashboard({ onMenuClick }) {
   transition-colors
   flex-1
 ">
-  Harvest ↓
+  Harvest →
 </button>
 
 <button className="
@@ -60,37 +60,27 @@ export default function Dashboard({ onMenuClick }) {
         </div>
 
         {/* Racing Track Image Card */}
-        <div className="relative rounded-2xl overflow-hidden mb-8">
+        <div className="relative rounded-2xl overflow-hidden mb-4">
           <img
-            src="/images/racing-track.jpg"
+            src="/images/race_img.png"
             alt="Racing Track"
             className="w-full h-64 lg:h-80 object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
 
-        {/* Floating Action Button */}
-        <div className="fixed right-6 top-1/3 z-20">
-          <button className="w-14 h-14 bg-pink-500 hover:bg-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-pink-500/30 transition-colors">
-            F
-          </button>
-        </div>
-
         {/* Max Out Status */}
         <div className="py-8">
           {/* Checkered Flags Icon */}
-          <div className="flex justify-center mb-4">
-            <svg width="60" height="40" viewBox="0 0 60 40" className="text-slate-400">
-              <path d="M15 5 L15 35 M15 5 L30 8 L30 15 L15 12 M15 12 L30 15 L30 22 L15 19 M15 19 L30 22 L30 29 L15 26" stroke="currentColor" strokeWidth="2" fill="none"/>
-              <path d="M45 5 L45 35 M45 5 L30 8 L30 15 L45 12 M45 12 L30 15 L30 22 L45 19 M45 19 L30 22 L30 29 L45 26" stroke="currentColor" strokeWidth="2" fill="none"/>
-              <rect x="16" y="5" width="7" height="7" fill="currentColor" opacity="0.5"/>
-              <rect x="23" y="12" width="7" height="7" fill="currentColor" opacity="0.5"/>
-              <rect x="37" y="5" width="7" height="7" fill="currentColor" opacity="0.5"/>
-              <rect x="30" y="12" width="7" height="7" fill="currentColor" opacity="0.5"/>
-            </svg>
+          <div className="flex justify-center mb-1">
+          <img
+    src="/images/race_flag.svg"
+    alt="Upload"
+    className="w-40 h-auto opacity-70"
+  />
           </div>
 
-          <h2 className="text-white text-2xl font-bold text-center mb-6 tracking-wider">
+          <h2 className="text-white text-3xl font-bold text-center mb-6 tracking-wider">
             MAX OUT STATUS
           </h2>
 

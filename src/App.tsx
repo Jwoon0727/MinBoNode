@@ -15,6 +15,7 @@ function App() {
   const [partnerTab, setPartnerTab] = useState("Referral");
   const [walletTab, setWalletTab] = useState("Balance");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-slate-950 flex">
@@ -29,6 +30,8 @@ function App() {
         onWalletTabChange={setWalletTab}
         isOpen={sidebarOpen}
         onToggle={setSidebarOpen}
+        showAuthModal={showAuthModal}
+        setShowAuthModal={setShowAuthModal}
       />
       <div className="flex-1 pb-20 lg:pb-0">
         {currentPage === "race" && <Dashboard onMenuClick={() => setSidebarOpen(true)} />}
@@ -39,7 +42,7 @@ function App() {
         {currentPage === "settings" && <SettingsPage onMenuClick={() => setSidebarOpen(true)} />}
         {currentPage === "support" && <SupportTicketsPage onMenuClick={() => setSidebarOpen(true)} />}
       </div>
-      <BottomNavigation currentPage={currentPage} onPageChange={setCurrentPage} />
+      <BottomNavigation currentPage={currentPage} onPageChange={setCurrentPage} isAuthModalOpen={showAuthModal} />
     </div>
   );
 }

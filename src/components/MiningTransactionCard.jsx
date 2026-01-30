@@ -9,7 +9,7 @@ export default function MiningTransactionCard({
   wallet = "MGG",
 }) {
   return (
-    <div className="bg-[#24282D] border border-white/10 rounded-xl p-4 relative overflow-hidden">
+    <div className="bg-white/10 border border-white/10 rounded-xl p-4 relative overflow-hidden">
       {/* Content */}
       <div className="pl-4">
 {/* Node Name */}
@@ -23,19 +23,19 @@ export default function MiningTransactionCard({
         {/* Details Grid */}
         <div className="space-y-2 text-sm">
           <div className="flex justify-between items-center">
-            <span className="text-slate-400">Amount</span>
+            <span className="text-white/50 text-xs">Amount</span>
             <span className="text-white/70">{amount}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-slate-400">Time</span>
+            <span className="text-white/50 text-xs">Time</span>
             <span className="text-white/70">{time}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-slate-400">Code</span>
+            <span className="text-white/50 text-xs">Code</span>
             <span className="text-white/70">{code}</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-slate-400">Wallet</span>
+            <span className="text-white/50 text-xs">Wallet</span>
             <a
   href="#"
   className="flex items-center gap-1 transition-colors"

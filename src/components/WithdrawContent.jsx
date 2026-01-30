@@ -109,23 +109,23 @@ export default function WithdrawContent() {
           </div>
         </div>
 
-      {/* Withdraw Button */}
-      <button className="w-full bg-white/10 hover:bg-slate-600 text-white/50 py-4 rounded-full font-medium transition-colors mb-8">
-        Withdraw
-      </button>
+{/* Withdraw Button */}
+<button className="w-full bg-white/10 border-t border-t-white/20 hover:bg-slate-600 text-white/50 py-4 rounded-full font-medium transition-colors mb-8">
+  Withdraw
+</button>
 
      {/* Withdraw History Container */}
      <h3 className="text-white text-lg font-semibold mb-4">
     Withdraw History
   </h3>
-<div className="bg-gray-900 border rounded-2xl p-4 sm:p-5">
+<div className="bg-[#24282D] border rounded-2xl p-2">
 
 
   <div className="space-y-4">
     {withdrawHistory.map((tx) => (
       <div
         key={tx.id}
-        className="bg-gray-800 border border-white/10  rounded-xl p-4"
+        className="bg-white/10 border border-white/20  rounded-xl p-4"
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
@@ -142,15 +142,15 @@ export default function WithdrawContent() {
         {/* Details */}
         <div className="space-y-1 text-sm">
           <div className="flex justify-between">
-            <span className="text-slate-400">Time</span>
+            <span className="text-white/50 text-xs">Time</span>
             <span className="text-white/50">{tx.time}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-slate-400">Wallet</span>
+            <span className="text-white/50 text-xs">Wallet</span>
             <span className="text-white/50">{tx.wallet}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-slate-400">Address</span>
+            <span className="text-white/50 text-xs">Address</span>
             <span className="text-white/50 truncate max-w-[160px]">
               {tx.address}
             </span>

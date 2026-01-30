@@ -10,7 +10,7 @@ export default function ReferralCard({
 }) {
   return (
  
-    <div className="bg-gray-800 border border-white/10 rounded-xl overflow-hidden">
+    <div className="bg-white/10 border border-white/10 rounded-xl overflow-hidden">
       <div className="flex">
         <div className="flex-1 p-3 sm:p-4 min-w-0">
  {/* Header */}

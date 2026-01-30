@@ -86,20 +86,23 @@ export default function SwapContent() {
         </div>
       </div>
 
-      {/* Captcha */}
-      <div className="flex justify-center mb-4">
-        <div className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 flex items-center gap-3">
-          <div className="w-5 h-5 border-2 border-slate-500 rounded flex items-center justify-center bg-white">
-            <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <span className="text-slate-400 text-sm">인증</span>
-          <div className="flex items-center gap-1 ml-4">
-            <img src="https://www.cloudflare.com/img/logo-cloudflare-dark.svg" alt="Cloudflare" className="h-4 opacity-50" />
-          </div>
-        </div>
+{/* Captcha */}
+<div className="flex justify-center mb-4">
+  <div className="bg-[#151515] border border-white/10 px-8 py-3 flex justify-between items-center  max-w-md">
+    {/* 체크 아이콘 + 텍스트 */}
+    <div className="flex items-center gap-3">
+      <div className="w-5 h-5 border-2 border-white/10 flex items-center justify-center bg-white">
+        <svg className="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
       </div>
+      <span className="text-white/50 text-sm">성공!</span>
+    </div>
+
+    {/* 이미지 오른쪽 */}
+    <img src="https://www.cloudflare.com/img/logo-cloudflare-dark.svg" alt="Cloudflare" className="h-8" />
+  </div>
+</div>
 
       {/* Swap Button */}
 <button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-800 text-white text-xs py-3 rounded-full font-medium transition-all mb-8">
@@ -108,18 +111,18 @@ export default function SwapContent() {
 
 {/* Swap History Container */}
 <h3 className="text-white text-lg font-semibold mb-3">Swap History</h3>
-<div className="bg-gray-900 p-4 rounded-2xl border  mb-6">
+<div className="bg-[#24282D] p-2 rounded-2xl border  mb-6">
   <div className="space-y-2">
     {swapHistory.map((item) => (
-      <div key={item.id} className="bg-gray-800 border border-slate-700 rounded-xl p-3">
+      <div key={item.id} className="bg-white/10 border border-white/20 rounded-xl p-3">
         <div className="flex items-center justify-between mb-2">
         <div>
-    <span className="text-slate-500 text-xs block">From</span>
+    <span className="text-white/50 text-xs block">From</span>
     <span className="text-white font-medium">{item.from}</span>
   </div>
           <span className="text-white/70">→</span>
           <div>
-    <span className="text-slate-500 text-xs block text-right">to</span>
+    <span className="text-white/50 text-xs block text-right">to</span>
     <span className="text-cyan-400 font-medium">{item.to}</span>
   </div>
         </div>
@@ -127,19 +130,19 @@ export default function SwapContent() {
         <div className="space-y-2 text-sm">
   {/* Wallet */}
   <div className="flex justify-between">
-    <span className="text-slate-500 text-xs">Wallet</span>
+    <span className="text-whtie/50 text-xs">Wallet</span>
     <span className="text-white/70">{item.wallet}</span>
   </div>
 
   {/* Amount */}
   <div className="flex justify-between">
-    <span className="text-slate-500 text-xs">Amount</span>
+    <span className="text-white/50 text-xs">Amount</span>
     <span className="text-white/70">{item.amount}</span>
   </div>
 
   {/* Time */}
   <div className="flex justify-between">
-    <span className="text-slate-500 text-xs">Time</span>
+    <span className="text-white/50 text-xs">Time</span>
     <span className="text-white/70">{item.time}</span>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Package, Wallet, Flag, Users, Settings } from "lucide-react";
 
-export default function BottomNavigation({ currentPage, onPageChange }) {
+export default function BottomNavigation({ currentPage, onPageChange, isAuthModalOpen = false }) {
   const navItems = [
     { icon: Package, label: "Packages", page: "packages" },
     { icon: Wallet, label: "Wallet", page: "wallet" },
@@ -9,9 +9,13 @@ export default function BottomNavigation({ currentPage, onPageChange }) {
     { icon: Settings, label: "Settings", page: "settings" },
   ];
 
+  if (isAuthModalOpen) {
+    return null;
+  }
+
   return (
     <div className="lg:hidden fixed bottom-4 left-0 right-0 z-50 flex justify-center">
-      <nav className="flex items-center gap-6 px-6 py-3 bg-[#0b0f14] border border-slate-800 rounded-full shadow-xl">
+      <nav className="flex items-center gap-6 px-6 py-3 bg-[#0b0f14] border border-white/10 rounded-full shadow-xl">
         {navItems.map((item) => {
           const isActive = currentPage === item.page;
 
@@ -20,20 +24,23 @@ export default function BottomNavigation({ currentPage, onPageChange }) {
               <button
                 key={item.page}
                 onClick={() => onPageChange(item.page)}
-                className="relative -mt-8"
+                className="relative -mt-14"
               >
                 <div
-                  className={`
-                    w-14 h-14 rounded-full flex items-center justify-center
+                  className="
+                    w-20 h-20 rounded-full
+                    flex items-center justify-center
                     bg-blue-600 shadow-lg shadow-blue-500/40
                     transition-transform active:scale-95
-                  `}
+                  "
                 >
-                  <item.icon size={22} className="text-white" />
+                  <img
+                    src="/images/NavButton.svg"
+                    alt={item.label}
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-                <p className="mt-1 text-[11px] text-center text-white">
-                  {item.label}
-                </p>
+        
               </button>
             );
           }
@@ -46,11 +53,11 @@ export default function BottomNavigation({ currentPage, onPageChange }) {
             >
               <item.icon
                 size={20}
-                className={isActive ? "text-white" : "text-slate-500"}
+                className={isActive ? "text-white" : "text-white/50"}
               />
               <span
                 className={`text-[11px] ${
-                  isActive ? "text-white" : "text-slate-500"
+                  isActive ? "text-white" : "text-white/50"
                 }`}
               >
                 {item.label}

@@ -80,7 +80,7 @@ const packages = [
   {
     id: 1,
     name: "Starter Node",
-    image: "/images/car-yellow.jpg",
+    image: "/images/car1.png",
     daily: "198.72",
     maxOut: "150,000",
     miningPower: "0.0023",
@@ -89,7 +89,7 @@ const packages = [
   {
     id: 2,
     name: "Event Node",
-    image: "/images/car-white.jpg",
+    image: "/images/car2.png",
     daily: "198.72",
     maxOut: "150,000",
     miningPower: "0.0023",
@@ -98,7 +98,7 @@ const packages = [
   {
     id: 3,
     name: "Advance Node",
-    image: "/images/car-orange.jpg",
+    image: "/images/car3.png",
     daily: "198.72",
     maxOut: "150,000",
     miningPower: "0.0023",
@@ -107,7 +107,25 @@ const packages = [
   {
     id: 4,
     name: "Premium Node",
-    image: "/images/car-red.jpg",
+    image: "/images/car4.png",
+    daily: "198.72",
+    maxOut: "150,000",
+    miningPower: "0.0023",
+    price: "260",
+  },
+  {
+    id: 5,
+    name: "Elite Node",
+    image: "/images/car5.png",
+    daily: "198.72",
+    maxOut: "150,000",
+    miningPower: "0.0023",
+    price: "260",
+  },
+  {
+    id: 6,
+    name: "Supreme Node",
+    image: "/images/car6.png",
     daily: "198.72",
     maxOut: "150,000",
     miningPower: "0.0023",
@@ -173,9 +191,9 @@ export default function PackagesPage({ activeTab = "Packages", onTabChange, onMe
 
     {/* Image (PC & Mobile 공통 옆 배치) */}
     <div className="flex-shrink-0">
-      <div className="w-28 sm:w-36 lg:w-48 h-20 sm:h-24 lg:h-32 relative">
+      <div className="w-32 sm:w-40 lg:w-56 h-24 sm:h-28 lg:h-36 relative">
         <img
-          src="/images/crypto-card.jpg"
+          src="/images/crypto_card.svg"
           alt="Crypto Fellas Card"
           className="w-full h-full object-contain"
         />

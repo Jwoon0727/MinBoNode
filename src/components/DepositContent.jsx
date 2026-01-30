@@ -79,23 +79,23 @@ export default function DepositContent() {
       <h4 className="text-white text-lg font-semibold mb-4">
     Deposit History
   </h4>
-<div className="bg-gray-900 border rounded-2xl p-4 sm:p-5">
+<div className="bg-[#24282D] border rounded-2xl p-2">
 
 
   <div className="space-y-3">
     {depositHistory.map((tx) => (
       <div
         key={tx.id}
-        className="bg-gray-800 border border-white/10 rounded-xl p-4"
+          className="bg-white/10 border border-white/20 rounded-xl p-4"
       >
         <div className="flex items-center justify-between mb-3">
           <div>
-            <span className="text-slate-500 text-xs">From</span>
+            <span className="text-white/50 text-xs">From</span>
             <p className="text-white font-medium">{tx.from}</p>
           </div>
           <span className="text-white/70">→</span>
           <div className="text-right">
-            <span className="text-slate-500 text-xs">to</span>
+            <span className="text-white/50 text-xs">to</span>
             <p className="text-cyan-400 font-medium">{tx.to}</p>
           </div>
         </div>

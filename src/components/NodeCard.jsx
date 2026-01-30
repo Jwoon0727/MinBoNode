@@ -16,7 +16,7 @@ export default function NodeCard({ node }) {
         {/* Node Car Image */}
         <div className="w-32 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent relative">
           <img
-            src="/images/node-car.jpg"
+            src="/images/car6.png"
             alt="Node Car"
             className="w-full h-full object-cover"
           />

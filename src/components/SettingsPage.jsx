@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Globe, Power, Lock } from "lucide-react";
+import { Globe, Power, Lock, X, AlertTriangle } from "lucide-react";
 import PageHeader from "./PageHeader";
 
 const languages = [
@@ -16,6 +16,20 @@ const languages = [
 export default function SettingsPage({ onMenuClick }) {
   const [is2FAEnabled, setIs2FAEnabled] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("ko");
+  const [show2FAModal, setShow2FAModal] = useState(false);
+
+  const handleEnable2FA = () => {
+    setShow2FAModal(true);
+  };
+
+  const handleConfirm2FA = () => {
+    setIs2FAEnabled(true);
+    setShow2FAModal(false);
+  };
+
+  const handleCancel2FA = () => {
+    setShow2FAModal(false);
+  };
 
   return (
     <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
@@ -51,7 +65,7 @@ export default function SettingsPage({ onMenuClick }) {
     OFF
   </button>
             <button
-              onClick={() => setIs2FAEnabled(true)}
+              onClick={handleEnable2FA}
               className={`flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors ${
                 is2FAEnabled
                   ? "bg-blue-600 text-white"
@@ -126,6 +140,78 @@ export default function SettingsPage({ onMenuClick }) {
           </div>
         </div>
       </div>
+
+      {/* Two-Factor Authentication Modal */}
+      {show2FAModal && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={handleCancel2FA}
+        >
+          <div 
+            className="bg-[#1F2123] rounded-2xl p-6 w-full max-w-md border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-white text-xl font-semibold">Two-Factor Authentication</h2>
+              <button
+                onClick={handleCancel2FA}
+                className="    w-5 h-5
+    flex items-center justify-center
+    rounded-full
+    border border-white/30
+    text-white/60
+    hover:text-white
+    hover:border-white/50
+    hover:bg-white/10
+    transition-all"
+              >
+                <X size={14} />
+              </button>
+            </div>
+
+      {/* 2FA Question & Warning */}
+<div className="flex flex-col items-center p-6 rounded-lg space-y-4">
+  {/* Question */}
+  <p className="text-white text-center text-lg">
+    Do you want to enable 2FA?
+  </p>
+
+  {/* Warning */}
+  <div className="flex items-start space-x-2">
+    <AlertTriangle className="w-3 h-3 text-[#F2FE79] flex-shrink-0 mt-1" />
+    <div className="flex flex-col">
+      <p className="text-[#F2FE79] font-semibold text-sm text-center">
+        Warning: OTP cannot be recovered if lost.
+      </p>
+      <p className="text-white/50 text-sm text-center mt-2">
+        Please make sure to store it safely.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+            {/* Action Buttons */}
+            <div className="flex gap-4">
+              <button
+                onClick={handleCancel2FA}
+                className="bg-white/10 flex-1 flex items-center justify-center gap-2
+      py-3 rounded-full font-medium transition-colors
+      border-t border-l border-r border-white/30 border-b-0"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirm2FA}
+                className="bg-blue-600 flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Camera, Copy, Check } from "lucide-react";
+import { Camera, Copy, Check, X } from "lucide-react";
 import PageHeader from "./PageHeader";
 
 const userInfo = [
@@ -32,11 +32,70 @@ const statsRow3 = [
 
 export default function ProfilePage({ onMenuClick }) {
   const [copiedField, setCopiedField] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+  const [editFormData, setEditFormData] = useState({
+    yourId: "4984961",
+    id: "test",
+    email: "test@gmail.com",
+    fullName: "",
+  });
+  const [passwordFormData, setPasswordFormData] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
 
   const handleCopy = (text, field) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
+  };
+
+  const handleEditInputChange = (field, value) => {
+    setEditFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handleUpdate = () => {
+    // TODO: Implement profile update
+    console.log("Updating profile with data:", editFormData);
+    setShowEditModal(false);
+  };
+
+  const handleCancel = () => {
+    setShowEditModal(false);
+  };
+
+  const handlePasswordInputChange = (field, value) => {
+    setPasswordFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  const handlePasswordUpdate = () => {
+    // TODO: Implement password change
+    console.log("Changing password with data:", passwordFormData);
+    setShowChangePasswordModal(false);
+    // Reset form
+    setPasswordFormData({
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
+  };
+
+  const handlePasswordCancel = () => {
+    setShowChangePasswordModal(false);
+    // Reset form
+    setPasswordFormData({
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
   };
 
   return (
@@ -55,23 +114,27 @@ export default function ProfilePage({ onMenuClick }) {
               <Camera size={14} className="text-slate-300" />
             </button>
           </div>
-          <button className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition-colors mb-3">
+          <button 
+            onClick={() => setShowEditModal(true)}
+            className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition-colors mb-3"
+          >
             Edit Profile
           </button>
           <button
-  className="
-    w-full max-w-xs
-    bg-gradient-to-b from-slate-700 to-black
-    hover:from-slate-500 hover:to-black
-    text-white
-    py-3
-    rounded-full
-    font-normal
-    transition-all
-  "
->
-  Change Password
-</button>
+            onClick={() => setShowChangePasswordModal(true)}
+            className="
+              w-full max-w-xs
+              bg-gradient-to-b from-slate-700 to-black
+              hover:from-slate-500 hover:to-black
+              text-white
+              py-3
+              rounded-full
+              font-normal
+              transition-all
+            "
+          >
+            Change Password
+          </button>
         </div>
 
         {/* User Info Card */}
@@ -159,6 +222,250 @@ export default function ProfilePage({ onMenuClick }) {
           </div>
         </div>
       </div>
+
+      {/* Edit Profile Modal */}
+      {showEditModal && (
+        <div 
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={handleCancel}
+        >
+          <div 
+            className="bg-[#1F2123] rounded-2xl p-6 w-full max-w-md border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-white text-xl font-semibold">Edit Profile</h2>
+              <button
+                onClick={handleCancel}
+                  className="    w-5 h-5
+      flex items-center justify-center
+      rounded-full
+      border border-white/30
+      text-white/60
+      hover:text-white
+      hover:border-white/50
+      hover:bg-white/10
+      transition-all"
+              >
+                <X size={14} />
+              </button>
+            </div>
+
+            {/* Form Fields */}
+            <div className="space-y-4">
+              {/* Your ID */}
+              <div>
+                <label className="block text-white text-sm mb-2">Your ID</label>
+                <input
+                  type="text"
+                  value={editFormData.yourId}
+                  onChange={(e) => handleEditInputChange("yourId", e.target.value)}
+                  className="  w-full
+  bg-[#353638]
+  border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+
+              {/* ID */}
+              <div>
+                <label className="block text-white text-sm mb-2">ID</label>
+                <input
+                  type="text"
+                  value={editFormData.id}
+                  onChange={(e) => handleEditInputChange("id", e.target.value)}
+                  className="  w-full
+  bg-[#353638]
+  border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-white text-sm mb-2">Email</label>
+                <input
+                  type="email"
+                  value={editFormData.email}
+                  onChange={(e) => handleEditInputChange("email", e.target.value)}
+                  className="  w-full
+  bg-[#353638]
+  border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+
+              {/* Full Name */}
+              <div>
+                <label className="block text-white text-sm mb-2">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={editFormData.fullName}
+                  onChange={(e) => handleEditInputChange("fullName", e.target.value)}
+                  className="  w-full
+  bg-[#353638]
+  border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-4 mt-6">
+              <button
+                onClick={handleCancel}
+                className="bg-white/10 flex-1 flex items-center justify-center gap-2
+      py-3 rounded-full font-medium transition-colors
+      border-t border-l border-r border-white/30 border-b-0"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleUpdate}
+                className="bg-blue-600 flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Change Password Modal */}
+      {showChangePasswordModal && (
+        <div 
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={handlePasswordCancel}
+        >
+          <div 
+            className="bg-[#1F2123] rounded-2xl p-6 w-full max-w-md border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-white text-xl font-semibold">Change Password</h2>
+              <button
+                onClick={handlePasswordCancel}
+                className="    w-5 h-5
+      flex items-center justify-center
+      rounded-full
+      border border-white/30
+      text-white/60
+      hover:text-white
+      hover:border-white/50
+      hover:bg-white/10
+      transition-all"
+              >
+                <X size={14} />
+              </button>
+            </div>
+
+            {/* Form Fields */}
+            <div className="space-y-4">
+              {/* Current Password */}
+              <div>
+                <label className="block text-white text-sm mb-2">Current Password</label>
+                <input
+                  type="password"
+                  placeholder="4984961"
+                  value={passwordFormData.currentPassword}
+                  onChange={(e) => handlePasswordInputChange("currentPassword", e.target.value)}
+                  className="w-full bg-[#353638] border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+
+              {/* New Password */}
+              <div>
+                <label className="block text-white text-sm mb-2">New Password</label>
+                <input
+                  type="password"
+                  placeholder="test"
+                  value={passwordFormData.newPassword}
+                  onChange={(e) => handlePasswordInputChange("newPassword", e.target.value)}
+                  className="w-full bg-[#353638] border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+
+              {/* Confirm Password */}
+              <div>
+                <label className="block text-white text-sm mb-2">Confirm Password</label>
+                <input
+                  type="password"
+                  placeholder="test@gmail.com"
+                  value={passwordFormData.confirmPassword}
+                  onChange={(e) => handlePasswordInputChange("confirmPassword", e.target.value)}
+                  className="w-full bg-[#353638] border-t border-l border-r
+  border-white/20
+  rounded-lg
+  px-4 py-3
+  text-white
+  focus:outline-none
+  focus:border-blue-500
+  transition-colors"
+                />
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-4 mt-6">
+              <button
+                onClick={handlePasswordCancel}
+                className="bg-white/10 flex-1 flex items-center justify-center gap-2
+      py-3 rounded-full font-medium transition-colors
+      border-t border-l border-r border-white/30 border-b-0"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handlePasswordUpdate}
+                className="bg-blue-600 flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

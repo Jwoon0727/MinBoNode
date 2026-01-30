@@ -70,9 +70,8 @@ const menuSections = [
   },
 ];
 
-export default function Sidebar({ currentPage = "race", onPageChange, currentTab = "Packages", onTabChange, partnerTab = "Referral", onPartnerTabChange, walletTab = "Balance", onWalletTabChange, isOpen = false, onToggle }) {
+export default function Sidebar({ currentPage = "race", onPageChange, currentTab = "Packages", onTabChange, partnerTab = "Referral", onPartnerTabChange, walletTab = "Balance", onWalletTabChange, isOpen = false, onToggle, showAuthModal, setShowAuthModal }) {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState("login");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   
@@ -226,12 +225,14 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
     flex flex-col h-screen
   `}
 >
-        {/* Logo */}
-        <div className="px-4 pt-4 pb-2">
-          <div className="text-cyan-400 font-black text-lg tracking-wider italic">
-            MIMBONODE
-          </div>
-        </div>
+     {/* Logo */}
+<div className="px-4 pt-4 pb-4">
+  <img
+    src="/images/logo.svg"
+    alt="MIMBONODE"
+    className="h-6 w-auto"
+  />
+</div>
 
         {/* User Profile / Auth Buttons */}
         <div className="px-4 pb-3 flex-shrink-0">
@@ -256,21 +257,37 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
               </Button>
             </div>
           ) : (
-            <div className="flex flex-col gap-1.5">
-              <Button
-                onClick={() => handleOpenAuth("login")}
-                className="w-full bg-cyan-500 hover:bg-cyan-600 text-white text-xs py-2 h-auto"
-              >
-                Login
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => handleOpenAuth("signup")}
-                className="w-full border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 text-xs py-2 h-auto"
-              >
-                Sign Up
-              </Button>
-            </div>
+            <div className="flex gap-2">
+            <Button
+              onClick={() => handleOpenAuth("login")}
+              className="
+                flex-1
+                py-1
+                bg-gradient-to-r from-blue-700 to-blue-800
+                rounded-full
+                text-xs font-normal
+                transition-colors
+              "
+            >
+              Login
+            </Button>
+          
+            <Button
+              variant="outline"
+              onClick={() => handleOpenAuth("signup")}
+              className="
+                flex-1
+                py-1
+                text-xs font-normal
+                bg-white/10
+                rounded-full
+                transition-colors
+                border-t border-l border-r border-white/30 border-b-0
+              "
+            >
+              Sign Up
+            </Button>
+          </div>
           )}
         </div>
 
