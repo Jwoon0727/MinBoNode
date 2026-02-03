@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Lock, Copy, RefreshCw, X, Check } from "lucide-react";
 
 const stakingStats = [
@@ -11,7 +11,7 @@ const stakingStats = [
 const stakingPools = [
   {
     id: 1,
-    name: "7days pools",
+    name: "2days pools",
     amount: "30,051,800.00 MGG",
     apy: "10%",
     status: "ACTIVE",
@@ -24,7 +24,7 @@ const stakingPools = [
     amount: "370,000.00 MGG",
     apy: "18%",
     status: "SUSPENDED",
-    buttonText: "CURRENT",
+    buttonText: "CLOSED",
     buttonActive: false,
   },
   {
@@ -44,11 +44,6 @@ export default function StakingContent() {
   const [showStakingModal, setShowStakingModal] = useState(false);
   const [numberOfAccounts, setNumberOfAccounts] = useState(1);
   const [agreedTerms, setAgreedTerms] = useState(false);
-
-  // Show modal when component mounts
-  useEffect(() => {
-    setShowStakingModal(true);
-  }, []);
 
   const handleAccountsChange = (value) => {
     const newValue = Math.max(0, Math.min(100, value));
@@ -70,7 +65,7 @@ export default function StakingContent() {
 
   return (
     <>
-      <h3 className="text-white text-lg font-semibold mb-4">Staking</h3>
+      <h3 className="text-white text-lg font-medium mb-4">Staking</h3>
 
       <div className="bg-[#151515] border border-black-700 rounded-xl p-4 mb-6">
   <div className="space-y-3">
@@ -80,8 +75,8 @@ export default function StakingContent() {
         className={`flex justify-between items-center py-2
           ${index !== stakingStats.length - 1 && index !== 0 ? 'border-b border-white/10' : ''}`}
       >
-        <span className="text-white/50 text-sm">{stat.label}</span>
-        <span className="text-white font-medium">{stat.value}</span>
+        <span className="text-white/50 text-sm font-extralight">{stat.label}</span>
+        <span className="text-white font-light">{stat.value}</span>
       </div>
     ))}
   </div>
@@ -94,13 +89,13 @@ export default function StakingContent() {
             <span className="text-white font-bold">B</span>
           </div>
           <div>
-            <div className="text-slate-400 text-xs">Stesny's Balance</div>
+            <div className="text-white/50 font-extralight text-xs">Reserve Balance</div>
             <div className="text-orange-400 font-semibold">1.43428914 BTC</div>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-2 w-full">
   {/* 주소 + 카피 */}
-  <div className="flex items-center justify-between bg-black-900/50 rounded-lg px-3 py-2 flex-1 min-w-[150px] sm:min-w-0 w-full">
+  <div className="flex items-center justify-between bg-black-900/50 border-l border-t border-r border-white/10 rounded-lg px-3 py-2 flex-1 min-w-[150px] sm:min-w-0 w-full">
     <span className="text-white/50 text-xs sm:text-sm truncate">
       bc1qp005c06b6l00ljip6s6by17o3dek6iondrmjnE
     </span>
@@ -119,18 +114,18 @@ export default function StakingContent() {
       </div>
 
       {/* Available Staking Pools */}
-      <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+      <h3 className="text-white text-lg font-medium mb-4 flex items-center gap-2">
         <Lock size={18} />
         Available Staking Pools
       </h3>
 
       <div className="space-y-4 mb-8">
         {stakingPools.map((pool) => (
-          <div key={pool.id} className="bg-[#24282D] border border-white/10 rounded-xl p-4">
+          <div key={pool.id} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-lg shadow-black/20">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Lock size={16} className="text-slate-400" />
-                <span className="text-white font-medium">{pool.name}</span>
+                <Lock size={16} className="text-white" />
+                <span className="text-white font-light">{pool.name}</span>
               </div>
               <div className="flex flex-col items-start gap-1">
   <div className="flex items-center justify-end w-full">
@@ -142,7 +137,7 @@ export default function StakingContent() {
       {pool.status}
     </span>
   </div>
-  <div className="text-white/50 text-sm">{pool.amount}</div>
+  <div className="text-white/50 font-extralight text-sm">{pool.amount}</div>
 </div>
             </div>
 <hr className="border-white/10 my-2"/>
@@ -154,11 +149,13 @@ export default function StakingContent() {
               <div className="text-right">
                
               <button
-  className={`w-full sm:w-[150px] h-8 text-[10px] px-4 rounded-full font-medium transition-colors ${
+  onClick={() => pool.buttonActive && setShowStakingModal(true)}
+  className={`w-full sm:w-[150px] h-8 text-xs  px-4 rounded-full font-extralight transition-colors ${
     pool.buttonActive
-      ? "bg-[#1E1A8F] hover:bg-[#1E1A8F] text-white"
-      : "bg-white/10 text-white/50 cursor-not-allowed"
+      ? "bg-[#1E1A8F] backdrop-blur-md hover:bg-[#1E1A8F] text-white shadow-lg shadow-black/30 border-l border-t border-r border-white/15"
+      : "bg-white/10 backdrop-blur-sm text-white/50 cursor-not-allowed border-l border-t border-r border-white/15"
   }`}
+  disabled={!pool.buttonActive}
 >
   {pool.buttonText}
 </button>
@@ -169,23 +166,23 @@ export default function StakingContent() {
       </div>
 
      {/* My Staking / History Tabs */}
-<div className="bg-slate-900/50 rounded-xl p-1 mb-4 flex gap-2">
+<div className="bg-white/10 backdrop-blur-xl border-l border-t border-r border-white/15 rounded-3xl p-1 mb-4 flex gap-2 shadow-xl shadow-black/20">
   <button
     onClick={() => setStakingSubTab("My Staking")}
-    className={`flex-1 py-3 rounded-lg text-sm font-medium transition-colors ${
+    className={`flex-1 py-3 rounded-3xl text-sm font-extralight transition-colors ${
       stakingSubTab === "My Staking"
-        ? "bg-[#1E1A8F] text-white"
-        : "bg-transparent text-slate-400 hover:text-white"
+        ? "bg-[#1E1A8F] backdrop-blur-lg text-white shadow-xl shadow-black/30 border-l border-t border-r border-white/15"
+        : "bg-transparent text-slate-400 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm"
     }`}
   >
     My Staking
   </button>
   <button
     onClick={() => setStakingSubTab("History")}
-    className={`flex-1 py-3 rounded-lg text-sm font-medium transition-colors ${
+    className={`flex-1 py-3 rounded-3xl text-sm font-extralight transition-colors ${
       stakingSubTab === "History"
-        ? "bg-[#1E1A8F] text-white"
-        : "bg-transparent text-slate-400 hover:text-white"
+        ? "bg-[#1E1A8F] backdrop-blur-lg text-white shadow-xl shadow-black/30 border-l border-t border-r border-white/15"
+        : "bg-transparent text-slate-400 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm"
     }`}
   >
     History
@@ -219,10 +216,10 @@ export default function StakingContent() {
               <button
                 key={filter}
                 onClick={() => setHistoryFilter(filter)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-full text-sm font-extralight transition-colors ${
                   historyFilter === filter
-                    ? "bg-[#1E1A8F] text-white"
-                    : "bg-slate-800/50 text-white hover:text-white border border-slate-700"
+                    ? "bg-[#1E1A8F] backdrop-blur-md text-white shadow-lg shadow-black/30 border-l border-t border-r border-white/15"
+                    : "bg-white/10 backdrop-blur-sm text-white hover:text-white hover:bg-white/15 border-l border-t border-r border-white/15"
                 }`}
               >
                 {filter}

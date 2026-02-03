@@ -20,7 +20,7 @@ export default function MyPackageCard({
   </h3>
 </div>
           {/* Info Grid */}
-          <div className="space-y-2 text-sm">
+          <div className="space-y-1 text-sm">
             <div className="flex justify-between">
               <span className="text-white/50 text-xs">Price</span>
               <span className="text-white/70">{price}</span>

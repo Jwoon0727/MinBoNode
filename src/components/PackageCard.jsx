@@ -8,7 +8,7 @@ export default function PackageCard({ name, image, daily, maxOut, miningPower, p
       <h3 className="text-white font-bold text-2xl mb-3">{name}</h3>
       
       {/* Car Image */}
-      <div className="relative h-40 mb-4 rounded-xl overflow-hidden bg-slate-900">
+      <div className="relative h-50 mb-4 rounded-xl overflow-hidden bg-slate-900">
         <img
           src={image || "/placeholder.svg"}
           alt={name}
