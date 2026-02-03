@@ -33,7 +33,7 @@ function App() {
         showAuthModal={showAuthModal}
         setShowAuthModal={setShowAuthModal}
       />
-      <div className="flex-1 pb-20 lg:pb-0">
+      <div className="flex-1 pb-20 lg:pb-0 lg:ml-64">
         {currentPage === "race" && <Dashboard onMenuClick={() => setSidebarOpen(true)} />}
         {currentPage === "packages" && <PackagesPage activeTab={currentTab} onTabChange={setCurrentTab} onMenuClick={() => setSidebarOpen(true)} />}
         {currentPage === "partner" && <PartnerPage activeTab={partnerTab} onTabChange={setPartnerTab} onMenuClick={() => setSidebarOpen(true)} />}

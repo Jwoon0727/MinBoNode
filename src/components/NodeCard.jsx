@@ -3,7 +3,7 @@ export default function NodeCard({ node }) {
   const isDone = node.status === "done";
 
   return (
-    <div className="bg-slate-800/70 border border-slate-700 rounded-2xl p-4 relative overflow-hidden group">
+    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 relative overflow-hidden group shadow-lg shadow-black/20">
       {/* Done Overlay - Always visible on hover */}
       <div className="absolute inset-0 bg-slate-900/60 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-900 text-white px-12 py-3 rounded-full font-semibold transition-all shadow-md hover:shadow-lg active:scale-[0.97]">

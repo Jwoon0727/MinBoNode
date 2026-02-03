@@ -96,8 +96,9 @@ export default function PackageCard({ name, image, daily, maxOut, miningPower, p
   text-white
   px-10 py-3
   rounded-full
-  text-[10px]
-  font-semibold
+  text-xs
+  font-medium 
+  border-t border-l border-r border-white/20
   tracking-wider
   transition-colors
 ">

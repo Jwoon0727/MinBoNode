@@ -217,7 +217,7 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
       {/* Sidebar */}
       <aside
   className={`
-    fixed lg:static inset-y-0 left-0 z-40
+    fixed inset-y-0 left-0 z-40
     w-64
     bg-gradient-to-b from-[#020617] to-[#020617]
     transform transition-transform duration-300 ease-in-out
@@ -293,7 +293,7 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
 
         {/* Navigation */}
         <nav className="flex-1 px-4 pb-4 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
-          <div className="bg-[#151515]
+          <div className="sticky top-0 bg-[#151515]
 backdrop-blur-lg
 border border-white/10
 rounded-2xl
@@ -388,18 +388,23 @@ shadow-xl shadow-black/10">
                       (section.id === "partner" && currentPage === "partner" && partnerTab === partnerTabMapping[item.label]) ||
                       (section.id === "wallet" && currentPage === "wallet" && walletTab === walletTabMapping[item.label]);
                     
+                    // 하위 메뉴가 없는 탭인지 확인 (section.title이 없는 경우)
+                    const isTopLevelItem = !section.title;
+                    
                     return (
                       <button
                         key={itemIndex}
                         type="button"
                         onClick={() => handleMenuClick(item.label, section.id)}
                         className={`
-                          w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm
+                          w-full flex items-center gap-3 px-3 py-2 rounded-2xl text-sm
                           transition-colors duration-200
                           ${
-                            isActive
-  ? "bg-white/10 shadow-inner"
-  : "hover:bg-white/5"
+                            isTopLevelItem
+                              ? (isActive ? "" : "hover:bg-white/5")
+                              : (isActive
+                                  ? "bg-white/20 backdrop-blur-lg shadow-xl shadow-black/30 border border-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]"
+                                  : "hover:bg-white/15 hover:backdrop-blur-md hover:border hover:border-white/20")
                           }
                           ${!item.icon && section.title ? "pl-8" : ""}
                         `}
@@ -407,10 +412,10 @@ shadow-xl shadow-black/10">
                         {item.icon && (
                           <item.icon 
                             size={16} 
-                            className={isActive ? "text-cyan-400" : "text-white/30"}
+                            className={isActive ? (isTopLevelItem ? "text-cyan-400" : "text-white") : "text-white/30"}
                           />
                         )}
-                        <span className={isActive ? "text-cyan-400" : "text-white/30"}>
+                        <span className={isActive ? (isTopLevelItem ? "text-cyan-400" : "text-white") : "text-white/30"}>
                           {item.label}
                         </span>
                       </button>

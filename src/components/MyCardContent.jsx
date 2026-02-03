@@ -35,8 +35,9 @@ export default function MyCardContent({ onBuyCard, onRegister }) {
         -translate-x-1/2 -translate-y-1/2
         bg-[#4F66D7] hover:bg-blue-700
         text-white px-8 py-2
-        rounded-full text-sm font-medium
+        rounded-full text-xs font-light 
         transition-colors
+        border-t border-l border-r border-white/20
       "
     >
       Buy Now
@@ -52,16 +53,16 @@ export default function MyCardContent({ onBuyCard, onRegister }) {
 
       {/* Action Buttons */}
       <div className="flex justify-center gap-3 mb-8">
-        <button className="px-6 py-2 bg-transparent border border-slate-600 text-slate-300 rounded-full text-sm hover:bg-slate-700 transition-colors">
-          Top-up
-        </button>
+      <button className="px-6 py-2 backdrop-blur-md shadow-lg shadow-black/20 bg-[#24282D] border-t border-l border-r border-white/10 text-white/70 rounded-full text-sm hover:bg-slate-700 transition-colors text-xs font-light ">
+  Top-up
+</button>
         <button 
           onClick={onRegister}
-          className="px-6 py-2 bg-[#2623A9] hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-colors"
+          className="px-6 py-2 bg-[#2623A9] hover:bg-blue-700 text-white text-xs font-light rounded-full border-t border-l border-r border-white/15 text-sm font-medium transition-colors"
         >
           Register
         </button>
-        <button className="px-6 py-2 bg-transparent border border-slate-600 text-slate-300 rounded-full text-sm hover:bg-slate-700 transition-colors">
+        <button className="px-6 py-2 backdrop-blur-md text-xs font-light shadow-lg shadow-black/20 bg-[#24282D] border-t border-l border-r border-white/10 text-white/70 rounded-full text-sm hover:bg-slate-700 transition-colors">
           Remove
         </button>
       </div>
@@ -75,20 +76,20 @@ export default function MyCardContent({ onBuyCard, onRegister }) {
           <button
             key={tab}
             onClick={() => setActiveHistoryTab(tab)}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+            className={`px-4 py-1.5 rounded-full text-xs font-light transition-colors ${
               activeHistoryTab === tab
-                ? "bg-[#2623A9] text-white"
-                : "bg-slate-700/50 text-slate-400 hover:text-white"
+                ? "bg-[#2623A9] text-white border-t border-l border-r border-white/20"
+                : "bg-[#24282D] border-t border-l border-r border-white/10 text-slate-300 rounded-full text-sm hover:bg-slate-700 transition-colors"
             }`}
           >
-            {tab}
+            {tab} 
           </button>
         ))}
       </div>
 
       {/* History Content */}
       <div className="bg-[#24282D] border  rounded-xl p-8">
-        <p className="text-white/50 text-center text-sm">No data</p>
+        <p className="text-white/50 text-center text-xs font-light ">No data</p>
       </div>
     </>
   );

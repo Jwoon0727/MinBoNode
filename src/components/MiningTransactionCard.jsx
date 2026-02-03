@@ -9,13 +9,13 @@ export default function MiningTransactionCard({
   wallet = "MGG",
 }) {
   return (
-    <div className="bg-white/10 border border-white/10 rounded-xl p-4 relative overflow-hidden">
+    <div className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-black/20 rounded-xl p-4 relative overflow-hidden">
       {/* Content */}
       <div className="pl-4">
 {/* Node Name */}
 <div className="flex items-center gap-3 mb-4">
   <div className="w-1 h-7 bg-cyan-400 rounded-full" />
-  <h3 className="text-cyan-400 font-semibold text-base">
+  <h3 className="text-cyan-400 font-normal text-base">
     {name}
   </h3>
 </div>

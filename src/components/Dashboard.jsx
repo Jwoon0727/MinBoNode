@@ -46,13 +46,18 @@ export default function Dashboard({ onMenuClick }) {
 
 <button className="
   flex items-center justify-center gap-2
-  bg-slate-700/80 hover:bg-slate-600
+  bg-white/10
+  backdrop-blur-md
+  border-t border-l border-r border-white/20
+  hover:bg-white/20
   text-white
   px-8 py-2
   rounded-full
   font-medium
-  transition-colors
+  transition-all
   flex-1
+  shadow-lg
+  shadow-black/20
 ">
   Package →
 </button>
