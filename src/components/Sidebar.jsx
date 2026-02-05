@@ -7,7 +7,6 @@ import {
   Users,
   TicketIcon,
   Settings,
-  Globe,
   Menu,
   X,
   ChevronUp,
@@ -16,6 +15,14 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AuthModal from "@/components/AuthModal";
+
+const languages = [
+  { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "ja", name: "日本語", flag: "🇯🇵" },
+  { code: "ko", name: "한국어", flag: "🇰🇷" },
+  { code: "zh-CN", name: "简体中文", flag: "🇨🇳" },
+  { code: "zh-TW", name: "繁體中文", flag: "🇹🇼" },
+];
 
 const menuSections = [
   {
@@ -65,7 +72,6 @@ const menuSections = [
     items: [
       { icon: TicketIcon, label: "Support Tickets" },
       { icon: Settings, label: "Settings" },
-      { icon: Globe, label: "한국어" },
     ],
   },
 ];
@@ -74,6 +80,8 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [authMode, setAuthMode] = useState("login");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[2]); // 한국어 기본값
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   
   // 모바일 여부에 따라 초기 상태 설정
   const [expandedSections, setExpandedSections] = useState(() => {
@@ -113,6 +121,18 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  
+  // 외부 클릭 시 언어 드롭다운 닫기
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showLanguageDropdown && !event.target.closest('.language-selector')) {
+        setShowLanguageDropdown(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showLanguageDropdown]);
   
   const setIsOpen = (value) => {
     if (onToggle) {
@@ -225,13 +245,15 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
     flex flex-col h-screen
   `}
 >
-     {/* Logo */}
+{/* Logo */}
 <div className="px-4 pt-4 pb-4">
-  <img
-    src="/images/logo.svg"
-    alt="MIMBONODE"
-    className="h-6 w-auto"
-  />
+  <a href="/" className="inline-block">
+    <img
+      src="/images/logo.svg"
+      alt="MIMBONODE"
+      className="h-6 w-auto cursor-pointer"
+    />
+  </a>
 </div>
 
         {/* User Profile / Auth Buttons */}
@@ -293,19 +315,22 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
 
         {/* Navigation */}
         <nav className="flex-1 px-4 pb-4 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
-          <div className="sticky top-0 bg-[#151515]
+          <div className={`sticky top-0 bg-[#151515]
 backdrop-blur-lg
 border border-white/10
 rounded-2xl
 p-3
-shadow-xl shadow-black/10">
+shadow-xl shadow-black/10
+space-y-0.5
+transition-all duration-200
+${showLanguageDropdown ? 'pb-52' : ''}`}>
             {menuSections.map((section, sectionIndex) => (
               <div key={sectionIndex}>
                 {section.title && section.collapsible ? (
                   <button
                     type="button"
                     onClick={() => toggleSection(section.id)}
-                    className="w-full flex items-center justify-between px-3 py-2 text-white/30 text-sm transition-colors"
+                    className="w-full flex items-center justify-between px-3 py-1.5 text-white/30 text-sm transition-colors font-extralight"
                   >
                     <div className="flex items-center gap-2">
                       {section.icon && (
@@ -330,8 +355,8 @@ shadow-xl shadow-black/10">
                         (section.id === "packages" && currentPage === "packages") ||
                         (section.id === "wallet" && currentPage === "wallet") ||
                         (section.id === "partner" && currentPage === "partner")
-                        ? "text-cyan-400 font-semibold" 
-                        : ""
+                        ? "text-cyan-400 font-extralight" 
+                        : "font-extralight"
                       }>{section.title}</span>
                     </div>
                     {/* 모바일에서만 chevron 표시 */}
@@ -344,10 +369,10 @@ shadow-xl shadow-black/10">
                     )}
                   </button>
                 ) : section.title ? (
-                  <div className="flex items-center gap-2 px-3 py-2 text-white/30 text-sm">
+                  <div className="flex items-center gap-2 px-3 py-1.5 text-white/30 text-sm font-extralight">
                     {section.icon && <section.icon size={16} />}
                     {!section.icon && section.title === "Packages" && <Package size={16} />}
-                    <span>{section.title}</span>
+                    <span className="font-extralight">{section.title}</span>
                   </div>
                 ) : null}
                 {/* PC에서는 항상 열림, 모바일에서는 expandedSections에 따라 열림 */}
@@ -397,8 +422,9 @@ shadow-xl shadow-black/10">
                         type="button"
                         onClick={() => handleMenuClick(item.label, section.id)}
                         className={`
-                          w-full flex items-center gap-3 px-3 py-2 rounded-2xl text-sm
+                          w-full flex items-center gap-3 px-3 py-1.5 rounded-2xl text-sm
                           transition-colors duration-200
+                          font-extralight
                           ${
                             isTopLevelItem
                               ? (isActive ? "" : "hover:bg-white/5")
@@ -415,7 +441,7 @@ shadow-xl shadow-black/10">
                             className={isActive ? (isTopLevelItem ? "text-cyan-400" : "text-white") : "text-white/30"}
                           />
                         )}
-                        <span className={isActive ? (isTopLevelItem ? "text-cyan-400" : "text-white") : "text-white/30"}>
+                        <span className={`font-extralight ${isActive ? (isTopLevelItem ? "text-cyan-400" : "text-white") : "text-white/30"}`}>
                           {item.label}
                         </span>
                       </button>
@@ -423,6 +449,43 @@ shadow-xl shadow-black/10">
                   })}
               </div>
             ))}
+            
+            {/* Language Selector */}
+            <div className="relative language-selector mt-1">
+              <button
+                onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
+                className="w-full flex items-center gap-3 px-3 py-1.5 rounded-2xl text-sm
+                  transition-colors duration-200
+                  hover:bg-white/5
+                  font-extralight"
+              >
+                <span className="text-2xl">{selectedLanguage.flag}</span>
+                <span className="text-white/30 font-extralight">{selectedLanguage.name}</span>
+                
+              </button>
+              
+              {/* Language Dropdown */}
+              {showLanguageDropdown && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-[#151515] border border-white/10 rounded-xl overflow-hidden shadow-xl z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setSelectedLanguage(lang);
+                        setShowLanguageDropdown(false);
+                      }}
+                      className={`w-full flex items-center gap-3 px-3 py-1.5 text-sm
+                        transition-colors
+                        font-extralight
+                        ${selectedLanguage.code === lang.code ? 'bg-cyan-400/10 text-cyan-400' : 'text-white/50 hover:bg-white/5 hover:text-white'}`}
+                    >
+                      <span className="text-xl">{lang.flag}</span>
+                      <span className="font-extralight">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </nav>
       </aside>

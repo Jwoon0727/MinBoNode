@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Globe, Power, Lock, X, AlertTriangle } from "lucide-react";
+import { Globe, Power, Lock, X, AlertTriangle,Shield } from "lucide-react";
 import PageHeader from "./PageHeader";
 
 const languages = [
@@ -41,7 +41,7 @@ export default function SettingsPage({ onMenuClick }) {
         <div className="bg-[#222325] border border-white/10 rounded-2xl p-6 mb-4">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-              <Power size={20} className="text-white" />
+              <Shield size={20} className="text-white" />
             </div>
           </div>
           <h2 className="text-white text-lg font-semibold mb-1">Two-Factor Authentication</h2>
@@ -66,7 +66,7 @@ export default function SettingsPage({ onMenuClick }) {
   </button>
             <button
               onClick={handleEnable2FA}
-              className={`flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors ${
+              className={`flex-1 py-3 border-t border-l border-r border-white/30 border-b-0 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors ${
                 is2FAEnabled
                   ? "bg-blue-600 text-white"
                   : "bg-blue-600 text-white hover:bg-blue-700"
@@ -86,7 +86,7 @@ export default function SettingsPage({ onMenuClick }) {
           </div>
           <h2 className="text-white text-lg font-semibold mb-4">Change Password</h2>
           
-          <button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition-colors">
+          <button className="w-full border-t border-l border-r border-white/30 border-b-0 bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition-colors">
             Change Password
           </button>
         </div>
@@ -129,8 +129,8 @@ export default function SettingsPage({ onMenuClick }) {
                 onClick={() => setSelectedLanguage(lang.code)}
                 className={`flex items-center justify-center gap-2 py-3 px-4 rounded-full font-medium transition-colors ${
                   selectedLanguage === lang.code
-                    ? "bg-blue-600 text-white"
-                    : "bg-white/10 text-slate-300 hover:bg-slate-600"
+                    ? "border-t border-l border-r border-white/30 border-b-0 bg-blue-600 text-white"
+                    : "border-t border-l border-r border-white/30 border-b-0 bg-white/10 text-slate-300 hover:bg-slate-600"
                 }`}
               >
                 <span className="text-lg">{lang.flag}</span>

@@ -116,7 +116,7 @@ export default function ProfilePage({ onMenuClick }) {
           </div>
           <button 
             onClick={() => setShowEditModal(true)}
-            className="w-full max-w-xs bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition-colors mb-3"
+            className="w-full max-w-xs border-l border-t border-r border-white/20 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium transition-colors mb-3"
           >
             Edit Profile
           </button>
@@ -125,6 +125,7 @@ export default function ProfilePage({ onMenuClick }) {
             className="
               w-full max-w-xs
               bg-gradient-to-b from-slate-700 to-black
+              border-l border-t border-r border-white/20
               hover:from-slate-500 hover:to-black
               text-white
               py-3
@@ -138,7 +139,7 @@ export default function ProfilePage({ onMenuClick }) {
         </div>
 
         {/* User Info Card */}
-        <div className="bg-[#222325] border border-white/10 rounded-xl p-4 mb-6">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20  rounded-xl p-4 mb-6 shadow-lg shadow-black/20">
           <div className="space-y-1">
             {userInfo.map((item, index) => (
               <div key={index} className="flex justify-between items-center text-sm">
@@ -172,7 +173,7 @@ export default function ProfilePage({ onMenuClick }) {
   {[...statsRow1, ...statsRow2, ...statsRow3].map((stat, index) => (
     <div
       key={index}
-      className="bg-[#222325] border border-white/10 rounded-xl p-4 text-center"
+      className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center shadow-lg shadow-black/20"
     >
       <div className="text-white/80 text-xs mb-2">{stat.label}</div>
       <div className="text-white font-semibold text-sm">{stat.value}</div>
@@ -183,7 +184,7 @@ export default function ProfilePage({ onMenuClick }) {
         {/* Invite Friends */}
         <div className="mb-8">
           <h3 className="text-white font-semibold mb-4">Invite Friends</h3>
-          <div className="bg-[#222325] border border-white/10 rounded-xl p-4 space-y-4">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 space-y-4 shadow-lg shadow-black/20">
             {/* Referral Code */}
             <div>
               <label className="text-white text-sm mb-2 block">Referral Code</label>
@@ -329,6 +330,7 @@ export default function ProfilePage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -401,6 +403,7 @@ export default function ProfilePage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -420,6 +423,7 @@ export default function ProfilePage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -439,6 +443,7 @@ export default function ProfilePage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"

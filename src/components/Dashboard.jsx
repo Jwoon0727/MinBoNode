@@ -64,13 +64,20 @@ export default function Dashboard({ onMenuClick }) {
           </div>
         </div>
 
-        {/* Racing Track Image Card */}
-        <div className="relative rounded-2xl overflow-hidden mb-4">
-          <img
-            src="/images/race_img.png"
-            alt="Racing Track"
-            className="w-full h-64 lg:h-80 object-cover"
-          />
+      {/* Racing Track Image Card */}
+      <div className="relative overflow-hidden mb-4">
+        <img
+  src="/images/race_img.png"
+  alt="Racing Track"
+  className="
+    w-full
+  h-56
+  sm:h-72
+  md:h-80
+    lg:h-[480px]
+    object-cover
+  "
+/>
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
 

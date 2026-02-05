@@ -14,7 +14,7 @@ export default function BottomNavigation({ currentPage, onPageChange, isAuthModa
   }
 
   return (
-    <div className="lg:hidden fixed bottom-4 left-0 right-0 z-50 flex justify-center">
+    <div className="lg:hidden fixed bottom-4 left-0 right-0 z-40 flex justify-center">
       <nav className="flex items-center gap-6 px-6 py-3 bg-[#0b0f14] border border-white/10 rounded-full shadow-xl">
         {navItems.map((item) => {
           const isActive = currentPage === item.page;

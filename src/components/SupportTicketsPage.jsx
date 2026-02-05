@@ -127,8 +127,8 @@ export default function SupportTicketsPage({ onMenuClick }) {
     onClick={() => setShowChangeEmailModal(true)}
     className="
       flex items-center justify-center gap-2
-      bg-white/10 border border-white/10
-      hover:bg-white/20 text-white/70
+      bg-white/10 border-l border-t border-r border-white/15
+      hover:bg-white/20 text-white
       px-5 py-2.5
       rounded-lg
       transition-colors
@@ -143,8 +143,8 @@ export default function SupportTicketsPage({ onMenuClick }) {
     onClick={() => setShowAddTicketModal(true)}
     className="
       flex items-center justify-center gap-2
-      bg-white/10 border border-white/10
-      hover:bg-white/20 text-white/70
+      bg-white/10 border-l border-t border-r border-white/15
+      hover:bg-white/20 text-white
       px-5 py-2.5
       rounded-lg
       transition-colors
@@ -160,7 +160,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
         <div className="bg-[#2A2F35] border rounded-2xl p-2 sm:p-2">
   
   {/* Tickets List */}
-  <div className="space-y-4">
+  <div className="space-y-2">
     {tickets.map((ticket) => (
       <div
         key={ticket.id}
@@ -177,7 +177,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
         </div>
 
         {/* Ticket Details */}
-        <div className="space-y-2">
+        <div className="space-y-1">
           <div className="flex justify-between items-center">
             <span className="text-white/50 text-sm">Support Tickets</span>
             <span className="text-white text-sm">
@@ -259,6 +259,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -278,6 +279,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -326,7 +328,6 @@ export default function SupportTicketsPage({ onMenuClick }) {
     w-5 h-5
     flex items-center justify-center
     rounded-full
-    border border-white/30
     text-white/60
     hover:text-white
     hover:border-white/50
@@ -353,6 +354,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -372,6 +374,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
   rounded-lg
   px-4 py-3
   text-white
+  placeholder-white/40
   focus:outline-none
   focus:border-blue-500
   transition-colors"
@@ -381,12 +384,38 @@ export default function SupportTicketsPage({ onMenuClick }) {
               {/* Attach Images */}
               <div>
                 <label className="block text-white text-sm mb-2">Attach Images</label>
-                <div className="  border-t-2 border-l-2 border-r-2
-    border-dashed border-white/50
-    rounded-t-lg
-    p-8
-    text-center
-">
+                <div 
+                  className="relative rounded-t-lg p-8 text-center overflow-hidden"
+                  style={{
+                    borderTop: '2px dashed rgba(255, 255, 255, 1)',
+                    borderBottom: '2px solid rgba(255, 255, 255, 0.46)'
+                  }}
+                >
+                  {/* Left gradient border */}
+                  <div 
+                    className="absolute left-0 top-0 bottom-0 w-[2px]"
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2))',
+                      backgroundSize: '2px 10px',
+                      backgroundRepeat: 'repeat-y',
+                      maskImage: 'repeating-linear-gradient(to bottom, black 0px, black 5px, transparent 5px, transparent 10px)',
+                      WebkitMaskImage: 'repeating-linear-gradient(to bottom, black 0px, black 5px, transparent 5px, transparent 10px)'
+                    }}
+                  />
+                  {/* Right gradient border */}
+                  <div 
+                    className="absolute right-0 top-0 bottom-0 w-[2px]"
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2))',
+                      backgroundSize: '2px 10px',
+                      backgroundRepeat: 'repeat-y',
+                      maskImage: 'repeating-linear-gradient(to bottom, black 0px, black 5px, transparent 5px, transparent 10px)',
+                      WebkitMaskImage: 'repeating-linear-gradient(to bottom, black 0px, black 5px, transparent 5px, transparent 10px)'
+                    }}
+                  />
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
                   <input
                     type="file"
                     multiple
@@ -397,16 +426,16 @@ export default function SupportTicketsPage({ onMenuClick }) {
                   />
                   
                   <div className="flex flex-col items-center gap-3">
-                    <Upload size={32} className="text-white/50" />
-                    <div className="text-gray-400 text-sm">
+                    <Upload size={20} className="text-white" />
+                    <div className="text-white/50 text-sm">
                       Support.dragAndDrop
                     </div>
-                    <div className="text-white/50 text-xs">
+                    <div className="text-white/70 text-xs">
                       Support.imageLimit
                     </div>
                     <label
                       htmlFor="file-upload"
-                      className="bg-[#4F66D7] hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer"
+                      className="bg-[#4F66D7] hover:bg-blue-700 text-white px-6 py-2 rounded-sm font-medium transition-colors cursor-pointer"
                     >
                       Support.browseFiles
                     </label>
@@ -427,6 +456,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
                       </div>
                     </div>
                   )}
+                  </div>
                 </div>
               </div>
             </div>

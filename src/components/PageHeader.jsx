@@ -20,22 +20,34 @@ export default function PageHeader({ title, onMenuClick }) {
         </div>
       </div>
       
-      <div className="flex items-center gap-2 relative">
+      <div className="flex items-center gap-1.5 relative">
         <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-          <Globe size={18} className="text-white" />
+        <img
+  src="/images/Union.svg"
+  alt="Globe"
+  className="w-5 h-5"
+ />
         </div>
-        <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-          <span className="text-[7px] text-white font-bold leading-tight text-center">FELLAS<br/>CARD</span>
-        </div>
+        <a href="https://www.fellascard.com/login">
+  <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 cursor-pointer hover:bg-slate-600 transition">
+    <span className="text-[9px] text-white font-bold leading-tight text-center">
+      FELLAS<br />CARD
+    </span>
+  </div>
+</a>
         
         {/* Desktop: Show both games */}
         <div className="hidden lg:flex items-center gap-2">
+          <a href="https://2048slimedev.mimbonode.io/">
           <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-            <span className="text-[7px] text-white font-bold leading-tight text-center">2048<br/>SMILE</span>
+            <span className="text-[9px] text-white font-bold leading-tight text-center">2048<br/>SMILE</span>
           </div>
+          </a>
+          <a href="https://hyperracingdev.mimbonode.io/">
           <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-            <span className="text-[7px] text-white font-bold leading-tight text-center">HYPER<br/>RACING</span>
+            <span className="text-[9px] text-white font-bold leading-tight text-center">HYPER<br/>RACING</span>
           </div>
+          </a>
         </div>
         
         {/* Mobile: Games toggle button */}
@@ -58,8 +70,8 @@ export default function PageHeader({ title, onMenuClick }) {
               {/* Capsule wrapper */}
               <div
                 className="
-                  absolute right-[-13px] top-full mt-3 z-20
-                  px-3 py-3
+                  absolute right-[-7px] top-full mt-3 z-20
+                  px-1.5 py-1.5
                   rounded-full
                   bg-[#0b0f14]
                   border border-slate-700
@@ -68,40 +80,43 @@ export default function PageHeader({ title, onMenuClick }) {
               >
                 <div className="flex flex-col gap-3">
                   {/* 2048 */}
-                  <button
-                    className="
-                      w-10 h-10
-                      rounded-full
-                      bg-slate-700/40
-                      flex items-center justify-center
-                      border border-slate-800
-                      hover:bg-slate-600
-                      transition
-                      active:scale-95
-                    "
-                  >
-                    <span className="text-[7px] text-white font-bold leading-tight text-center">
-                      2048<br />SMILE
-                    </span>
-                  </button>
+                  
+                  <a
+  href="https://2048slimedev.mimbonode.io/"
+  className="
+    w-10 h-10
+    rounded-full
+    bg-slate-700/40
+    flex items-center justify-center
+    border border-slate-800
+    hover:bg-slate-600
+    transition
+    active:scale-95
+  "
+>
+  <span className="text-[9px] text-white font-bold leading-tight text-center">
+    2048<br />SMILE
+  </span>
+</a>
 
                   {/* HYPER RACING */}
-                  <button
-                    className="
-                      w-10 h-10
-                      rounded-full
-                      bg-slate-700/40
-                      flex items-center justify-center
-                      border border-slate-800
-                      hover:bg-slate-600
-                      transition
-                      active:scale-95
-                    "
-                  >
-                    <span className="text-[7px] text-white font-bold leading-tight text-center">
-                      HYPER<br />RACING
-                    </span>
-                  </button>
+                  <a
+  href="https://hyperracingdev.mimbonode.io/"
+  className="
+    w-10 h-10
+    rounded-full
+    bg-slate-700/40
+    flex items-center justify-center
+    border border-slate-800
+    hover:bg-slate-600
+    transition
+    active:scale-95
+  "
+>
+  <span className="text-[9px] text-white font-bold leading-tight text-center">
+    HYPER<br />RACING
+  </span>
+</a>
                 </div>
               </div>
             </>
@@ -109,7 +124,7 @@ export default function PageHeader({ title, onMenuClick }) {
         </div>
         
         <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-          <Globe size={18} className="text-white" />
+          <Globe size={20} className="text-white" />
         </div>
         {/* Mobile: Hamburger Menu Button */}
         <button
