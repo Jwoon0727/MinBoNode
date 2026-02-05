@@ -125,7 +125,7 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
     className="
       inline-flex lg:flex items-center
       w-full lg:w-[85%] mx-auto
-      bg-white/5
+      bg-white/10
       backdrop-blur-xl
 
       border-l border-t border-r

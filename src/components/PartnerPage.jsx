@@ -105,14 +105,15 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
         <PageHeader title="Partner" onMenuClick={onMenuClick} />
 
         {/* Balance Card */}
-        <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+   {/* Balance Card */}
+   <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
           {/* Balance */}
           <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
-            <div className="text-white text-xs sm:text-sm mb-1">Total Balance</div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">
+            <div className="text-white font-thin  text-xs sm:text-sm lg:text-xl mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-7xl font-medium">
               $123.456
             </div>
-            <div className="text-white/50 text-xs mt-2">
+            <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
           </div>
@@ -125,7 +126,7 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
   text-white
   px-4 sm:px-8 py-2
   rounded-full
-  font-medium text-sm sm:text-base
+  font-light text-sm sm:text-base
   transition-colors
   flex-1
 ">
@@ -134,11 +135,15 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
 
 <button className="
   flex items-center justify-center gap-1 sm:gap-2
-  bg-slate-700/80 hover:bg-slate-600
+
+  bg-white/10 hover:bg-slate-600
+  backdrop-blur-md
+  border-t border-l border-r border-white/20
+
   text-white
   px-4 sm:px-8 py-2
   rounded-full
-  font-medium text-sm sm:text-base
+  font-light text-sm sm:text-base
   transition-colors
   flex-1
 ">
@@ -153,9 +158,9 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
     className="
       inline-flex lg:flex items-center
       w-full lg:w-[65%] mx-auto
-      bg-white/5
+      bg-white/10
       backdrop-blur-xl
-      border border-white/10
+      border-l border-t border-r border-white/10
       rounded-2xl
       p-[2px]
       shadow-[0_8px_30px_rgba(0,0,0,0.35)]
@@ -171,7 +176,7 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
           px-2 sm:px-4
           rounded-xl
           text-[10px] sm:text-sm
-          font-medium
+          font-extralight
           transition-all
           whitespace-nowrap
           overflow-hidden text-ellipsis

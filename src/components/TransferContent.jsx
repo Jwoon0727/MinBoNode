@@ -25,11 +25,11 @@ export default function TransferContent() {
       <h3 className="text-white text-lg font-semibold mb-4">Transfer</h3>
 
       {/* Transfer Form */}
-      <div className="bg-[#151515] border  rounded-xl p-6 mb-6">
+      <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-6 shadow-lg shadow-black/20">
         {/* Select Token */}
         <div className="mb-4">
           <label className="text-white/50 text-sm mb-2 block">Select Token</label>
-          <button className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 flex items-center justify-between text-white">
+          <button className="w-full bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3 flex items-center justify-between text-white">
             <span>{selectedToken}</span>
             <ChevronDown size={18} className="text-white/50" />
           </button>
@@ -43,7 +43,7 @@ export default function TransferContent() {
             placeholder="Search by username or email"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
-            className="w-full bg-black/20 border border-white/10  rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500"
+            className="w-full bg-black/20 border-l border-t border-r border-white/15  rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500"
           />
         </div>
 
@@ -56,31 +56,33 @@ export default function TransferContent() {
               placeholder="Enter amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500 pr-16"
+              className="w-full bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500 pr-16"
             />
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 text-sm">MGG</span>
           </div>
         </div>
 
         {/* Summary */}
-        <div className="space-y-2 pt-4 border-t border-slate-700">
-          <div className="flex justify-between items-center">
-            <span className="text-slate-400 text-sm">Request Amount</span>
-            <span className="text-white/50 text-sm">0 MGG</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-cyan-400 text-sm">Fee (1%)</span>
-            <span className="text-cyan-400 text-sm">0 MGG</span>
-          </div>
-          <div className="flex justify-between items-center pt-2 border-t border-slate-700">
-            <span className="text-white text-sm font-medium">Actual Withdrawal Amount</span>
-            <span className="text-white text-sm font-medium">0 MGG</span>
+        <div className="bg-black/20  border-l border-t border-r border-white/15 rounded-xl p-4 shadow-lg shadow-black/20">
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-slate-400 text-sm">Request Amount</span>
+              <span className="text-white/50 text-sm">0 MGG</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-cyan-400 text-sm">Fee (1%)</span>
+              <span className="text-cyan-400 text-sm">0 MGG</span>
+            </div>
+            <div className="flex justify-between items-center pt-2 border-t border-white/10">
+              <span className="text-white text-sm font-medium">Actual Withdrawal Amount</span>
+              <span className="text-white text-sm font-medium">0 MGG</span>
+            </div>
           </div>
         </div>
 
         {/* Min Transfer Note */}
         <div className="text-right mt-2">
-          <span className="text-slate-500 text-xs">Min Transfer: 3,055.00 MGG</span>
+          <span className="text-white/50 font-extralight text-xs">Min Transfer: 3,055.00 MGG</span>
         </div>
       </div>
 
@@ -106,15 +108,14 @@ export default function TransferContent() {
 <h3 className="text-white text-lg font-semibold mb-4">
     Transfer History
   </h3>
-<div className="bg-[#24282D] border rounded-2xl p-2">
-  
- 
 
+
+<div className="bg-[#24282D] border rounded-2xl p-2">
   <div className="space-y-3">
     {transferHistory.map((tx) => (
       <div
         key={tx.id}
-        className="bg-white/10 border border-white/20 rounded-xl p-4"
+        className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-black/20  rounded-xl p-4"
       >
         <div className="flex items-center justify-between mb-2">
           <div>

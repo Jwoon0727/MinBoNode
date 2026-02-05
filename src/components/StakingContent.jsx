@@ -67,7 +67,7 @@ export default function StakingContent() {
     <>
       <h3 className="text-white text-lg font-medium mb-4">Staking</h3>
 
-      <div className="bg-[#151515] border border-black-700 rounded-xl p-4 mb-6">
+      <div className="bg-[#151515] backdrop-blur-xl border border-white/10 rounded-xl p-4 mb-6 shadow-lg shadow-black/20">
   <div className="space-y-3">
     {stakingStats.map((stat, index) => (
       <div
@@ -83,7 +83,7 @@ export default function StakingContent() {
 </div>
 
       {/* Bitcoin Wallet */}
-      <div className="bg-[#151515] border border-black-700 rounded-xl p-4 mb-6">
+      <div className="bg-[#151515] backdrop-blur-xl border border-white/10 rounded-xl p-4 mb-6 shadow-lg shadow-black/20">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
             <span className="text-white font-bold">B</span>
@@ -241,11 +241,11 @@ export default function StakingContent() {
           onClick={() => setShowStakingModal(false)}
         >
           <div 
-            className="bg-[#1F2123] rounded-2xl p-6 w-full max-w-lg border border-white/10"
+            className="bg-[#1F2123] rounded-2xl p-4 sm:p-6 w-full max-w-lg border border-white/10 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-3 sm:mb-6">
             <h2 className="text-2xl font-bold">
   <span className="text-cyan-400">207</span>
   <span className="text-white"> DAYS POOL</span>
@@ -267,7 +267,7 @@ export default function StakingContent() {
             </div>
 
             {/* Stats Grid */}
-            <div className="space-y-3 mb-6">
+            <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-6">
   <div className="flex justify-between items-center">
     <span className="text-gray-400 text-sm">Account Unit</span>
     <span className="text-cyan-400 font-semibold text-sm">
@@ -291,7 +291,7 @@ export default function StakingContent() {
 </div>
 
   {/* Pool Progress */}
-<div className="mb-6">
+<div className="mb-3 sm:mb-6">
   <div className="flex justify-between items-center mb-2">
     <span className="text-white font-semibold text-sm">
       POOL PROGRESS
@@ -318,16 +318,16 @@ export default function StakingContent() {
 </div>
 
             {/* Number of Accounts */}
-            <div className="mb-6">
-              <div className="text-white font-semibold text-sm mb-4">Number of Accounts</div>
+            <div className="mb-3 sm:mb-6">
+              <div className="text-white font-semibold text-sm mb-2 sm:mb-4">Number of Accounts</div>
               
             {/* Controls Container */}
 <div className="
   backdrop-blur-md
   border border-white/10
   rounded-xl
-  p-8
-  mb-6
+  p-4 sm:p-8
+  mb-3 sm:mb-6
 ">
   {/* Controls */}
   <div className="flex items-center justify-center gap-4">
@@ -395,7 +395,7 @@ export default function StakingContent() {
             </div>
 
             {/* Total Amount */}
-            <div className="bg-white/10 border border-white/10 rounded-lg p-4 mb-4">
+            <div className="bg-white/10 border border-white/10 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-white/50 text-sm">TOTAL AMOUNT</span>
                 <span className="text-white font-semibold">
@@ -415,7 +415,7 @@ export default function StakingContent() {
   mx-auto
   w-fit
   flex items-center justify-center gap-4
-  mb-6
+  mb-3 sm:mb-6
   px-4 py-2
   border border-slate-700
   rounded-lg

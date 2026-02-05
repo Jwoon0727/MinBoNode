@@ -18,11 +18,11 @@ export default function WithdrawContent() {
       <h3 className="text-white text-lg font-semibold mb-4">Withdraw</h3>
 
       {/* Withdraw Form */}
-      <div className="bg-[#151515] border rounded-xl p-5 mb-6">
+      <div className="bg-white/10 backdrop-blur-md  rounded-xl p-5 mb-6">
         {/* Select Wallet */}
         <div className="mb-4">
           <label className="text-white/50 text-sm mb-2 block">Select Wallet</label>
-          <button className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 flex items-center justify-between">
+          <button className="w-full bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-lg">🪙</span>
               <span className="text-white font-medium">MGG (9,505.32)</span>
@@ -40,12 +40,12 @@ export default function WithdrawContent() {
             placeholder="Enter the amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500"
+            className="w-full bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500"
           />
         </div>
 
     {/* Fee Summary */}
-<div className="bg-black/30 border border-white/10 rounded-xl p-4 mb-4">
+<div className="bg-black/30 border-l border-t border-r border-white/15 rounded-xl p-4 mb-4">
   <div className="space-y-2 text-sm">
     <div className="flex justify-between">
       <span className="text-white/50">Request Amount</span>
@@ -79,7 +79,7 @@ export default function WithdrawContent() {
             placeholder="0x..."
             value={walletAddress}
             onChange={(e) => setWalletAddress(e.target.value)}
-            className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500"
+            className="w-full bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3 text-white/50 placeholder-white/50 focus:outline-none focus:border-blue-500"
           />
           <p className="text-white/50 text-xs text-right mt-2">Withdraw fee: 3%</p>
         </div>
@@ -118,14 +118,15 @@ export default function WithdrawContent() {
      <h3 className="text-white text-lg font-semibold mb-4">
     Withdraw History
   </h3>
+
+
 <div className="bg-[#24282D] border rounded-2xl p-2">
 
-
-  <div className="space-y-4">
+  <div className="space-y-2">
     {withdrawHistory.map((tx) => (
       <div
         key={tx.id}
-        className="bg-white/10 border border-white/20  rounded-xl p-4"
+        className="bg-white/5 backdrop-blur-lg border border-white/10  rounded-xl p-4"
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-3">

@@ -1,9 +1,44 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronUp, ChevronDown, Download, Search, Plus, Minus, Maximize2 } from "lucide-react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export default function MatrixContent() {
   const [colorMode, setColorMode] = useState("orange"); // "orange" or "blue"
+  const treeNodeRef = useRef(null);
+
+  const handleDownloadPDF = async () => {
+    if (!treeNodeRef.current) return;
+
+    try {
+      // Tree Node Capture
+      const canvas = await html2canvas(treeNodeRef.current, {
+        backgroundColor: null, 
+        scale: 2, 
+      });
+
+      // PDF 생성
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+
+      const imgWidth = 80; 
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const xOffset = (pageWidth - imgWidth) / 2;
+
+      pdf.addImage(imgData, "PNG", xOffset, 20, imgWidth, imgHeight);
+      pdf.save("matrix-view.pdf");
+    } catch (error) {
+      console.error("PDF download failed:", error);
+    }
+  };
 
   return (
     <>
@@ -35,14 +70,17 @@ export default function MatrixContent() {
         </div>
         <div className="flex items-center gap-2">
           <button className="w-8 h-8 bg-[#151515] rounded-lg flex items-center justify-center hover:bg-slate-600">
-            <ChevronUp size={14} className="text-white/50" />
+            <ChevronUp size={14} className="text-white" />
           </button>
           <button className="w-8 h-8 bg-[#151515] rounded-lg flex items-center justify-center hover:bg-slate-600">
-            <ChevronDown size={14} className="text-white/50" />
+            <ChevronDown size={14} className="text-white" />
           </button>
-          <button className="w-14 h-8 bg-[#151515] rounded-lg flex items-center justify-center hover:bg-slate-600">
-            <Download size={14} className="text-white/50" />
-            <span className="text-white/50 text-xs ml-1">PDF</span>
+          <button 
+            onClick={handleDownloadPDF}
+            className="w-14 h-8 bg-[#151515] rounded-lg flex items-center justify-center hover:bg-slate-600"
+          >
+            <Download size={14} className="text-white" />
+            <span className="text-white text-xs ml-1">PDF</span>
           </button>
         
         </div>
@@ -53,7 +91,7 @@ export default function MatrixContent() {
         <input
           type="text"
           placeholder="Search by ID"
-          className="flex-1 bg-[#151515] border border-white/10 rounded-lg px-4 py-2 text-white text-sm placeholder-white/50 focus:outline-none focus:border-blue-500"
+          className="flex-1 bg-[#24282D] border border-white/10 rounded-lg px-4 py-2 text-white text-sm placeholder-white/50 focus:outline-none focus:border-blue-500"
         />
         <button className="bg-[#2623A9] hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
           <Search size={18} className="text-white" />
@@ -79,6 +117,7 @@ export default function MatrixContent() {
 {/* Tree Node */}
 <div className="flex items-center justify-center h-[300px]">
   <div
+    ref={treeNodeRef}
     className={`rounded-lg shadow-lg min-w-[200px] overflow-hidden ${
       colorMode === "orange" ? "bg-orange-50" : "bg-slate-800"
     }`}
@@ -126,7 +165,7 @@ export default function MatrixContent() {
     </div>
   </div>
 
-  {/* ✅ Level – 부모 박스 하단 전체 덮기 */}
+
   <div
     className={`
       px-4 py-3

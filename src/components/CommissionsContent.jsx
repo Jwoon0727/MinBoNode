@@ -17,11 +17,11 @@ export default function CommissionsContent() {
             key={tab}
             onClick={() => setActiveSubTab(tab)}
             className={`
-              px-4 py-1.5 rounded-full text-xs font-medium transition-colors
+              px-2 py-1.5 rounded-full text-xs font-extralight transition-colors
               ${
                 activeSubTab === tab
-                  ? "bg-blue-600 text-white"
-                  : "bg-slate-700/50 text-slate-400 hover:text-white"
+                   ? "bg-[#1E1A8F] backdrop-blur-md text-white shadow-lg shadow-black/30 border-l border-t border-r border-white/15"
+                    : "bg-white/10 backdrop-blur-sm text-white hover:text-white hover:bg-white/15 border-l border-t border-r border-white/15"
               }
             `}
           >
@@ -34,7 +34,7 @@ export default function CommissionsContent() {
       {activeSubTab === "All" && (
         <>
           {/* Total Bonus Card */}
-          <div className="bg-[#24282D] rounded-xl overflow-hidden mb-4">
+          <div className="bg-[#24282D] border-l border-t border-r border-white/15 rounded-xl overflow-hidden mb-4">
   {/* Header */}
   <div className="flex items-center gap-3 px-4 py-3">
     {/* Vertical Bar */}

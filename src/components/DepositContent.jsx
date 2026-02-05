@@ -21,13 +21,13 @@ export default function DepositContent() {
       <h3 className="text-white text-lg font-semibold mb-4">Deposit</h3>
 
       {/* Check Deposit Button */}
-      <button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 mb-6 transition-colors">
+      <button className="w-full border-l border-t border-r border-white/20 bg-gradient-to-r from-blue-700 to-blue-800 text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 mb-6 transition-colors">
         <RefreshCw size={18} />
         Check Deposit
       </button>
 
       {/* Deposit Form */}
-      <div className="bg-[#151515] border  rounded-xl p-5 mb-6">
+      <div className="bg-white/10 backdrop-blur-md  rounded-xl p-5 mb-6">
         {/* Select Wallet */}
         <div className="mb-4">
           <label className="text-white/50 text-sm mb-2 block">Select Wallet</label>
@@ -35,7 +35,7 @@ export default function DepositContent() {
             <select
               value={selectedWallet}
               onChange={(e) => setSelectedWallet(e.target.value)}
-              className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500"
+              className="w-full bg-black/20 bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500"
             >
               <option value="USDT">USDT</option>
               <option value="BTC">BTC</option>
@@ -49,7 +49,7 @@ export default function DepositContent() {
         {/* Wallet Address */}
         <div className="mb-6">
           <label className="text-cyan-400 text-sm mb-2 block">Wallet Address BEP 20</label>
-          <div className="flex items-center gap-2 bg-black/20 border border-white/10 rounded-lg px-4 py-3">
+          <div className="flex items-center gap-2 bg-black/20 border-l border-t border-r border-white/15 rounded-lg px-4 py-3">
             <span className="text-white flex-1 text-sm truncate">{walletAddress}</span>
             <button onClick={copyAddress} className="text-white/50 hover:text-white transition-colors">
               <Copy size={18} />
@@ -86,7 +86,7 @@ export default function DepositContent() {
     {depositHistory.map((tx) => (
       <div
         key={tx.id}
-          className="bg-white/10 border border-white/20 rounded-xl p-4"
+          className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-4"
       >
         <div className="flex items-center justify-between mb-3">
           <div>

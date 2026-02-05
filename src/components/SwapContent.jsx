@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ArrowUpDown, ChevronDown } from "lucide-react";
+import { ArrowDown, ChevronDown } from "lucide-react";
 
 const swapHistory = [
   { id: 1, from: "ablecity", to: "blue234", wallet: "USDT", amount: "38,999.00", time: "2025. 10. 14. 14:20" },
@@ -20,9 +20,9 @@ export default function SwapContent() {
       <h3 className="text-white text-lg font-semibold mb-4">Swap</h3>
 
       {/* Swap Form */}
-      <div className="space-y-2 mb-4">
+      <div className="mb-4">
         {/* From Input */}
-        <div className="bg-[#151515] border border-black-700 rounded-xl p-4">
+        <div className="bg-[#151515] backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-lg shadow-black/20 mb-2">
           <div className="flex items-center justify-between mb-2">
             <span className="text-slate-400 text-xs">To</span>
          
@@ -38,27 +38,27 @@ export default function SwapContent() {
 
   {/* 버튼 + Fee */}
   <div className="flex flex-col items-end gap-1">
-    <button className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-lg transition-colors">
+    <button className="flex items-center gap-2 bg-[#3F3F3F] hover:bg-slate-600 px-3 py-1.5 rounded-2xl transition-colors">
       <div className="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center">
         <span className="text-white text-[10px] font-bold">M</span>
       </div>
       <span className="text-white text-sm">{fromToken}</span>
-      <ChevronDown size={14} className="text-slate-400" />
+     
     </button>
-    <span className="text-slate-500 text-xs">Fee: 0.1 MGG</span>
+    <span className="text-white/50 font-extralight text-xs">Fee: 0.1 MGG</span>
   </div>
   </div>
         </div>
 
         {/* Swap Button */}
-        <div className="flex justify-center -my-1 relative z-10">
-          <button className="w-8 h-8 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center transition-colors border-4 border-slate-900">
-            <ArrowUpDown size={14} className="text-slate-400" />
+        <div className="flex justify-center -my-7 relative z-10">
+          <button className="w-14 h-14 bg-[#404040] hover:bg-[#3F3F3F] rounded-full flex items-center justify-center transition-colors border-4 border-[#292929]">
+            <ArrowDown size={18} className="text-white" />
           </button>
         </div>
 
         {/* To Input */}
-        <div className="bg-[#151515] border border-black-700 rounded-xl p-4">
+        <div className="bg-[#151515] backdrop-blur-xl border border-white/10 rounded-xl p-4 mb-6 shadow-lg shadow-black/20 mt-2">
           <div className="flex items-center justify-between mb-2">
             <span className="text-slate-400 text-xs">To</span>
           </div>
@@ -69,19 +69,18 @@ export default function SwapContent() {
               onChange={(e) => setToAmount(e.target.value)}
               className="bg-transparent text-white text-2xl font-medium w-full outline-none"
             />
-            <button className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded-lg transition-colors">
+            <button className="flex items-center gap-2 bg-[#3F3F3F] hover:bg-slate-600 px-3 py-1.5 rounded-2xl transition-colors">
               <div className="w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center">
                 <span className="text-white text-[10px] font-bold">T</span>
               </div>
               <span className="text-white text-sm">{toToken}</span>
-              <ChevronDown size={14} className="text-slate-400" />
             </button>
           </div>
           <div className="mt-3 space-y-1 text-right">
-            <p className="text-slate-500 text-xs">Current Rate : 1 MGG = 0.0024 USDT</p>
-            <p className="text-slate-500 text-xs">Fee Rate : 1%</p>
-            <p className="text-slate-500 text-xs">Minimum Swap : 5,000 MGG</p>
-            <p className="text-slate-500 text-xs">*Rates follow Binance live time market prices.</p>
+            <p className="text-white/50 font-extralight text-xs">Current Rate : 1 MGG = 0.0024 USDT</p>
+            <p className="text-white/50 font-extralight text-xs">Fee Rate : 1%</p>
+            <p className="text-white/50 font-extralight text-xs">Minimum Swap : 5,000 MGG</p>
+            <p className="text-white/50 font-extralight text-xs">*Rates follow Binance live time market prices.</p>
           </div>
         </div>
       </div>
@@ -105,7 +104,7 @@ export default function SwapContent() {
 </div>
 
       {/* Swap Button */}
-<button className="w-full bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-800 text-white text-xs py-3 rounded-full font-medium transition-all mb-8">
+<button className="w-full border-l border-t border-r border-white/20 bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-800 text-white text-xs py-3 rounded-full font-medium transition-all mb-8">
   Swap Now
 </button>
 
@@ -126,23 +125,23 @@ export default function SwapContent() {
     <span className="text-cyan-400 font-medium">{item.to}</span>
   </div>
         </div>
-        <br/>
-        <div className="space-y-2 text-sm">
+      
+        <div className="space-y-1 text-sm mt-5">
   {/* Wallet */}
   <div className="flex justify-between">
-    <span className="text-whtie/50 text-xs">Wallet</span>
+    <span className="text-white/50 font-extralight text-xs">Wallet</span>
     <span className="text-white/70">{item.wallet}</span>
   </div>
 
   {/* Amount */}
   <div className="flex justify-between">
-    <span className="text-white/50 text-xs">Amount</span>
+    <span className="text-white/50 font-extralight text-xs">Amount</span>
     <span className="text-white/70">{item.amount}</span>
   </div>
 
   {/* Time */}
   <div className="flex justify-between">
-    <span className="text-white/50 text-xs">Time</span>
+    <span className="text-white/50 font-extralight text-xs">Time</span>
     <span className="text-white/70">{item.time}</span>
   </div>
 </div>

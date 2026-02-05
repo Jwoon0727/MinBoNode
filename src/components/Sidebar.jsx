@@ -219,7 +219,7 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
   className={`
     fixed inset-y-0 left-0 z-40
     w-64
-    bg-gradient-to-b from-[#020617] to-[#020617]
+   bg-[#080909]
     transform transition-transform duration-300 ease-in-out
     ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
     flex flex-col h-screen

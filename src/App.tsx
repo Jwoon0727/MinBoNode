@@ -18,7 +18,7 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex">
+    <div className="min-h-screen bg-[#080909] flex">
       <Sidebar 
         currentPage={currentPage} 
         onPageChange={setCurrentPage} 
