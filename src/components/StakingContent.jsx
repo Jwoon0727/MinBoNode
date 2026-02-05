@@ -237,16 +237,16 @@ export default function StakingContent() {
       {/* Staking Modal */}
       {showStakingModal && (
         <div 
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-2 sm:p-4"
           onClick={() => setShowStakingModal(false)}
         >
           <div 
-            className="bg-[#1F2123] rounded-2xl p-4 sm:p-6 w-full max-w-lg border border-white/10 max-h-[90vh] overflow-y-auto"
+            className="bg-[#1F2123] rounded-2xl p-3 sm:p-6 w-full max-w-lg border border-white/10 max-h-[95vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between mb-3 sm:mb-6">
-            <h2 className="text-2xl font-bold">
+            <div className="flex items-center justify-between mb-2 sm:mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold">
   <span className="text-cyan-400">207</span>
   <span className="text-white"> DAYS POOL</span>
 </h2>
@@ -267,7 +267,7 @@ export default function StakingContent() {
             </div>
 
             {/* Stats Grid */}
-            <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-6">
+            <div className="space-y-1.5 sm:space-y-2 mb-2 sm:mb-4">
   <div className="flex justify-between items-center">
     <span className="text-gray-400 text-sm">Account Unit</span>
     <span className="text-cyan-400 font-semibold text-sm">
@@ -291,8 +291,8 @@ export default function StakingContent() {
 </div>
 
   {/* Pool Progress */}
-<div className="mb-3 sm:mb-6">
-  <div className="flex justify-between items-center mb-2">
+<div className="mb-2 sm:mb-4">
+  <div className="flex justify-between items-center mb-1.5">
     <span className="text-white font-semibold text-sm">
       POOL PROGRESS
     </span>
@@ -318,28 +318,28 @@ export default function StakingContent() {
 </div>
 
             {/* Number of Accounts */}
-            <div className="mb-3 sm:mb-6">
-              <div className="text-white font-semibold text-sm mb-2 sm:mb-4">Number of Accounts</div>
+            <div className="mb-2 sm:mb-4">
+              <div className="text-white font-semibold text-sm mb-1.5 sm:mb-3">Number of Accounts</div>
               
             {/* Controls Container */}
 <div className="
   backdrop-blur-md
   border border-white/10
   rounded-xl
-  p-4 sm:p-8
-  mb-3 sm:mb-6
+  p-3 sm:p-6
+  mb-2 sm:mb-4
 ">
   {/* Controls */}
-  <div className="flex items-center justify-center gap-4">
+  <div className="flex items-center justify-center gap-3 sm:gap-4">
     <button
       onClick={() => handleAccountsChange(numberOfAccounts - 1)}
-      className="w-10 h-10 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+      className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors text-lg sm:text-xl"
     >
       −
     </button>
 
-    <div className="text-center min-w-[80px]">
-      <div className="text-cyan-400 text-3xl font-bold">
+    <div className="text-center min-w-[70px] sm:min-w-[80px]">
+      <div className="text-cyan-400 text-2xl sm:text-3xl font-bold">
         {numberOfAccounts}
       </div>
       <div className="text-gray-400 text-xs">
@@ -349,7 +349,7 @@ export default function StakingContent() {
 
     <button
       onClick={() => handleAccountsChange(numberOfAccounts + 1)}
-      className="w-10 h-10 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+      className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-white hover:bg-white/20 transition-colors text-lg sm:text-xl"
     >
       +
     </button>
@@ -380,7 +380,7 @@ export default function StakingContent() {
                 />
                 
                 {/* Percentage Markers */}
-                <div className="flex justify-between mt-2 text-xs text-gray-500">
+                <div className="flex justify-between mt-1 text-xs text-gray-500">
                   {[0, 25, 50, 75, 100].map((percent) => (
                     <button
                       key={percent}
@@ -395,8 +395,8 @@ export default function StakingContent() {
             </div>
 
             {/* Total Amount */}
-            <div className="bg-white/10 border border-white/10 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
-              <div className="flex justify-between items-center mb-2">
+            <div className="bg-white/10 border border-white/10 rounded-lg p-2.5 sm:p-4 mb-2 sm:mb-3">
+              <div className="flex justify-between items-center mb-1.5">
                 <span className="text-white/50 text-sm">TOTAL AMOUNT</span>
                 <span className="text-white font-semibold">
                   {totalAmount.toLocaleString()} MGG
@@ -414,9 +414,9 @@ export default function StakingContent() {
 <div className="
   mx-auto
   w-fit
-  flex items-center justify-center gap-4
-  mb-3 sm:mb-6
-  px-4 py-2
+  flex items-center justify-center gap-3 sm:gap-4
+  mb-2 sm:mb-4
+  px-3 sm:px-4 py-1.5 sm:py-2
   border border-slate-700
   rounded-lg
 ">
@@ -441,7 +441,7 @@ export default function StakingContent() {
   <img 
     src="https://www.cloudflare.com/img/logo-web-badges/cf-logo-on-white-bg.svg"
     alt="Cloudflare"
-    className="h-8 w-auto"
+    className="h-6 sm:h-8 w-auto"
   />
 </div>
 
@@ -449,7 +449,7 @@ export default function StakingContent() {
             <button
               onClick={handleStake}
               disabled={!agreedTerms || numberOfAccounts === 0}
-              className="w-full bg-blue-600 bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 disabled:bg-slate-700 disabled:cursor-not-allowed text-white py-3 rounded-full font-semibold text-base transition-colors"
+              className="w-full bg-blue-600 bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 disabled:bg-slate-700 disabled:cursor-not-allowed text-white py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-colors"
             >
               Stake Fixed ({numberOfAccounts} Account{numberOfAccounts !== 1 ? 's' : ''})
             </button>
