@@ -9,9 +9,9 @@ export default function MiningTransactionCard({
   wallet = "MGG",
 }) {
   return (
-    <div className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-black/20 rounded-xl p-4 relative overflow-hidden">
+    <div className="bg-white/10 backdrop-blur-xl backdrop-saturate-150 border border-white/10 rounded-xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
       {/* Content */}
-      <div className="pl-4">
+      <div className="p-3">
 {/* Node Name */}
 <div className="flex items-center gap-3 mb-4">
   <div className="w-1 h-7 bg-cyan-400 rounded-full" />
@@ -21,7 +21,7 @@ export default function MiningTransactionCard({
 </div>
 
         {/* Details Grid */}
-        <div className="space-y-2 text-sm">
+        <div className="space-y-1 text-sm">
           <div className="flex justify-between items-center">
             <span className="text-white/50 text-xs">Amount</span>
             <span className="text-white/70">{amount}</span>

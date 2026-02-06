@@ -79,7 +79,7 @@ const myPackages = [
 const packages = [
   {
     id: 1,
-    name: "Starter Node",
+    name: "Event Node",
     image: "/images/car1.png",
     daily: "198.72",
     maxOut: "150,000",
@@ -88,7 +88,7 @@ const packages = [
   },
   {
     id: 2,
-    name: "Event Node",
+    name: "Starter Node ",
     image: "/images/car2.png",
     daily: "198.72",
     maxOut: "150,000",
@@ -165,84 +165,59 @@ export default function PackagesPage({ activeTab = "Packages", onTabChange, onMe
 
   return (
     <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         {/* Page Header */}
         <PageHeader title="Packages" onMenuClick={onMenuClick} />
 
-{/* Crypto Fellas Card Banner */}
-<div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+  {/* Balance Card */}
+  <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+          {/* Balance */}
+          <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
+            <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">
+              $123.456
+            </div>
+            <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
+              Current Rate : 1 MGG = 0.0024 USDT
+            </div>
+          </div>
 
-  {/* Top Row : Text + Image */}
-  <div className="flex items-center justify-between gap-1 sm:gap-6 mb-4">
-
-    {/* Text */}
-    <div className="flex-1 max-w-[70%]">
-      <h2 className="text-white text-4xl sm:text-6xl lg:text-8xl font-medium tracking-wide mb-2 leading-none">
-        CRYPTO
-      </h2>
-      <h2 className="text-white text-4xl sm:text-6xl lg:text-8xl font-medium tracking-wide mb-3 leading-none lg:whitespace-nowrap">
-  FELLAS CARD
-</h2>
-
-<p className="text-white/50 text-xs sm:text-sm lg:text-xl lg:whitespace-nowrap lg:tracking-wide">
-  Get the Best Card for Your Collection!
-</p>
-    </div>
-
-    {/* Image (PC & Mobile 공통 옆 배치) */}
-    <div className="flex-shrink-0 lg:ml-auto">
-      <div className="w-32 sm:w-48 lg:w-64 h-28 sm:h-40 lg:h-56 relative">
-        <img
-          src="/images/crypto_card.png"
-          alt="Crypto Fellas Card"
-          className="w-full h-full object-contain"
-        />
-      </div>
-    </div>
-  </div>
-
-  {/* Action Buttons */}
-  <div className="flex gap-2 sm:gap-3">
-    <button
-      className="
-  flex items-center justify-center gap-2
-  bg-white/10
-  backdrop-blur-md
-  border-t border-l border-r border-white/20
-  hover:bg-white/20
+          {/* Action Buttons */}
+          <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <button className="
+  flex items-center justify-center gap-1 sm:gap-2
+  bg-blue-600 hover:bg-blue-700
   text-white
-  px-8 py-2
+  px-4 sm:px-8 py-2
   rounded-full
   font-light text-sm sm:text-base
-  transition-all
+  transition-colors
   flex-1
-  shadow-lg
-  shadow-black/20
-      "
-    >
-      <ExternalLink size={16} />
-      Visit Fellas Card
-    </button>
+">
+  Harvest →
+</button>
 
-    <button
-      className="
-        flex-1 flex items-center justify-center
-        bg-blue-600 hover:bg-blue-700
-        text-white
-        px-4 sm:px-6 py-2
-        rounded-full
-        font-light
-        text-sm sm:text-base
-        transition-colors
-      "
-    >
-      Buy Now
-    </button>
-  </div>
+<button className="
+  flex items-center justify-center gap-1 sm:gap-2
 
-</div>
+  bg-white/10 hover:bg-slate-600
+  backdrop-blur-md
+  border-t border-l border-r border-white/20
 
-<div className="mb-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent -mx-4 px-4 lg:mx-0 lg:px-0">
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-light text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Package →
+</button>
+          </div>
+        </div>
+
+
+<div className="mb-4 sm:mb-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent -mx-4 px-4 lg:mx-0 lg:px-0">
   {/* Tabs Container */}
   <div
   className="
@@ -289,8 +264,8 @@ export default function PackagesPage({ activeTab = "Packages", onTabChange, onMe
         {/* Tab Content */}
         {activeTab === "Packages" && (
           <>
-            <h3 className="text-white text-lg font-normal mb-4">Packages</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h3 className="text-white text-base sm:text-lg font-normal mb-3 sm:mb-4">Packages</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               {packages.map((pkg) => (
                 <PackageCard
                   key={pkg.id}
@@ -309,14 +284,14 @@ export default function PackagesPage({ activeTab = "Packages", onTabChange, onMe
         {activeTab === "My Package" && (
           <>
 {/* My Package Section */}
-<h3 className="text-white text-lg font-semibold mb-4">
+<h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">
     My Package
   </h3>
 <div className="
   bg-[#2A2F35]
   rounded-2xl
   p-2 sm:p-2
-  mb-6
+  mb-4 sm:mb-6
 ">
   <div className="space-y-4">
     {myPackages.map((pkg) => (
@@ -338,7 +313,7 @@ export default function PackagesPage({ activeTab = "Packages", onTabChange, onMe
         {activeTab === "Mining Transaction" && (
           <>
 {/* Mining Transaction Section */}
-<h3 className="text-white text-lg font-semibold mb-4">
+<h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">
     Mining Transaction
   </h3>
 <div
@@ -347,7 +322,7 @@ export default function PackagesPage({ activeTab = "Packages", onTabChange, onMe
     border
     rounded-2xl
     p-2 sm:p-2
-    mb-6
+    mb-4 sm:mb-6
   "
 >
 

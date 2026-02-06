@@ -116,7 +116,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
 
   return (
     <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         {/* Page Header */}
         <PageHeader title="Support Tickets" onMenuClick={onMenuClick} />
 <br/>

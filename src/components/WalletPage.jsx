@@ -10,12 +10,12 @@ import PageHeader from "./PageHeader";
 const tabs = ["Balance", "Staking", "Swap", "Transfer", "Deposit", "Withdraw"];
 
 const cryptoBalances = [
-  { id: 1, name: "MimboGameGroup", symbol: "MGG", amount: "89,347.9992", icon: "M", color: "bg-yellow-500" },
-  { id: 2, name: "Tether", symbol: "", amount: "72,502.000", icon: "T", color: "bg-teal-500" },
-  { id: 3, name: "BNB", symbol: "BNB", amount: "0.03578105", rate: "1 BNB = $ 585.28", icon: "B", color: "bg-yellow-500" },
-  { id: 4, name: "XRP", symbol: "XRP", amount: "0.00000000", rate: "1 XRP = $ 0.00", icon: "X", color: "bg-slate-600" },
-  { id: 5, name: "Solana", symbol: "SOL", amount: "0.000000", rate: "1 SOL = $ 0.00", icon: "S", color: "bg-slate-700" },
-  { id: 6, name: "MF", symbol: "MF", amount: "2,000.0000", icon: "M", color: "bg-green-500" },
+  { id: 1, name: "MimboGameGroup", symbol: "MGG", amount: "89,347.9992", image: "/images/m1.svg", color: "bg-yellow-500" },
+  { id: 2, name: "Tether", symbol: "", amount: "72,502.000", image: "/images/T.png", color: "bg-teal-500" },
+  { id: 3, name: "BNB", symbol: "BNB", amount: "0.03578105", rate: "1 BNB = $ 585.28", image: "/images/3B.svg", color: "bg-yellow-500" },
+  { id: 4, name: "XRP", symbol: "XRP", amount: "0.00000000", rate: "1 XRP = $ 0.00", image: "/images/X.png", color: "bg-slate-600" },
+  { id: 5, name: "Solana", symbol: "SOL", amount: "0.000000", rate: "1 SOL = $ 0.00", image: "/images/5C.png", color: "bg-slate-700" },
+  { id: 6, name: "MF", symbol: "MF", amount: "2,000.0000", image: "/images/M6.svg", color: "bg-green-500" },
 ];
 
 const transactions = [
@@ -67,7 +67,7 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
 
   return (
     <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         {/* Page Header */}
         <PageHeader title="Wallet" onMenuClick={onMenuClick} />
 
@@ -75,8 +75,8 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
       <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
           {/* Balance */}
           <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
-            <div className="text-white font-thin  text-xs sm:text-sm lg:text-xl mb-1">Total Balance</div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-7xl font-medium">
+            <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">
               $123.456
             </div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
@@ -113,7 +113,7 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
   transition-colors
   flex-1
 ">
-  Package →
+  Package ↓
 </button>
           </div>
         </div>
@@ -169,16 +169,20 @@ export default function WalletPage({ activeTab = "Balance", onTabChange, onMenuC
             {/* Crypto Balance Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 max-w-[92%] sm:max-w-full mx-auto">
               {cryptoBalances.map((crypto) => (
-                <div key={crypto.id} className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4">
-                  <div className={`w-9 h-9 sm:w-10 sm:h-10 ${crypto.color} rounded-full flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-white font-bold text-xs sm:text-sm">{crypto.icon}</span>
+                <div key={crypto.id} className="bg-black/10 bg-gradient-to-br from-white/10 via-white/10 to-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/5 rounded-xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-white/10">
+                    <img 
+                      src={crypto.image} 
+                      alt={crypto.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 ">
                     <div className="text-white font-extralight text-xs sm:text-sm truncate">{crypto.name}</div>
                     {crypto.symbol && <div className="text-white/50 text-xs truncate">{crypto.symbol}</div>}
                   </div>
-                  <div className="text-right flex-shrink-0">
-                    <div className="text-white font-light text-xs sm:text-base">{crypto.amount}</div>
+                  <div className="text-right flex-shrink-0 mb-4">
+                    <div className="text-white font-extralight text-xs sm:text-sm">{crypto.amount}</div>
                     {crypto.rate && <div className="text-white/50 text-[10px] sm:text-xs">{crypto.rate}</div>}
                   </div>
                 </div>

@@ -100,15 +100,19 @@ export default function ProfilePage({ onMenuClick }) {
 
   return (
     <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         {/* Page Header */}
         <PageHeader title="Profile" onMenuClick={onMenuClick} />
 
         {/* Avatar Section */}
         <div className="flex flex-col items-center mb-6">
           <div className="relative mb-4">
-            <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-4xl">
-              😎
+            <div className="w-24 h-24 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden ">
+              <img
+                src="/images/userface.svg"
+                alt="Profile Avatar"
+                className="w-20 h-20 object-cover"
+              />
             </div>
             <button className="absolute bottom-0 right-0 w-7 h-7 bg-slate-700 rounded-full flex items-center justify-center border-2 border-slate-900">
               <Camera size={14} className="text-slate-300" />

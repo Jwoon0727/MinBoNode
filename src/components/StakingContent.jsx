@@ -67,7 +67,7 @@ export default function StakingContent() {
     <>
       <h3 className="text-white text-lg font-medium mb-4">Staking</h3>
 
-      <div className="bg-[#151515] backdrop-blur-xl border border-white/10 rounded-xl p-4 mb-6 shadow-lg shadow-black/20">
+      <div className="bg-[#181818] backdrop-blur-xl border border-white/10 rounded-xl p-4 mb-6 shadow-lg shadow-black/20">
   <div className="space-y-3">
     {stakingStats.map((stat, index) => (
       <div

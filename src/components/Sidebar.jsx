@@ -134,6 +134,22 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showLanguageDropdown]);
   
+  // 모바일 사이드바 열릴 때 배경 스크롤 방지
+  useEffect(() => {
+    if (isOpen && isMobile) {
+      // 사이드바가 열리면 body 스크롤 막기
+      document.body.style.overflow = 'hidden';
+    } else {
+      // 사이드바가 닫히면 body 스크롤 복원
+      document.body.style.overflow = '';
+    }
+    
+    // 컴포넌트 언마운트 시 스크롤 복원
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, isMobile]);
+  
   const setIsOpen = (value) => {
     if (onToggle) {
       onToggle(value);
@@ -228,7 +244,7 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
       {isOpen && (
         <button
           type="button"
-          className="lg:hidden fixed inset-0 bg-black/50 z-30"
+          className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-md z-30 transition-all duration-300"
           onClick={() => setIsOpen(false)}
           aria-label="Close menu"
         />
@@ -239,7 +255,6 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
   className={`
     fixed inset-y-0 left-0 z-40
     w-64
-   bg-[#080909]
     transform transition-transform duration-300 ease-in-out
     ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
     flex flex-col h-screen
@@ -261,12 +276,16 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
           {isLoggedIn ? (
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center overflow-hidden">
-                  <span className="text-white text-base font-semibold">A</span>
+                <div className="w-9 h-9 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/images/userface.svg"
+                    alt="Profile Avatar"
+                    className="w-8 h-8 object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="text-white font-semibold text-xs">ALBECITY</div>
-                  <div className="text-slate-500 text-[10px]">M0#828674</div>
+                  <div className="text-white font-light text-xs">ALBECITY</div>
+                  <div className="text-white/60 text-[12px]">M0#828674</div>
                 </div>
               </div>
               <Button
@@ -315,12 +334,14 @@ export default function Sidebar({ currentPage = "race", onPageChange, currentTab
 
         {/* Navigation */}
         <nav className="flex-1 px-4 pb-4 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
-          <div className={`sticky top-0 bg-[#151515]
-backdrop-blur-lg
-border border-white/10
+          <div className={`sticky top-0 
+bg-gradient-to-br from-[#151515] via-white/5 to-white/10
+backdrop-blur-md
+backdrop-saturate-110
+border-t border-l border-r border-white/20
 rounded-2xl
 p-3
-shadow-xl shadow-black/10
+shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
 space-y-0.5
 transition-all duration-200
 ${showLanguageDropdown ? 'pb-52' : ''}`}>
@@ -466,7 +487,15 @@ ${showLanguageDropdown ? 'pb-52' : ''}`}>
               
               {/* Language Dropdown */}
               {showLanguageDropdown && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-[#151515] border border-white/10 rounded-xl overflow-hidden shadow-xl z-50">
+                <div className="absolute top-full left-0 right-0 mt-2
+bg-black/50
+backdrop-blur-xl
+border-white/15
+backdrop-saturate-150
+rounded-xl
+overflow-hidden
+shadow-[0_8px_32px_0_rgba(0,0,0,0.45)]
+z-50">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}

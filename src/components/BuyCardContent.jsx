@@ -64,9 +64,9 @@ export default function BuyCardContent({ onBack }) {
 
       {/* Card Display */}
       <div className="flex flex-col items-center mb-8">
-        <div className="w-64 h-80 mb-4 flex items-center justify-center">
+        <div className="w-72 sm:w-80 lg:w-96 h-[360px] sm:h-[400px] lg:h-[440px] mb-4 flex items-center justify-center">
           <img
-            src="/images/color_card.png"
+            src="/images/crypto_card.svg"
             alt="Crypto Card"
             className="w-full h-full object-contain"
           />

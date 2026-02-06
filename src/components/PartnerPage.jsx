@@ -100,17 +100,16 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
 
   return (
     <main className="flex-1 p-4 lg:p-8 overflow-y-auto">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         {/* Page Header */}
         <PageHeader title="Partner" onMenuClick={onMenuClick} />
 
-        {/* Balance Card */}
-   {/* Balance Card */}
-   <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+  {/* Balance Card */}
+  <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
           {/* Balance */}
           <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
-            <div className="text-white font-thin  text-xs sm:text-sm lg:text-xl mb-1">Total Balance</div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-7xl font-medium">
+            <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">
               $123.456
             </div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
@@ -151,6 +150,7 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
 </button>
           </div>
         </div>
+
 
         <div className="mb-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent -mx-4 px-4 lg:mx-0 lg:px-0">
   {/* Tabs Container */}

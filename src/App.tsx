@@ -18,7 +18,14 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#080909] flex">
+    <div className="min-h-screen relative flex">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/mainbg.png')" }}
+      />
+      {/* Content */}
+      <div className="relative z-10 flex w-full">
       <Sidebar 
         currentPage={currentPage} 
         onPageChange={setCurrentPage} 
@@ -43,6 +50,7 @@ function App() {
         {currentPage === "support" && <SupportTicketsPage onMenuClick={() => setSidebarOpen(true)} />}
       </div>
       <BottomNavigation currentPage={currentPage} onPageChange={setCurrentPage} isAuthModalOpen={showAuthModal} />
+      </div>
     </div>
   );
 }

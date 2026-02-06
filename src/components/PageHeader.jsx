@@ -20,8 +20,8 @@ export default function PageHeader({ title, onMenuClick }) {
         </div>
       </div>
       
-      <div className="flex items-center gap-1.5 relative">
-        <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
+      <div className="flex items-center gap-1 relative">
+        <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
         <img
   src="/images/Union.svg"
   alt="Globe"
@@ -29,8 +29,8 @@ export default function PageHeader({ title, onMenuClick }) {
  />
         </div>
         <a href="https://www.fellascard.com/login">
-  <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 cursor-pointer hover:bg-slate-600 transition">
-    <span className="text-[9px] text-white font-bold leading-tight text-center">
+  <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 cursor-pointer hover:bg-slate-600 transition">
+    <span className="text-[7px] text-white font-bold leading-tight text-center">
       FELLAS<br />CARD
     </span>
   </div>
@@ -39,13 +39,13 @@ export default function PageHeader({ title, onMenuClick }) {
         {/* Desktop: Show both games */}
         <div className="hidden lg:flex items-center gap-2">
           <a href="https://2048slimedev.mimbonode.io/">
-          <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-            <span className="text-[9px] text-white font-bold leading-tight text-center">2048<br/>SMILE</span>
+          <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
+            <span className="text-[7px] text-white font-bold leading-tight text-center">2048<br/>SMILE</span>
           </div>
           </a>
           <a href="https://hyperracingdev.mimbonode.io/">
-          <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-            <span className="text-[9px] text-white font-bold leading-tight text-center">HYPER<br/>RACING</span>
+          <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
+            <span className="text-[7px] text-white font-bold leading-tight text-center">HYPER<br/>RACING</span>
           </div>
           </a>
         </div>
@@ -54,7 +54,7 @@ export default function PageHeader({ title, onMenuClick }) {
         <div className="lg:hidden relative">
           <button
             onClick={() => setShowGames(!showGames)}
-            className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-800 transition-colors"
+            className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-800 transition-colors"
           >
             <Gamepad2 size={18} className="text-white" />
           </button>
@@ -70,7 +70,7 @@ export default function PageHeader({ title, onMenuClick }) {
               {/* Capsule wrapper */}
               <div
                 className="
-                  absolute right-[-7px] top-full mt-3 z-20
+                  absolute right-[-8px] top-full mt-3 z-20
                   px-1.5 py-1.5
                   rounded-full
                   bg-[#0b0f14]
@@ -84,7 +84,7 @@ export default function PageHeader({ title, onMenuClick }) {
                   <a
   href="https://2048slimedev.mimbonode.io/"
   className="
-    w-10 h-10
+    w-9 h-9
     rounded-full
     bg-slate-700/40
     flex items-center justify-center
@@ -94,7 +94,7 @@ export default function PageHeader({ title, onMenuClick }) {
     active:scale-95
   "
 >
-  <span className="text-[9px] text-white font-bold leading-tight text-center">
+  <span className="text-[7px] text-white font-bold leading-tight text-center">
     2048<br />SMILE
   </span>
 </a>
@@ -103,7 +103,7 @@ export default function PageHeader({ title, onMenuClick }) {
                   <a
   href="https://hyperracingdev.mimbonode.io/"
   className="
-    w-10 h-10
+    w-9 h-9
     rounded-full
     bg-slate-700/40
     flex items-center justify-center
@@ -113,7 +113,7 @@ export default function PageHeader({ title, onMenuClick }) {
     active:scale-95
   "
 >
-  <span className="text-[9px] text-white font-bold leading-tight text-center">
+  <span className="text-[7px] text-white font-bold leading-tight text-center">
     HYPER<br />RACING
   </span>
 </a>
@@ -123,13 +123,13 @@ export default function PageHeader({ title, onMenuClick }) {
           )}
         </div>
         
-        <div className="w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
+        <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
           <Globe size={20} className="text-white" />
         </div>
         {/* Mobile: Hamburger Menu Button */}
         <button
           onClick={onMenuClick}
-          className="lg:hidden w-10 h-10 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-800 transition-colors active:scale-95"
+          className="lg:hidden w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-800 transition-colors active:scale-95"
         >
           <Menu size={18} className="text-white" />
         </button>

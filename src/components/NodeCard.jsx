@@ -3,10 +3,10 @@ export default function NodeCard({ node }) {
   const isDone = node.status === "done";
 
   return (
-    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 relative overflow-hidden group shadow-lg shadow-black/20">
+    <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-2xl p-4 relative overflow-hidden group shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
       {/* Done Overlay - Always visible on hover */}
-      <div className="absolute inset-0 bg-slate-900/60 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <button className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-900 text-white px-12 py-3 rounded-full font-semibold transition-all shadow-md hover:shadow-lg active:scale-[0.97]">
+      <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <button className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-500 hover:to-blue-900 text-white px-12 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl active:scale-[0.97]">
           Done
         </button>
       </div>
@@ -14,7 +14,7 @@ export default function NodeCard({ node }) {
       {/* Top Section: Image + Info */}
       <div className="flex items-start gap-4 mb-4">
         {/* Node Car Image */}
-        <div className="w-32 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent relative">
+        <div className="w-32 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent backdrop-blur-sm border border-white/10 relative shadow-inner">
           <img
             src="/images/car6.png"
             alt="Node Car"
@@ -66,9 +66,9 @@ export default function NodeCard({ node }) {
 
           {/* PC: Progress Bar inside Node Info */}
           <div className="hidden lg:block mt-7">
-            <div className="w-full bg-slate-700/50 rounded-full h-3 overflow-hidden">
+            <div className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-full h-3 overflow-hidden shadow-inner">
               <div
-                className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 rounded-full transition-all duration-500"
+                className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 rounded-full transition-all duration-500 shadow-lg"
                 style={{ width: `${node.progress}%` }}
               />
             </div>
@@ -82,9 +82,9 @@ export default function NodeCard({ node }) {
 
       {/* Mobile: Progress Bar full width at bottom */}
       <div className="lg:hidden ">
-        <div className="w-full bg-slate-700/50 rounded-full h-3 overflow-hidden">
+        <div className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-full h-3 overflow-hidden shadow-inner">
           <div
-            className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 rounded-full transition-all duration-500"
+            className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 rounded-full transition-all duration-500 shadow-lg"
             style={{ width: `${node.progress}%` }}
           />
         </div>

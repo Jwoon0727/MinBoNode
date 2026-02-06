@@ -3,7 +3,7 @@
 
 export default function PackageCard({ name, image, daily, maxOut, miningPower, price }) {
   return (
-    <div className="bg-[#24282D] border border-white/10 rounded-2xl p-4 flex flex-col">
+    <div className="bg-[#24282D] bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl backdrop-saturate-150 rounded-2xl p-4 relative overflow-hidden group shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
       {/* Title */}
       <h3 className="text-white font-bold text-2xl mb-3">{name}</h3>
       

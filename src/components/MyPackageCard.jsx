@@ -8,10 +8,15 @@ export default function MyPackageCard({
   received = "9510.3285172"
 }) {
   return (
-    <div className="bg-white/5 backdrop-blur-lg border border-white/10 shadow-black/20 rounded-xl overflow-hidden">
+    <div className="bg-white/10 backdrop-blur-xl
+backdrop-saturate-150
+border border-white/10
+rounded-xl
+overflow-hidden
+shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
       <div className="flex">
         {/* Content */}
-        <div className="flex-1 p-5">
+        <div className="flex-1 p-3">
       {/* Node Name */}
 <div className="flex items-center gap-3 mb-4">
   <div className="w-1 h-7 bg-cyan-400 rounded-full" />
