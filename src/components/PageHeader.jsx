@@ -11,13 +11,19 @@ export default function PageHeader({ title, onMenuClick }) {
       
       {/* Mobile: User Profile */}
       <div className="lg:hidden flex items-center gap-3">
-        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-          <span className="text-xl">😎</span>
-        </div>
-        <div>
-          <div className="text-white font-semibold text-sm">ALBECITY</div>
-          <div className="text-slate-500 text-xs">M0#828674</div>
-        </div>
+      <div className="flex items-center gap-2">
+                <div className="w-9 h-9 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/images/userface.svg"
+                    alt="Profile Avatar"
+                    className="w-8 h-8 object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-white font-light text-xs">ALBECITY</div>
+                  <div className="text-white/60 text-[12px]">M0#828674</div>
+                </div>
+              </div>
       </div>
       
       <div className="flex items-center gap-1 relative">

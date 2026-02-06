@@ -14,7 +14,7 @@ export default function MiningTransactionCard({
       <div className="p-3">
 {/* Node Name */}
 <div className="flex items-center gap-3 mb-4">
-  <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+  <div className="w-[2px] h-4 bg-cyan-400 rounded-full" />
   <h3 className="text-cyan-400 font-normal text-base">
     {name}
   </h3>

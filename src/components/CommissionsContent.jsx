@@ -38,9 +38,9 @@ export default function CommissionsContent() {
   {/* Header */}
   <div className="flex items-center gap-3 px-4 py-3">
     {/* Vertical Bar */}
-    <div className="w-1 h-7 bg-cyan-400 rounded-full" />
+    <div className="w-[2px] h-4 bg-cyan-400 rounded-full" />
 
-    <span className="text-cyan-400">
+    <span className="text-cyan-400 font-normal text-base">
       Total Bonus
     </span>
   </div>

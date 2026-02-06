@@ -25,7 +25,7 @@ shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
     {/* Vertical Bar */}
     <div className="w-[2px] h-4 bg-cyan-400 rounded-full" />
 
-    <span className="text-cyan-400 font-semibold text-sm sm:text-medium truncate">
+    <span className="text-cyan-400 font-normal text-base truncate">
       {username}
     </span>
   </div>

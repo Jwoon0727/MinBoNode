@@ -48,25 +48,31 @@ export default function MyCardContent({ onBuyCard, onRegister }) {
         Buy Now
       </button>
       
-      <button className="
-        bg-white/10
-        backdrop-blur-md
-        border-t border-l border-r border-white/20
-        hover:bg-white/20
-        text-white
-        px-3 sm:px-4 lg:px-6 
-        py-1.5 sm:py-2
-        rounded-full
-        text-[10px] sm:text-xs lg:text-sm
-        font-normal
-        transition-all
-        shadow-lg
-        shadow-black/20
-        whitespace-nowrap
-        flex-1
-      ">
-        Visit Fellas Card
-      </button>
+      <a
+  href="https://www.fellascard.com/login" 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    bg-white/10
+    backdrop-blur-md
+    border-t border-l border-r border-white/20
+    hover:bg-white/20
+    text-white
+    px-3 sm:px-4 lg:px-6 
+    py-1.5 sm:py-2
+    rounded-full
+    text-[10px] sm:text-xs lg:text-sm
+    font-normal
+    transition-all
+    shadow-lg
+    shadow-black/20
+    whitespace-nowrap
+    flex-1
+    inline-flex items-center justify-center
+  "
+>
+  Visit Fellas Card
+</a>
     </div>
   </div>
 </div>

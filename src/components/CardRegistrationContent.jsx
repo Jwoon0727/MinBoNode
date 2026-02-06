@@ -56,17 +56,12 @@ export default function CardRegistrationContent({ onBack }) {
     <div className="text-white">
       {/* Back Button and Title */}
       <div className="flex items-center gap-3 mb-2">
-        <button
-          onClick={onBack}
-          className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
-        >
-          <ArrowLeft size={20} className="text-slate-400" />
-        </button>
+
         <h3 className="text-white text-lg font-semibold">Card Registration</h3>
       </div>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm mb-6 ml-14">
+      <p className="text-gray-400 text-sm mb-6 ">
       Registration is only possible with email registered on the Fellas Card site.
       </p>
 
@@ -82,7 +77,17 @@ export default function CardRegistrationContent({ onBack }) {
       </div>
 
       {/* Form Container */}
-      <div className="max-w-2xl mx-auto bg-[#24282D] border border-slate-800 rounded-xl p-6 mb-6">
+      <div className="
+max-w-2xl mx-auto
+bg-white/10
+backdrop-blur-md
+border-t border-l border-r border-white/5
+rounded-xl
+p-6
+mb-6
+shadow-lg
+shadow-black/20
+">
         {/* Email Section */}
         <div className="mb-6">
           <label className="block text-sm text-white mb-2">
@@ -93,8 +98,8 @@ export default function CardRegistrationContent({ onBack }) {
             placeholder="yashini@gmail.com"
             value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors mb-3"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           {!emailVerified && (
             <button
               onClick={handleSendVerification}
@@ -129,8 +134,8 @@ export default function CardRegistrationContent({ onBack }) {
                 value={formData.verificationCode}
                 onChange={(e) => handleInputChange("verificationCode", e.target.value)}
                 maxLength={6}
-                className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors mb-3"
-              />
+                className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
               <button
                 onClick={handleVerifyCode}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors"
@@ -168,8 +173,8 @@ export default function CardRegistrationContent({ onBack }) {
             value={formData.cardNumber}
             onChange={(e) => handleInputChange("cardNumber", e.target.value)}
             maxLength={19}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
         </div>
 
         {/* Proxy Number */}
@@ -181,8 +186,8 @@ export default function CardRegistrationContent({ onBack }) {
             value={formData.proxyNumber}
             onChange={(e) => handleInputChange("proxyNumber", e.target.value)}
             maxLength={16}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors mb-3"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <div className="flex items-start gap-2 text-cyan-400 text-xs">
             <svg
               className="w-4 h-4 flex-shrink-0 mt-0.5"
@@ -204,28 +209,28 @@ export default function CardRegistrationContent({ onBack }) {
           <h4 className="text-[#F2FE79] text-xs font-medium mb-3">
             Card Registration Guidelines
           </h4>
-          <div className="space-y-2">
+          <div className="space-y-1">
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
-              <span className="text-sm text-white/50">
+              <span className="text-xs text-white/70">
               You must sign up with the email registered on fellascard.com and complete KYC to register.
               </span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
-              <span className="text-sm text-white/50">
+              <span className="text-xs text-white/70">
               Please enter the card number and proxy number accurately.
               </span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
-              <span className="text-sm text-white/50">
+              <span className="text-xs text-white/70">
               Expired or duplicate cards cannot be registered.
               </span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
-              <span className="text-sm text-white/50">
+              <span className="text-xs text-white/70">
               Your card information is securely encrypted and stored.
               </span>
             </div>
@@ -235,15 +240,34 @@ export default function CardRegistrationContent({ onBack }) {
 
       {/* Action Buttons */}
       <div className="max-w-2xl mx-auto flex gap-4">
-        <button
-          onClick={handleCancel}
-          className="flex-1 py-2 bg-[#222325] border border-white/10 hover:bg-slate-700 text-white rounded-full font-medium text-base transition-colors"
-        >
-          Cancel
-        </button>
+      <button
+  onClick={handleCancel}
+  className="
+    relative
+    flex-1
+    py-2
+    bg-[#222325]
+    backdrop-blur-xl
+    backdrop-saturate-150
+    border-t border-l border-r border-white/20
+    text-white/70
+    rounded-full
+    font-medium
+    text-base
+    transition-all
+    hover:bg-[#2a2c2f]
+    shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]
+    hover:shadow-[0_8px_24px_0_rgba(0,0,0,0.4)]
+    overflow-hidden
+    group
+  "
+>
+  <span className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent pointer-events-none rounded-full" />
+  <span className="relative">Cancel</span>
+</button>
         <button
           onClick={handleRegister}
-          className="flex-1 py-2 bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 text-white rounded-full font-medium text-base transition-colors"
+          className="flex-1 py-2 border border-white/20 bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 text-white rounded-full font-medium text-base transition-colors"
         >
           Register
         </button>

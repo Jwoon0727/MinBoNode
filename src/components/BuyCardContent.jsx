@@ -53,12 +53,6 @@ export default function BuyCardContent({ onBack }) {
     <div className="text-white">
       {/* Back Button and Title */}
       <div className="flex items-center gap-3 mb-6">
-        <button
-          onClick={onBack}
-          className="p-2 hover:bg-slate-800 rounded-lg transition-colors"
-        >
-          <ArrowLeft size={20} className="text-slate-400" />
-        </button>
         <h3 className="text-white text-lg font-semibold">Buy Card</h3>
       </div>
 
@@ -83,7 +77,17 @@ export default function BuyCardContent({ onBack }) {
       </div>
 
       {/* Form Container */}
-      <div className="max-w-2xl mx-auto bg-[#24282D] border border-slate-800 rounded-xl p-6 mb-6">
+      <div className="
+max-w-2xl mx-auto
+bg-white/10
+backdrop-blur-md
+border-t border-l border-r border-white/5
+rounded-xl
+p-6
+mb-6
+shadow-lg
+shadow-black/20
+">
         {/* Email Section */}
         <div className="mb-6">
         <label className="block text-sm text-white font-light mb-2">Email</label>
@@ -92,24 +96,8 @@ export default function BuyCardContent({ onBack }) {
           placeholder="Enter your email address"
           value={formData.email}
           onChange={(e) => handleInputChange("email", e.target.value)}
-          className="
-w-full
-bg-white/10
-backdrop-blur-md
-border-t border-l border-r border-white/20
-hover:bg-white/20
-rounded-lg
-px-4 py-3
-text-white
-placeholder-white/50
-placeholder:font-extralight
-focus:outline-none
-transition-all
-mb-3
-shadow-lg
-shadow-black/20
-"
-/>
+          className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
         <button
           onClick={handleSendVerification}
           className="w-full bg-[#4F66D7] hover:bg-blue-700 text-white py-3 rounded-lg font-normal transition-colors flex items-center justify-center gap-2"
@@ -142,70 +130,22 @@ shadow-black/20
             placeholder="First Name"
             value={formData.firstName}
             onChange={(e) => handleInputChange("firstName", e.target.value)}
-            className="
-            w-full
-            bg-white/10
-            backdrop-blur-md
-            border-t border-l border-r border-white/20
-            hover:bg-white/20
-            rounded-lg
-            px-4 py-3
-            text-white
-            placeholder-white/50
-            placeholder:font-extralight
-            focus:outline-none
-            transition-all
-            mb-3
-            shadow-lg
-            shadow-black/20
-            "
-            />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <input
             type="text"
             placeholder="Middle Name (Optional)"
             value={formData.middleName}
             onChange={(e) => handleInputChange("middleName", e.target.value)}
-            className="
-            w-full
-            bg-white/10
-            backdrop-blur-md
-            border-t border-l border-r border-white/20
-            hover:bg-white/20
-            rounded-lg
-            px-4 py-3
-            text-white
-            placeholder-white/50
-            placeholder:font-extralight
-            focus:outline-none
-            transition-all
-            mb-3
-            shadow-lg
-            shadow-black/20
-            "
-            />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <input
             type="text"
             placeholder="Last Name"
             value={formData.lastName}
             onChange={(e) => handleInputChange("lastName", e.target.value)}
-            className="
-            w-full
-            bg-white/10
-            backdrop-blur-md
-            border-t border-l border-r border-white/20
-            hover:bg-white/20
-            rounded-lg
-            px-4 py-3
-            text-white
-            placeholder-white/50
-            placeholder:font-extralight
-            focus:outline-none
-            transition-all
-            mb-3
-            shadow-lg
-            shadow-black/20
-            "
-            />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
              <select
             value={formData.country}
             onChange={(e) => handleInputChange("country", e.target.value)}
@@ -294,34 +234,34 @@ shadow-black/20
       <div className="bg-[#2A2F35] border border-slate-700/50 rounded-lg p-5 mb-6">
         {/* Agreements */}
         <div className="mb-6 space-y-1">
-        <div className="flex items-start gap-3">
-          <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
+        <div className="flex items-start gap-2">
+          <span className="text-white/50 text-lg leading-none mt-0">•</span>
           <span className="text-xs text-white/50">
-            The information you provide is securely transmitted to the card
-            company (Relams=Latam) and is not stored by us.
+          The information you provide is securely transmitted to the card company (fellascard.com) and is not stored by this service.
           </span>
         </div>
-        <div className="flex items-start gap-3">
-          <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
+        <div className="flex items-start gap-2">
+          <span className="text-white/50 text-lg leading-none mt-0">•</span>
           <span className="text-xs text-white/50">
-            Please ensure your address information is correct for shipping
-            purposes.
+          Only card ID and order information will be stored for tracking purposes.
           </span>
         </div>
-        <div className="flex items-start gap-3">
-          <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
+        <div className="flex items-start gap-2">
+          <span className="text-white/50 text-lg leading-none mt-0">•</span>
           <span className="text-xs text-white/50">
-            93.5% of the card purchases should be used as a commission.
+          52.5% of the card purchase amount is used as a commission.
           </span>
         </div>
-        <div className="flex items-start gap-3">
-          <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
+        <div className="flex items-start gap-2">
+          <span className="text-white/50 text-lg leading-none mt-0">•</span>
           <span className="text-xs text-white/50">
-            Please note: your address and contact information must be accurate.
-            Transactions are non-refundable. Once you send your cryptocurrency,
-            there is no way to undo it or request a chargeback, so only transact
-            with people or businesses you know and trust according to their
-            policies.
+          Please enter your address accurately. Incorrect information may result in delivery failure.
+          </span>
+        </div>
+        <div className="flex items-start gap-2">
+          <span className="text-white/50 text-lg leading-none mt-0">•</span>
+          <span className="text-xs text-white/50">
+         Physical cards are shipped directly by the card company, and delivery schedules may vary according to their policies.
           </span>
         </div>
       </div>

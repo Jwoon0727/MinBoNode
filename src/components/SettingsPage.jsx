@@ -37,6 +37,53 @@ export default function SettingsPage({ onMenuClick }) {
         {/* Page Header */}
         <PageHeader title="Settings" onMenuClick={onMenuClick} />
 
+{/* Balance Card */}
+<div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+          {/* Balance */}
+          <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
+            <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">Total Balance</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">
+              $123.456
+            </div>
+            <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
+              Current Rate : 1 MGG = 0.0024 USDT
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <button className="
+  flex items-center justify-center gap-1 sm:gap-2
+  bg-blue-600 hover:bg-blue-700
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-light text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Harvest →
+</button>
+
+<button className="
+  flex items-center justify-center gap-1 sm:gap-2
+
+  bg-white/10 hover:bg-slate-600
+  backdrop-blur-md
+  border-t border-l border-r border-white/20
+
+  text-white
+  px-4 sm:px-8 py-2
+  rounded-full
+  font-light text-sm sm:text-base
+  transition-colors
+  flex-1
+">
+  Package →
+</button>
+          </div>
+        </div>
+        
         {/* Two-Factor Authentication */}
         <div className="bg-[#222325] border border-white/10 rounded-2xl p-6 mb-4">
           <div className="flex items-center gap-3 mb-2">
