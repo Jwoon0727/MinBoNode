@@ -256,7 +256,7 @@ export default function Sidebar({
       {isOpen && (
         <button
           type="button"
-          className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-md z-30 transition-all duration-300"
+          className="lg:hidden fixed inset-0 bg-black/30 backdrop-blur-md z-40 transition-all duration-300"
           onClick={() => setIsOpen(false)}
           aria-label="Close menu"
         />
