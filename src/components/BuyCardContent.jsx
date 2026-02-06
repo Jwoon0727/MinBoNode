@@ -78,7 +78,7 @@ export default function BuyCardContent({ onBack }) {
             CRYPTO FELLAS MEMBERSHIP CARD
           </h2>
           <p className="text-cyan-400 text-2xl font-bold mb-1">240 USDT</p>
-          <p className="text-white/50 text-xs">Available Balance: 1 USDT</p>
+          <p className="text-white/50 font-extralight text-xs">Available Balance: 1 USDT</p>
         </div>
       </div>
 
@@ -86,14 +86,30 @@ export default function BuyCardContent({ onBack }) {
       <div className="max-w-2xl mx-auto bg-[#24282D] border border-slate-800 rounded-xl p-6 mb-6">
         {/* Email Section */}
         <div className="mb-6">
-        <label className="block text-sm text-white mb-2">Email</label>
+        <label className="block text-sm text-white font-light mb-2">Email</label>
         <input
           type="email"
           placeholder="Enter your email address"
           value={formData.email}
           onChange={(e) => handleInputChange("email", e.target.value)}
-          className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors mb-3"
-        />
+          className="
+w-full
+bg-white/10
+backdrop-blur-md
+border-t border-l border-r border-white/20
+hover:bg-white/20
+rounded-lg
+px-4 py-3
+text-white
+placeholder-white/50
+placeholder:font-extralight
+focus:outline-none
+transition-all
+mb-3
+shadow-lg
+shadow-black/20
+"
+/>
         <button
           onClick={handleSendVerification}
           className="w-full bg-[#4F66D7] hover:bg-blue-700 text-white py-3 rounded-lg font-normal transition-colors flex items-center justify-center gap-2"
@@ -117,7 +133,7 @@ export default function BuyCardContent({ onBack }) {
 
       {/* Card Recipient Information */}
       <div className="mb-6">
-        <h3 className="text-white text-base font-semibold mb-4">
+        <h3 className="text-white text-medium font-light mb-4">
           Card Recipient Information
         </h3>
         <div className="space-y-3">
@@ -126,26 +142,74 @@ export default function BuyCardContent({ onBack }) {
             placeholder="First Name"
             value={formData.firstName}
             onChange={(e) => handleInputChange("firstName", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="
+            w-full
+            bg-white/10
+            backdrop-blur-md
+            border-t border-l border-r border-white/20
+            hover:bg-white/20
+            rounded-lg
+            px-4 py-3
+            text-white
+            placeholder-white/50
+            placeholder:font-extralight
+            focus:outline-none
+            transition-all
+            mb-3
+            shadow-lg
+            shadow-black/20
+            "
+            />
           <input
             type="text"
             placeholder="Middle Name (Optional)"
             value={formData.middleName}
             onChange={(e) => handleInputChange("middleName", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="
+            w-full
+            bg-white/10
+            backdrop-blur-md
+            border-t border-l border-r border-white/20
+            hover:bg-white/20
+            rounded-lg
+            px-4 py-3
+            text-white
+            placeholder-white/50
+            placeholder:font-extralight
+            focus:outline-none
+            transition-all
+            mb-3
+            shadow-lg
+            shadow-black/20
+            "
+            />
           <input
             type="text"
             placeholder="Last Name"
             value={formData.lastName}
             onChange={(e) => handleInputChange("lastName", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="
+            w-full
+            bg-white/10
+            backdrop-blur-md
+            border-t border-l border-r border-white/20
+            hover:bg-white/20
+            rounded-lg
+            px-4 py-3
+            text-white
+            placeholder-white/50
+            placeholder:font-extralight
+            focus:outline-none
+            transition-all
+            mb-3
+            shadow-lg
+            shadow-black/20
+            "
+            />
              <select
             value={formData.country}
             onChange={(e) => handleInputChange("country", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
           >
             <option value="">Select Nationality</option>
             <option value="US">United States</option>
@@ -160,7 +224,7 @@ export default function BuyCardContent({ onBack }) {
           placeholder="Phone Number (e.g. +86 138 1234 5678)"
           value={formData.phoneNumber}
           onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
-          className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
+          className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
         />
         </div>
       </div>
@@ -171,14 +235,14 @@ export default function BuyCardContent({ onBack }) {
 
       {/* Billing Address */}
       <div className="mb-6">
-        <h3 className="text-white text-base font-semibold mb-4">
+        <h3 className="text-white text-medium font-light mb-4">
           Billing Address
         </h3>
         <div className="space-y-3">
           <select
             value={formData.country}
             onChange={(e) => handleInputChange("country", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none  shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
           >
             <option value="">Select Country</option>
             <option value="US">United States</option>
@@ -193,66 +257,66 @@ export default function BuyCardContent({ onBack }) {
             placeholder="State / Province"
             value={formData.state}
             onChange={(e) => handleInputChange("state", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <input
             type="text"
             placeholder="City"
             value={formData.city}
             onChange={(e) => handleInputChange("city", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <input
             type="text"
             placeholder="Street Address"
             value={formData.streetAddress}
             onChange={(e) => handleInputChange("streetAddress", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <input
             type="text"
             placeholder="Apartment, Suite, Unit, etc. (Optional)"
             value={formData.apartment}
             onChange={(e) => handleInputChange("apartment", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
           <input
             type="text"
             placeholder="ZIP / Postal Code"
             value={formData.zipCode}
             onChange={(e) => handleInputChange("zipCode", e.target.value)}
-            className="w-full bg-[#151515] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-blue-500 transition-colors"
-          />
+            className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
+        />
         </div>
       </div>
 
       {/* Terms and Conditions Container */}
       <div className="bg-[#2A2F35] border border-slate-700/50 rounded-lg p-5 mb-6">
         {/* Agreements */}
-        <div className="mb-6 space-y-3">
+        <div className="mb-6 space-y-1">
         <div className="flex items-start gap-3">
           <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
-          <span className="text-sm text-white/50">
+          <span className="text-xs text-white/50">
             The information you provide is securely transmitted to the card
             company (Relams=Latam) and is not stored by us.
           </span>
         </div>
         <div className="flex items-start gap-3">
           <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
-          <span className="text-sm text-white/50">
+          <span className="text-xs text-white/50">
             Please ensure your address information is correct for shipping
             purposes.
           </span>
         </div>
         <div className="flex items-start gap-3">
           <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
-          <span className="text-sm text-white/50">
+          <span className="text-xs text-white/50">
             93.5% of the card purchases should be used as a commission.
           </span>
         </div>
         <div className="flex items-start gap-3">
           <span className="text-white/50 text-lg leading-none mt-0.5">•</span>
-          <span className="text-sm text-white/50">
+          <span className="text-xs text-white/50">
             Please note: your address and contact information must be accurate.
             Transactions are non-refundable. Once you send your cryptocurrency,
             there is no way to undo it or request a chargeback, so only transact
@@ -293,9 +357,10 @@ export default function BuyCardContent({ onBack }) {
       <div className="max-w-2xl mx-auto">
         <button
           onClick={handlePayNow}
-          className="w-full py-2 bg-[#222325] border border-white/10 text-white rounded-full font-semibold text-sm transition-colors"
+          className="relative w-full py-2 bg-[#222325] backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 text-white/70 rounded-full font-semibold text-sm transition-all hover:bg-[#2a2c2f] shadow-[0_4px_16px_0_rgba(0,0,0,0.3)] hover:shadow-[0_8px_24px_0_rgba(0,0,0,0.4)] overflow-hidden group"
         >
-          Pay Now
+          <span className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent pointer-events-none rounded-full" />
+          <span className="relative">Pay Now</span>
         </button>
       </div>
     </div>
