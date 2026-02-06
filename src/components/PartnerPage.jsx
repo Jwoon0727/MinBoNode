@@ -1,99 +1,111 @@
-import { useState } from "react";
-import { ArrowRight, Star, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Download, Search, Plus, Minus, Maximize2 } from "lucide-react";
-import ReferralCard from "./ReferralCard";
-import MatrixContent from "./MatrixContent";
-import CommissionsContent from "./CommissionsContent";
-import PageHeader from "./PageHeader";
+import { useState } from 'react';
+import {
+  ArrowRight,
+  Star,
+  ChevronUp,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Download,
+  Search,
+  Plus,
+  Minus,
+  Maximize2,
+} from 'lucide-react';
+import ReferralCard from './ReferralCard';
+import MatrixContent from './MatrixContent';
+import CommissionsContent from './CommissionsContent';
+import PageHeader from './PageHeader';
 
-const tabs = ["Referral", "Downline", "Matrix", "Commissions"];
+const tabs = ['Referral', 'Downline', 'Matrix', 'Commissions'];
 
 const referrals = [
   {
     id: 1,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
   {
     id: 2,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
   {
     id: 3,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
   {
     id: 4,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
 ];
 
 const downlines = [
   {
     id: 1,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
   {
     id: 2,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
   {
     id: 3,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
   {
     id: 4,
-    username: "kang0622",
+    username: 'kang0622',
     level: 0,
-    oderId: "Q4AvRz7rqpofj43lpod...",
-    email: "test@gmail.com",
-    feeding: "Inactive",
-    referralCode: "481036",
-    systemInvest: "0",
+    oderId: 'Q4AvRz7rqpofj43lpod...',
+    email: 'test@gmail.com',
+    feeding: 'Inactive',
+    referralCode: '481036',
+    systemInvest: '0',
   },
 ];
 
-export default function PartnerPage({ activeTab = "Referral", onTabChange, onMenuClick }) {
+export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMenuClick }) {
   const handleTabChange = (tab) => {
     onTabChange?.(tab);
   };
@@ -104,14 +116,14 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
         {/* Page Header */}
         <PageHeader title="Partner" onMenuClick={onMenuClick} />
 
-  {/* Balance Card */}
-  <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
+        {/* Balance Card */}
+        <div className="bg-gradient-to-br from-black via-slate-950 to-blue-900 border border-slate-700/50 rounded-2xl p-4 sm:p-6 mb-6">
           {/* Balance */}
           <div className="mt-2 sm:mt-4 mb-4 sm:mb-5">
-            <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">Total Balance</div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">
-              $123.456
+            <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
+              Total Balance
             </div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">$123.456</div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
@@ -119,7 +131,8 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
 
           {/* Action Buttons */}
           <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3">
-          <button className="
+            <button
+              className="
   flex items-center justify-center gap-1 sm:gap-2
   bg-blue-600 hover:bg-blue-700
   text-white
@@ -128,11 +141,13 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
   font-light text-sm sm:text-base
   transition-colors
   flex-1
-">
-  Harvest →
-</button>
+"
+            >
+              Harvest →
+            </button>
 
-<button className="
+            <button
+              className="
   flex items-center justify-center gap-1 sm:gap-2
 
   bg-white/10 hover:bg-slate-600
@@ -145,17 +160,17 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
   font-light text-sm sm:text-base
   transition-colors
   flex-1
-">
-  Package →
-</button>
+"
+            >
+              Package →
+            </button>
           </div>
         </div>
 
-
         <div className="mb-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent -mx-4 px-4 lg:mx-0 lg:px-0">
-  {/* Tabs Container */}
-  <div
-    className="
+          {/* Tabs Container */}
+          <div
+            className="
       inline-flex lg:flex items-center
       w-full lg:w-[65%] mx-auto
       bg-white/10
@@ -165,12 +180,12 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
       p-[2px]
       shadow-[0_8px_30px_rgba(0,0,0,0.35)]
     "
-  >
-    {tabs.map((tab) => (
-      <button
-        key={tab}
-        onClick={() => handleTabChange(tab)}
-        className={`
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => handleTabChange(tab)}
+                className={`
           flex-1 min-w-0
           h-8 sm:h-9
           px-2 sm:px-4
@@ -182,87 +197,81 @@ export default function PartnerPage({ activeTab = "Referral", onTabChange, onMen
           overflow-hidden text-ellipsis
           ${
             activeTab === tab
-              ? "bg-[#2623A9] text-white shadow-sm"
-              : "text-white/50 hover:text-white"
+              ? 'bg-[#2623A9] text-white shadow-sm'
+              : 'text-white/50 hover:text-white'
           }
         `}
-      >
-        {tab}
-      </button>
-    ))}
-  </div>
-</div>
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Tab Content */}
-        {activeTab === "Referral" && (
-  <>
-    <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">
-      Referral
-    </h3>
-
-    {/* PARENT CONTAINER */}
-    <div
-      className="
-        bg-[#24282D]
-        border 
-        rounded-2xl
-        p-2
-      "
-    >
-      <div className="space-y-3 sm:space-y-4">
-        {referrals.map((ref) => (
-          <ReferralCard
-            key={ref.id}
-            username={ref.username}
-            level={ref.level}
-            id={ref.oderId}
-            email={ref.email}
-            feeding={ref.feeding}
-            referralCode={ref.referralCode}
-            systemInvest={ref.systemInvest}
-          />
-        ))}
-      </div>
-    </div>
-  </>
-)}
-
-        {activeTab === "Downline" && (
+        {activeTab === 'Referral' && (
           <>
-            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Downline</h3>
+            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Referral</h3>
+
+            {/* PARENT CONTAINER */}
             <div
-      className="
+              className="
         bg-[#24282D]
         border 
         rounded-2xl
         p-2
       "
-    >
-            <div className="space-y-3 sm:space-y-4">
-              {downlines.map((ref) => (
-                <ReferralCard
-                  key={ref.id}
-                  username={ref.username}
-                  level={ref.level}
-                  id={ref.oderId}
-                  email={ref.email}
-                  feeding={ref.feeding}
-                  referralCode={ref.referralCode}
-                  systemInvest={ref.systemInvest}
-                />
-              ))}
-            </div>
+            >
+              <div className="space-y-3 sm:space-y-4">
+                {referrals.map((ref) => (
+                  <ReferralCard
+                    key={ref.id}
+                    username={ref.username}
+                    level={ref.level}
+                    id={ref.oderId}
+                    email={ref.email}
+                    feeding={ref.feeding}
+                    referralCode={ref.referralCode}
+                    systemInvest={ref.systemInvest}
+                  />
+                ))}
+              </div>
             </div>
           </>
         )}
 
-        {activeTab === "Matrix" && (
-          <MatrixContent />
+        {activeTab === 'Downline' && (
+          <>
+            <h3 className="text-white text-base sm:text-lg font-semibold mb-3 sm:mb-4">Downline</h3>
+            <div
+              className="
+        bg-[#24282D]
+        border 
+        rounded-2xl
+        p-2
+      "
+            >
+              <div className="space-y-3 sm:space-y-4">
+                {downlines.map((ref) => (
+                  <ReferralCard
+                    key={ref.id}
+                    username={ref.username}
+                    level={ref.level}
+                    id={ref.oderId}
+                    email={ref.email}
+                    feeding={ref.feeding}
+                    referralCode={ref.referralCode}
+                    systemInvest={ref.systemInvest}
+                  />
+                ))}
+              </div>
+            </div>
+          </>
         )}
 
-        {activeTab === "Commissions" && (
-          <CommissionsContent />
-        )}
+        {activeTab === 'Matrix' && <MatrixContent />}
+
+        {activeTab === 'Commissions' && <CommissionsContent />}
       </div>
     </main>
   );

@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function CardRegistrationContent({ onBack }) {
   const [formData, setFormData] = useState({
-    email: "",
-    cardNumber: "",
-    proxyNumber: "",
-    verificationCode: "",
+    email: '',
+    cardNumber: '',
+    proxyNumber: '',
+    verificationCode: '',
   });
   const [verificationSent, setVerificationSent] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
@@ -31,21 +31,21 @@ export default function CardRegistrationContent({ onBack }) {
 
   const handleSendVerification = () => {
     // TODO: Implement verification code sending
-    console.log("Sending verification code to:", formData.email);
+    console.log('Sending verification code to:', formData.email);
     setVerificationSent(true);
     setTimer(30); // Set timer to 60 seconds
   };
 
   const handleVerifyCode = () => {
     // TODO: Implement verification code verification
-    console.log("Verifying code:", formData.verificationCode);
+    console.log('Verifying code:', formData.verificationCode);
     // Simulate successful verification
     setEmailVerified(true);
   };
 
   const handleRegister = () => {
     // TODO: Implement card registration
-    console.log("Registering card with data:", formData);
+    console.log('Registering card with data:', formData);
   };
 
   const handleCancel = () => {
@@ -56,13 +56,12 @@ export default function CardRegistrationContent({ onBack }) {
     <div className="text-white">
       {/* Back Button and Title */}
       <div className="flex items-center gap-3 mb-2">
-
         <h3 className="text-white text-lg font-semibold">Card Registration</h3>
       </div>
 
       {/* Description */}
       <p className="text-gray-400 text-sm mb-6 ">
-      Registration is only possible with email registered on the Fellas Card site.
+        Registration is only possible with email registered on the Fellas Card site.
       </p>
 
       {/* Card Display */}
@@ -77,7 +76,8 @@ export default function CardRegistrationContent({ onBack }) {
       </div>
 
       {/* Form Container */}
-      <div className="
+      <div
+        className="
 max-w-2xl mx-auto
 bg-white/10
 backdrop-blur-md
@@ -87,7 +87,8 @@ p-6
 mb-6
 shadow-lg
 shadow-black/20
-">
+"
+      >
         {/* Email Section */}
         <div className="mb-6">
           <label className="block text-sm text-white mb-2">
@@ -97,21 +98,16 @@ shadow-black/20
             type="email"
             placeholder="yashini@gmail.com"
             value={formData.email}
-            onChange={(e) => handleInputChange("email", e.target.value)}
+            onChange={(e) => handleInputChange('email', e.target.value)}
             className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
-        />
+          />
           {!emailVerified && (
             <button
               onClick={handleSendVerification}
               disabled={verificationSent && timer > 0}
               className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -121,7 +117,7 @@ shadow-black/20
               </svg>
               {verificationSent
                 ? `Resend Code ${timer > 0 ? `(0:${timer.toString().padStart(2, '0')})` : ''}`
-                : "Send Verification Code"}
+                : 'Send Verification Code'}
             </button>
           )}
 
@@ -132,10 +128,10 @@ shadow-black/20
                 type="text"
                 placeholder="Enter 6-digit verification code"
                 value={formData.verificationCode}
-                onChange={(e) => handleInputChange("verificationCode", e.target.value)}
+                onChange={(e) => handleInputChange('verificationCode', e.target.value)}
                 maxLength={6}
                 className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
-        />
+              />
               <button
                 onClick={handleVerifyCode}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors"
@@ -148,11 +144,7 @@ shadow-black/20
           {/* Email Verified Success Message */}
           {emailVerified && (
             <div className="mt-3 flex items-center gap-2 text-cyan-400">
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -171,10 +163,10 @@ shadow-black/20
             type="text"
             placeholder="0000-0000-0000-0000"
             value={formData.cardNumber}
-            onChange={(e) => handleInputChange("cardNumber", e.target.value)}
+            onChange={(e) => handleInputChange('cardNumber', e.target.value)}
             maxLength={19}
             className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
-        />
+          />
         </div>
 
         {/* Proxy Number */}
@@ -184,16 +176,12 @@ shadow-black/20
             type="text"
             placeholder="Enter 16-digit number"
             value={formData.proxyNumber}
-            onChange={(e) => handleInputChange("proxyNumber", e.target.value)}
+            onChange={(e) => handleInputChange('proxyNumber', e.target.value)}
             maxLength={16}
             className="w-full bg-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 placeholder:font-extralight focus:outline-none  mb-3 shadow-[0_4px_16px_0_rgba(0,0,0,0.3)]"
-        />
+          />
           <div className="flex items-start gap-2 text-cyan-400 text-xs">
-            <svg
-              className="w-4 h-4 flex-shrink-0 mt-0.5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
+            <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -206,32 +194,31 @@ shadow-black/20
 
         {/* Guidelines */}
         <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-4">
-          <h4 className="text-[#F2FE79] text-xs font-medium mb-3">
-            Card Registration Guidelines
-          </h4>
+          <h4 className="text-[#F2FE79] text-xs font-medium mb-3">Card Registration Guidelines</h4>
           <div className="space-y-1">
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
               <span className="text-xs text-white/70">
-              You must sign up with the email registered on fellascard.com and complete KYC to register.
+                You must sign up with the email registered on fellascard.com and complete KYC to
+                register.
               </span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
               <span className="text-xs text-white/70">
-              Please enter the card number and proxy number accurately.
+                Please enter the card number and proxy number accurately.
               </span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
               <span className="text-xs text-white/70">
-              Expired or duplicate cards cannot be registered.
+                Expired or duplicate cards cannot be registered.
               </span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-white/50 text-xs leading-none mt-0.5">•</span>
               <span className="text-xs text-white/70">
-              Your card information is securely encrypted and stored.
+                Your card information is securely encrypted and stored.
               </span>
             </div>
           </div>
@@ -240,9 +227,9 @@ shadow-black/20
 
       {/* Action Buttons */}
       <div className="max-w-2xl mx-auto flex gap-4">
-      <button
-  onClick={handleCancel}
-  className="
+        <button
+          onClick={handleCancel}
+          className="
     relative
     flex-1
     py-2
@@ -261,10 +248,10 @@ shadow-black/20
     overflow-hidden
     group
   "
->
-  <span className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent pointer-events-none rounded-full" />
-  <span className="relative">Cancel</span>
-</button>
+        >
+          <span className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent pointer-events-none rounded-full" />
+          <span className="relative">Cancel</span>
+        </button>
         <button
           onClick={handleRegister}
           className="flex-1 py-2 border border-white/20 bg-gradient-to-r from-blue-700 to-blue-800 hover:bg-blue-700 text-white rounded-full font-medium text-base transition-colors"
