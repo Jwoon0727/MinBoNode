@@ -65,8 +65,8 @@ export default function CardRegistrationContent({ onBack }) {
       </p>
 
       {/* Card Display */}
-      <div className="flex flex-col items-center mb-8">
-        <div className="w-72 sm:w-80 lg:w-96 h-[360px] sm:h-[400px] lg:h-[440px] mb-4 flex items-center justify-center">
+      <div className="flex flex-col items-center mb-2 ml-4 sm:ml-8">
+        <div className="w-72 sm:w-80 lg:w-96 h-[360px] sm:h-[400px] lg:h-[440px] mb-2 flex items-center justify-center pl-8 sm:pl-8">
           <img
             src="/images/crypto_card.svg"
             alt="Crypto Card"

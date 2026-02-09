@@ -1,6 +1,5 @@
-
 export default function NodeCard({ node }) {
-  const isDone = node.status === "done";
+  const isDone = node.status === 'done';
 
   return (
     <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl backdrop-saturate-150 border-t border-l border-r border-white/20 rounded-2xl p-4 relative overflow-hidden group shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
@@ -15,11 +14,7 @@ export default function NodeCard({ node }) {
       <div className="flex items-start gap-4 mb-4">
         {/* Node Car Image */}
         <div className="w-32 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent backdrop-blur-sm border border-white/10 relative shadow-inner">
-          <img
-            src="/images/car6.png"
-            alt="Node Car"
-            className="w-full h-full object-cover"
-          />
+          <img src="/images/car6.png" alt="Node Car" className="w-full h-full object-cover" />
         </div>
 
         {/* Node Info */}
@@ -28,39 +23,45 @@ export default function NodeCard({ node }) {
           <div className="flex items-start mb-2 gap-4">
             <div>
               <div className="text-[#F2FE79] text-xs font-medium mb-1">{node.nodeNumber} Node</div>
-              
+
               {/* PC: Elite Node + MINING on same line */}
               <div className="hidden lg:flex items-center gap-2 whitespace-nowrap">
-  <span className="text-white font-bold text-xl">Elite Node</span>
-  {!isDone && (
-    <span className="flex items-center gap-1 text-cyan-400 text-sm font-medium tracking-wide">
-    <span className="w-2 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
-    MINING
-  </span>
-  )}
-</div>
+                <span className="text-white font-medium text-xl">Elite Node</span>
+                {!isDone && (
+                  <span className="flex items-center gap-1 text-cyan-400 text-xs font-light tracking-wide">
+                    <span className="w-2 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
+                    MINING
+                  </span>
+                )}
+              </div>
 
               {/* Mobile: Elite Node and MINING on separate lines */}
-              <div className="lg:hidden mb-2">
-  <div className="text-white font-bold text-3xl mb-1">Elite Node</div>
-  {!isDone && (
-    <span className="flex items-center gap-1 text-cyan-400 text-sm font-medium tracking-wide">
-    <span className="w-2 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
-    MINING
-  </span>
-  )}
-</div>
+              <div className="lg:hidden mb-4">
+                <div className="text-white font-semibold text-lg">Elite Node</div>
+                {!isDone && (
+                  <span className="flex items-center gap-1 text-cyan-400 text-xs font-light tracking-wide">
+                    <span className="w-2 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
+                    MINING
+                  </span>
+                )}
+              </div>
 
               {/* Mobile: Rate and Date below */}
               <div className="lg:hidden ">
-                <div className="text-[#F2FE79] text-sm font-semibold">{node.rate}MGG/Sec</div>
-                <div className="text-slate-400 text-[11px] mt-1">Node Start Date: {node.startDate}</div>
+                <div className="text-[#F2FE79] text-xs font-extralight">{node.rate}MGG/Sec</div>
+                <div className=" text-white/50 text-[11px] mt-1">
+                  Node Start Date: {node.startDate}
+                </div>
               </div>
             </div>
             {/* PC: Rate and Date on the right */}
-            <div className="hidden lg:block basis-[30%] text-right flex-shrink-0">
-              <div className="text-[#F2FE79] text-sm font-semibold whitespace-nowrap">{node.rate}MGG/Sec</div>
-              <div className="text-slate-400 text-[11px] mt-1 whitespace-nowrap">Node Start Date: {node.startDate}</div>
+            <div className="hidden lg:block basis-[30%] text-left flex-shrink-0 pl-12">
+              <div className="text-[#F2FE79] text-sm font-light whitespace-nowrap">
+                {node.rate}MGG/Sec
+              </div>
+              <div className="text-white/50 text-[11px] mt-1 whitespace-nowrap">
+                Node Start Date: {node.startDate}
+              </div>
             </div>
           </div>
 
@@ -73,8 +74,12 @@ export default function NodeCard({ node }) {
               />
             </div>
             <div className="flex justify-between items-center mt-2">
-              <span className="text-slate-400 text-xs">{node.current} / {node.total}</span>
-              <span className="text-white font-bold text-sm">{node.progress.toFixed(2)}%</span>
+              <span className="text-slate-400 text-xs">
+                {node.current} / {node.total}
+              </span>
+              <span className="text-white font-bold text-sm font-light">
+                {node.progress.toFixed(2)}%
+              </span>
             </div>
           </div>
         </div>
@@ -89,8 +94,12 @@ export default function NodeCard({ node }) {
           />
         </div>
         <div className="flex justify-between items-center mt-2">
-          <span className="text-slate-400 text-xs">{node.current} / {node.total}</span>
-          <span className="text-white font-bold text-sm">{node.progress.toFixed(2)}%</span>
+          <span className="text-slate-400 text-xs">
+            {node.current} / {node.total}
+          </span>
+          <span className="text-white font-bold text-sm font-light">
+            {node.progress.toFixed(2)}%
+          </span>
         </div>
       </div>
     </div>

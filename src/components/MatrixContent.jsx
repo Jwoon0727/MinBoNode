@@ -6,7 +6,21 @@ import jsPDF from "jspdf";
 
 export default function MatrixContent() {
   const [colorMode, setColorMode] = useState("orange"); // "orange" or "blue"
+  const [zoom, setZoom] = useState(100); // Zoom percentage
   const treeNodeRef = useRef(null);
+
+  // Zoom handlers
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(prev + 10, 200)); // Max 200%
+  };
+
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(prev - 10, 50)); // Min 50%
+  };
+
+  const handleResetZoom = () => {
+    setZoom(100); // Reset to 100%
+  };
 
   const handleDownloadPDF = async () => {
     if (!treeNodeRef.current) return;
@@ -102,22 +116,35 @@ export default function MatrixContent() {
       <div className="bg-[#24282D] border border-white/10 rounded-xl p-4 min-h-[400px] relative">
         {/* Zoom Controls */}
         <div className="flex items-center gap-2 mb-4">
-          <span className="text-white text-sm bg-[#151515] border border-white/10 px-3 py-1 rounded">100%</span>
-          <button className="w-7 h-7 bg-[#151515] border border-white/10 rounded flex items-center justify-center hover:bg-slate-600">
+          <span className="text-white text-sm bg-[#151515] border border-white/10 px-3 py-1 rounded">{zoom}%</span>
+          <button 
+            onClick={handleZoomIn}
+            className="w-7 h-7 bg-[#151515] border border-white/10 rounded flex items-center justify-center hover:bg-slate-600 transition-colors"
+          >
             <Plus size={14} className="text-white" />
           </button>
-          <button className="w-7 h-7 bg-[#151515] border border-white/10 rounded flex items-center justify-center hover:bg-slate-600">
+          <button 
+            onClick={handleZoomOut}
+            className="w-7 h-7 bg-[#151515] border border-white/10 rounded flex items-center justify-center hover:bg-slate-600 transition-colors"
+          >
             <Minus size={14} className="text-white" />
           </button>
-          <button className="w-7 h-7 bg-[#151515] border border-white/10 rounded flex items-center justify-center hover:bg-slate-600 ml-auto">
+          <button 
+            onClick={handleResetZoom}
+            className="w-7 h-7 bg-[#151515] border border-white/10 rounded flex items-center justify-center hover:bg-slate-600 ml-auto transition-colors"
+          >
             <Maximize2 size={14} className="text-white" />
           </button>
         </div>
 
 {/* Tree Node */}
-<div className="flex items-center justify-center h-[300px]">
+<div className="flex items-center justify-center h-[300px] overflow-auto">
   <div
     ref={treeNodeRef}
+    style={{ 
+      transform: `scale(${zoom / 100})`,
+      transition: 'transform 0.3s ease'
+    }}
     className={`rounded-lg shadow-lg min-w-[200px] overflow-hidden ${
       colorMode === "orange" ? "bg-orange-50" : "bg-slate-800"
     }`}
