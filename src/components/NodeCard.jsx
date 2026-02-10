@@ -12,9 +12,17 @@ export default function NodeCard({ node }) {
 
       {/* Top Section: Image + Info */}
       <div className="flex items-start gap-4 mb-4">
-        {/* Node Car Image */}
-        <div className="w-32 h-28 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent backdrop-blur-sm border border-white/10 relative shadow-inner">
-          <img src="/images/car6.png" alt="Node Car" className="w-full h-full object-cover" />
+        <div
+          className="
+  w-35 sm:w-40
+  h-28
+  rounded-xl overflow-hidden flex-shrink-0
+  bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent
+  backdrop-blur-sm border border-white/10
+  relative shadow-inner
+"
+        >
+          <img src="/images/nodecar.png" alt="Node Car" className="w-full h-full object-cover" />
         </div>
 
         {/* Node Info */}
@@ -26,7 +34,7 @@ export default function NodeCard({ node }) {
 
               {/* PC: Elite Node + MINING on same line */}
               <div className="hidden lg:flex items-center gap-2 whitespace-nowrap">
-                <span className="text-white font-medium text-xl">Elite Node</span>
+                <span className="text-white font-semibold text-xl">Elite Node</span>
                 {!isDone && (
                   <span className="flex items-center gap-1 text-cyan-400 text-xs font-light tracking-wide">
                     <span className="w-2 h-1.5 bg-cyan-400 rounded-full animate-pulse" />

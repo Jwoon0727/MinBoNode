@@ -59,7 +59,9 @@ export default function Dashboard({ onMenuClick }) {
             <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
               Total Balance
             </div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">$123.456</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold">
+              $123.456
+            </div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
@@ -79,7 +81,10 @@ export default function Dashboard({ onMenuClick }) {
   flex-1
 "
             >
-              Harvest →
+              Harvest
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowDown size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
 
             <button
@@ -98,7 +103,10 @@ export default function Dashboard({ onMenuClick }) {
   flex-1
 "
             >
-              Package ↓
+              Package
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
           </div>
         </div>

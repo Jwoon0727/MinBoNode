@@ -123,7 +123,9 @@ export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMen
             <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
               Total Balance
             </div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">$123.456</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold">
+              $123.456
+            </div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
@@ -143,7 +145,10 @@ export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMen
   flex-1
 "
             >
-              Harvest →
+              Harvest
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
 
             <button
@@ -162,7 +167,10 @@ export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMen
   flex-1
 "
             >
-              Package →
+              Package
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
           </div>
         </div>
@@ -171,15 +179,18 @@ export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMen
           {/* Tabs Container */}
           <div
             className="
-      inline-flex lg:flex items-center
-      w-full lg:w-[65%] mx-auto
-      bg-white/10
-      backdrop-blur-xl
-      border-l border-t border-r border-white/10
-      rounded-2xl
-      p-[2px]
-      shadow-[0_8px_30px_rgba(0,0,0,0.35)]
-    "
+    inline-flex lg:flex items-center
+    w-full lg:w-[90%] mx-auto
+    bg-white/10
+    backdrop-blur-xl
+
+    border-l border-t border-r
+    border-white/10
+
+    rounded-2xl
+    p-[2px]
+    shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+  "
           >
             {tabs.map((tab) => (
               <button
@@ -187,7 +198,7 @@ export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMen
                 onClick={() => handleTabChange(tab)}
                 className={`
           flex-1 min-w-0
-          h-8 sm:h-9
+          h-7 sm:h-8
           px-2 sm:px-4
           rounded-xl
           text-[10px] sm:text-sm
@@ -197,7 +208,7 @@ export default function PartnerPage({ activeTab = 'Referral', onTabChange, onMen
           overflow-hidden text-ellipsis
           ${
             activeTab === tab
-              ? 'bg-[#2623A9] text-white shadow-sm'
+              ? 'bg-[#2623A9] text-white shadow-sm border-l border-t border-r border-white/15 mb-0.5'
               : 'text-white/50 hover:text-white'
           }
         `}

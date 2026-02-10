@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 import PackageCard from './PackageCard';
 import MyPackageCard from './MyPackageCard';
 import MiningTransactionCard from './MiningTransactionCard';
@@ -182,7 +182,9 @@ export default function PackagesPage({ activeTab = 'Packages', onTabChange, onMe
             <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
               Total Balance
             </div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">$123.456</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold">
+              $123.456
+            </div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
@@ -202,7 +204,10 @@ export default function PackagesPage({ activeTab = 'Packages', onTabChange, onMe
   flex-1
 "
             >
-              Harvest →
+              Harvest
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
 
             <button
@@ -221,7 +226,10 @@ export default function PackagesPage({ activeTab = 'Packages', onTabChange, onMe
   flex-1
 "
             >
-              Package →
+              Package
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
           </div>
         </div>
@@ -249,7 +257,7 @@ export default function PackagesPage({ activeTab = 'Packages', onTabChange, onMe
                 onClick={() => handleTabChange(tab)}
                 className={`
           flex-1 min-w-0
-          h-8 sm:h-9
+          h-7 sm:h-8
           px-2 sm:px-4
           rounded-xl
           text-[10px] sm:text-sm
@@ -259,7 +267,7 @@ export default function PackagesPage({ activeTab = 'Packages', onTabChange, onMe
           overflow-hidden text-ellipsis
           ${
             activeTab === tab
-              ? 'bg-[#2623A9] text-white shadow-sm'
+              ? 'bg-[#2623A9] text-white shadow-sm border-l border-t border-r border-white/15 mb-0.5'
               : 'text-white/50 hover:text-white'
           }
         `}

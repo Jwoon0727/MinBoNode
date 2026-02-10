@@ -92,7 +92,7 @@ shadow-black/20
         {/* Email Section */}
         <div className="mb-6">
           <label className="block text-sm text-white mb-2">
-            Email - Mastercard.com registered account
+            Email : fellascard.com registered account
           </label>
           <input
             type="email"
@@ -105,7 +105,7 @@ shadow-black/20
             <button
               onClick={handleSendVerification}
               disabled={verificationSent && timer > 0}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+              className="w-full border border-white/20 bg-[#4F66D7] hover:[#4F66D7] disabled:[#4F66D7] disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -134,7 +134,7 @@ shadow-black/20
               />
               <button
                 onClick={handleVerifyCode}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors"
+                className="w-full border border-white/20 bg-[#4F66D7] hover:bg-[#4F66D7] text-white py-3 rounded-lg font-medium transition-colors"
               >
                 Verify Code
               </button>

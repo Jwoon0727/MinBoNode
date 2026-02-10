@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Globe, Power, Lock, X, AlertTriangle, Shield } from 'lucide-react';
 import PageHeader from './PageHeader';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -44,7 +45,9 @@ export default function SettingsPage({ onMenuClick }) {
             <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
               Total Balance
             </div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-medium">$123.456</div>
+            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold">
+              $123.456
+            </div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
@@ -64,7 +67,10 @@ export default function SettingsPage({ onMenuClick }) {
   flex-1
 "
             >
-              Harvest →
+              Harvest
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
 
             <button
@@ -83,7 +89,10 @@ export default function SettingsPage({ onMenuClick }) {
   flex-1
 "
             >
-              Package →
+              Package
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 flex items-center justify-center">
+                <ArrowRight size={13} className="sm:w-4 sm:h-4" />
+              </span>
             </button>
           </div>
         </div>
@@ -91,7 +100,7 @@ export default function SettingsPage({ onMenuClick }) {
         {/* Two-Factor Authentication */}
         <div className="bg-[#222325] border border-white/10 rounded-2xl p-6 mb-4">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 border-l border-t border-r border-white/20 bg-blue-600 rounded-full flex items-center justify-center">
               <Shield size={20} className="text-white" />
             </div>
           </div>
@@ -125,7 +134,7 @@ export default function SettingsPage({ onMenuClick }) {
         {/* Change Password */}
         <div className="bg-[#222325] border border-white/10 rounded-2xl p-6 mb-4">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 border-l border-t border-r border-white/20 bg-blue-600 rounded-full flex items-center justify-center">
               <Lock size={20} className="text-white" />
             </div>
           </div>
@@ -139,7 +148,7 @@ export default function SettingsPage({ onMenuClick }) {
         {/* Language Options */}
         <div className="bg-[#222325] border border-white/10 rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 border-l border-t border-r border-white/20 bg-blue-600 rounded-full flex items-center justify-center">
               <Globe size={20} className="text-white" />
             </div>
           </div>
@@ -224,7 +233,7 @@ export default function SettingsPage({ onMenuClick }) {
               </button>
               <button
                 onClick={handleConfirm2FA}
-                className="bg-blue-600 flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors"
+                className="border border-white/25 bg-blue-600 flex-1 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-full font-normal transition-colors"
               >
                 Confirm
               </button>

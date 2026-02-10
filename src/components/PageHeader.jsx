@@ -22,8 +22,25 @@ export default function PageHeader({ title, onMenuClick }) {
       {/* Mobile: User Profile */}
       <div className="lg:hidden flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden">
-            <img src="/images/userface.svg" alt="Profile Avatar" className="w-8 h-8 object-cover" />
+          <div className="relative">
+            {/* Avatar */}
+            <div className="w-9 h-9 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden">
+              <img
+                src="/images/userface.svg"
+                alt="Profile Avatar"
+                className="w-8 h-8 object-cover"
+              />
+            </div>
+
+            {/* Class Badge */}
+            <div
+              className="absolute bottom-0 right-0 translate-x-0.5 translate-y-0.5
+                            w-3.5 h-3.5 bg-slate-800 rounded-full
+                            flex items-center justify-center
+                            border-2 border-slate-900 shadow-sm"
+            >
+              <img src="/images/M1.png" alt="class" className="w-1.5 h-1.5 object-contain" />
+            </div>
           </div>
           <div>
             <div className="text-white font-light text-xs">ALBECITY</div>
@@ -33,12 +50,12 @@ export default function PageHeader({ title, onMenuClick }) {
       </div>
 
       <div className="flex items-center gap-1 relative">
-        <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-          <img src="/images/Union.svg" alt="Globe" className="w-5 h-5" />
+        <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10">
+          <img src="/images/Union.svg" alt="Globe" className="w-5 h-5 -translate-y-0.5" />
         </div>
         <a href="https://www.fellascard.com/login">
-          <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 cursor-pointer hover:bg-slate-600 transition">
-            <span className="text-[7px] text-white font-bold leading-tight text-center">
+          <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 cursor-pointer hover:bg-slate-600 transition">
+            <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
               FELLAS
               <br />
               CARD
@@ -49,8 +66,8 @@ export default function PageHeader({ title, onMenuClick }) {
         {/* Desktop: Show both games */}
         <div className="hidden lg:flex items-center gap-2">
           <a href="https://2048slimedev.mimbonode.io/">
-            <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-              <span className="text-[7px] text-white font-bold leading-tight text-center">
+            <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10">
+              <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
                 2048
                 <br />
                 SMILE
@@ -58,8 +75,8 @@ export default function PageHeader({ title, onMenuClick }) {
             </div>
           </a>
           <a href="https://hyperracingdev.mimbonode.io/">
-            <div className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800">
-              <span className="text-[7px] text-white font-bold leading-tight text-center">
+            <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10">
+              <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
                 HYPER
                 <br />
                 RACING
@@ -72,9 +89,9 @@ export default function PageHeader({ title, onMenuClick }) {
         <div className="lg:hidden relative">
           <button
             onClick={() => setShowGames(!showGames)}
-            className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-800 transition-colors"
+            className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 hover:bg-slate-800 transition-colors"
           >
-            <Gamepad2 size={18} className="text-white" />
+            <Gamepad2 size={18} className="text-white -translate-y-0.5" />
           </button>
 
           {/* Dropdown menu */}
@@ -88,8 +105,8 @@ export default function PageHeader({ title, onMenuClick }) {
                   absolute right-[-8px] top-full mt-3 z-20
                   px-1.5 py-1.5
                   rounded-full
-                  bg-[#0b0f14]
-                  border border-slate-700
+                    bg-white/15
+                  border-l border-t border-r border-white/10
                   shadow-xl shadow-black/50
                 "
               >
@@ -101,15 +118,15 @@ export default function PageHeader({ title, onMenuClick }) {
                     className="
     w-9 h-9
     rounded-full
-    bg-slate-700/40
+    bg-white/15
     flex items-center justify-center
-    border border-slate-800
+    border-l border-t border-r border-white/10
     hover:bg-slate-600
     transition
     active:scale-95
   "
                   >
-                    <span className="text-[7px] text-white font-bold leading-tight text-center">
+                    <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
                       2048
                       <br />
                       SMILE
@@ -122,15 +139,15 @@ export default function PageHeader({ title, onMenuClick }) {
                     className="
     w-9 h-9
     rounded-full
-    bg-slate-700/40
+    bg-white/15
     flex items-center justify-center
-    border border-slate-800
+    border-l border-t border-r border-white/10
     hover:bg-slate-600
     transition
     active:scale-95
   "
                   >
-                    <span className="text-[7px] text-white font-bold leading-tight text-center">
+                    <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
                       HYPER
                       <br />
                       RACING
@@ -146,9 +163,9 @@ export default function PageHeader({ title, onMenuClick }) {
         <div className="relative">
           <button
             onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-            className="w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-600 transition-colors"
+            className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 hover:bg-slate-600 transition-colors"
           >
-            <Globe size={20} className="text-white" />
+            <Globe size={20} className="text-white -translate-y-0.5" />
           </button>
 
           {/* Language Dropdown */}
@@ -193,9 +210,9 @@ export default function PageHeader({ title, onMenuClick }) {
         {/* Mobile: Hamburger Menu Button */}
         <button
           onClick={onMenuClick}
-          className="lg:hidden w-9 h-9 bg-slate-700/40 rounded-full flex items-center justify-center border border-slate-800 hover:bg-slate-800 transition-colors active:scale-95"
+          className="lg:hidden w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 hover:bg-slate-800 transition-colors active:scale-95"
         >
-          <Menu size={18} className="text-white" />
+          <Menu size={18} className="text-white -translate-y-0.5" />
         </button>
       </div>
     </div>

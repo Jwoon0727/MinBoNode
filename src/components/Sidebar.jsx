@@ -284,12 +284,25 @@ export default function Sidebar({
           {isLoggedIn ? (
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/images/userface.svg"
-                    alt="Profile Avatar"
-                    className="w-8 h-8 object-cover"
-                  />
+                <div className="relative">
+                  {/* Avatar */}
+                  <div className="w-9 h-9 bg-[#304D9C] rounded-full flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/images/userface.svg"
+                      alt="Profile Avatar"
+                      className="w-8 h-8 object-cover"
+                    />
+                  </div>
+
+                  {/* Class Badge */}
+                  <div
+                    className="absolute bottom-0 right-0 translate-x-0.5 translate-y-0.5
+                    w-3.5 h-3.5 bg-slate-800 rounded-full
+                    flex items-center justify-center
+                    border-2 border-slate-900 shadow-sm"
+                  >
+                    <img src="/images/M1.png" alt="class" className="w-1.5 h-1.5 object-contain" />
+                  </div>
                 </div>
                 <div>
                   <div className="text-white font-light text-xs">ALBECITY</div>

@@ -31,7 +31,7 @@ export default function MyCardContent({ onBuyCard, onRegister }) {
               <button
                 onClick={onBuyCard}
                 className="
-          bg-[#4F66D7] hover:bg-blue-700
+          bg-[#4F66D7] hover:[#4F66D7]
           text-white 
           px-3 sm:px-4 lg:px-6 
           py-1.5 sm:py-2
