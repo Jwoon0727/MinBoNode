@@ -170,7 +170,7 @@ export default function Dashboard({ onMenuClick }) {
             <div className="border-t border-slate-700 pt-3 flex justify-between items-center">
               <span className="text-cyan-400 font-medium">TOTAL</span>
               <div className="text-right">
-                <span className="text-cyan-400 text-3xl font-medium">3,965,378.</span>
+                <span className="text-cyan-400 text-3xl font-semibold">3,965,378.</span>
                 <span className="text-cyan-400 text-lg">4971</span>
               </div>
             </div>
