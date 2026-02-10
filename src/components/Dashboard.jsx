@@ -59,10 +59,8 @@ export default function Dashboard({ onMenuClick }) {
             <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
               Total Balance
             </div>
-            <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold">
-              $123.456
-            </div>
-            <div className="text-white/50 text-xs font-extralight lg:text-xl mt-3">
+            <div className="text-white text-4xl sm:text-4xl lg:text-6xl font-bold">$123.456</div>
+            <div className="text-white/50 text-xs font-extralight lg:text-xl mt-1">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>
           </div>
@@ -139,7 +137,7 @@ export default function Dashboard({ onMenuClick }) {
             />
           </div>
 
-          <h2 className="text-white text-lg sm:text-3xl font-medium text-center mb-6 tracking-wider">
+          <h2 className="text-white text-xl sm:text-3xl font-semibold text-center mb-6 tracking-wider">
             MAX OUT STATUS
           </h2>
 
@@ -154,25 +152,25 @@ export default function Dashboard({ onMenuClick }) {
           </div>
 
           {/* Progress Stats */}
-          <div className="flex justify-between items-center mb-6 text-xs">
-            <span className="text-slate-400 font-extralight">9,510.32 / 28,650,000</span>
+          <div className="flex justify-between items-center mb-6 text-sm">
+            <span className="text-white/50 font-light">9,510.32 / 28,650,000</span>
             <span className="text-white font-light">40.50%</span>
           </div>
 
           {/* Stats Grid */}
           <div className="space-y-3 mb-6">
             <div className="flex justify-between items-center">
-              <span className="text-white text-sm">INTEREST</span>
-              <span className="text-white font-normal">3,285,378.4273</span>
+              <span className="text-white/70 text-sm">INTEREST</span>
+              <span className="text-white font-medium">3,285,378.4273</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-white text-sm">MATCHING BONUS</span>
-              <span className="text-white font-normal">689,181.5104</span>
+              <span className="text-white/70 text-sm">MATCHING BONUS</span>
+              <span className="text-white font-medium">689,181.5104</span>
             </div>
             <div className="border-t border-slate-700 pt-3 flex justify-between items-center">
-              <span className="text-cyan-400 font-normal">TOTAL</span>
+              <span className="text-cyan-400 font-medium">TOTAL</span>
               <div className="text-right">
-                <span className="text-cyan-400 text-3xl font-normal">3,965,378.</span>
+                <span className="text-cyan-400 text-3xl font-medium">3,965,378.</span>
                 <span className="text-cyan-400 text-lg">4971</span>
               </div>
             </div>

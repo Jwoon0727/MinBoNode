@@ -51,11 +51,11 @@ export default function PageHeader({ title, onMenuClick }) {
 
       <div className="flex items-center gap-1 relative">
         <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10">
-          <img src="/images/Union.svg" alt="Globe" className="w-5 h-5 -translate-y-0.5" />
+          <img src="/images/Union.svg" alt="Globe" className="w-5 h-5" />
         </div>
         <a href="https://www.fellascard.com/login">
           <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 cursor-pointer hover:bg-slate-600 transition">
-            <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
+            <span className="text-[7px] text-white font-bold leading-tight text-center ">
               FELLAS
               <br />
               CARD
@@ -67,7 +67,7 @@ export default function PageHeader({ title, onMenuClick }) {
         <div className="hidden lg:flex items-center gap-2">
           <a href="https://2048slimedev.mimbonode.io/">
             <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10">
-              <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
+              <span className="text-[7px] text-white font-bold leading-tight text-center ">
                 2048
                 <br />
                 SMILE
@@ -76,7 +76,7 @@ export default function PageHeader({ title, onMenuClick }) {
           </a>
           <a href="https://hyperracingdev.mimbonode.io/">
             <div className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10">
-              <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
+              <span className="text-[7px] text-white font-bold leading-tight text-center ">
                 HYPER
                 <br />
                 RACING
@@ -91,7 +91,7 @@ export default function PageHeader({ title, onMenuClick }) {
             onClick={() => setShowGames(!showGames)}
             className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 hover:bg-slate-800 transition-colors"
           >
-            <Gamepad2 size={18} className="text-white -translate-y-0.5" />
+            <Gamepad2 size={18} className="text-white " />
           </button>
 
           {/* Dropdown menu */}
@@ -126,7 +126,7 @@ export default function PageHeader({ title, onMenuClick }) {
     active:scale-95
   "
                   >
-                    <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
+                    <span className="text-[7px] text-white font-bold leading-tight text-center">
                       2048
                       <br />
                       SMILE
@@ -147,7 +147,7 @@ export default function PageHeader({ title, onMenuClick }) {
     active:scale-95
   "
                   >
-                    <span className="text-[7px] text-white font-bold leading-tight text-center -translate-y-0.5">
+                    <span className="text-[7px] text-white font-bold leading-tight text-center ">
                       HYPER
                       <br />
                       RACING
@@ -165,7 +165,7 @@ export default function PageHeader({ title, onMenuClick }) {
             onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
             className="w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 hover:bg-slate-600 transition-colors"
           >
-            <Globe size={20} className="text-white -translate-y-0.5" />
+            <Globe size={20} className="text-white " />
           </button>
 
           {/* Language Dropdown */}
@@ -212,7 +212,7 @@ export default function PageHeader({ title, onMenuClick }) {
           onClick={onMenuClick}
           className="lg:hidden w-9 h-9 bg-white/15 rounded-full flex items-center justify-center border-l border-t border-r border-white/10 hover:bg-slate-800 transition-colors active:scale-95"
         >
-          <Menu size={18} className="text-white -translate-y-0.5" />
+          <Menu size={18} className="text-white " />
         </button>
       </div>
     </div>
