@@ -128,7 +128,7 @@ export default function SupportTicketsPage({ onMenuClick }) {
             <div className="text-white font-extralight text-xs sm:text-sm lg:text-lg mb-1">
               Total Balance
             </div>
-            <div className="text-white text-4xl sm:text-4xl lg:text-6xl font-bold">$123.456</div>
+            <div className="text-white text-4xl sm:text-4xl lg:text-6xl font-bold">≈$123.456</div>
             <div className="text-white/50 text-xs font-extralight lg:text-xl mt-1">
               Current Rate : 1 MGG = 0.0024 USDT
             </div>

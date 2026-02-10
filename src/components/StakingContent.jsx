@@ -389,14 +389,13 @@ export default function StakingContent() {
                   className="absolute inset-0 w-full opacity-0 cursor-pointer"
                 />
 
-                {/* Percentage Labels */}
-                <div className="flex justify-between mt-3 px-0">
+                <div className="flex justify-between mt-3">
                   {[0, 25, 50, 75, 100].map((percent) => (
                     <button
                       key={percent}
                       onClick={() => handleSliderClick(percent)}
-                      className={`text-xs transition-colors ${
-                        numberOfAccounts >= percent ? 'text-gray-500' : 'text-gray-500'
+                      className={`text-xs transition-colors w-5 text-center ${
+                        numberOfAccounts >= percent ? 'text-white/50' : 'text-white/50'
                       } hover:text-cyan-400`}
                     >
                       {percent}%
